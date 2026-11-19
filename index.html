@@ -25,6 +25,8 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 .sub{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}.sub button{flex:1}
 #trava{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;z-index:10000;display:none;overflow-y:auto;padding:20px 12px 60px;color:#fff}
 #trava .box{background:#fff;color:#000;border-radius:12px;padding:14px;margin-bottom:12px;text-align:center}
+#bloqueio{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
+#bloqueio .box{background:#fff;color:#000;border-radius:12px;padding:20px;text-align:center;max-width:400px;width:100%}
 </style>
 </head>
 <body>
@@ -42,11 +44,10 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 </div>
 
 <div id="principal" class="secao ativa">
-<div class="qr" onclick="comecarGratis()"><h3>📱 SCAN ME</h3><img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://raizdigital85-del.github.io/rio-na-mao/"><p><b>APONTE A CÂMERA E ENTRE NO GRÁTIS!</b></p></div>
-<div class="card" style="text-align:center"><b>QUER CONHECER O RIO DE VERDADE?</b><p>Sem enrolação. O que tá bombando AGORA no Rio.</p><button class="btn bv" onclick="comecarGratis()">👉 CLIQUE AQUI E GARANTA SEU ACESSO GRÁTIS</button><p>✅ Sem cartão • Sem cadastro • Entra na hora</p></div>
+<div class="qr"><h3>📱 SCAN ME</h3><img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://raizdigital85-del.github.io/rio-na-mao/"></div>
+<div class="card" style="text-align:center"><b>QUER CONHECER O RIO DE VERDADE?</b><p>Sem enrolação. O que tá bombando AGORA no Rio.</p><button class="btn bv" onclick="comecarGratis()">👉 CLIQUE AQUI E GARANTA SEU ACESSO GRÁTIS</button><p>✅ Sem cartão • Sem cadastro • Entra na hora</p><button class="btn ba" onclick="abrirPagamento()">💳 QUERO PAGAR AGORA</button></div>
 <div class="card" style="border:2px solid #22c55e"><b>👽 SPACE 4:20 HEADSHOP</b><p>📍 Rua do Catete, Rio de Janeiro - RJ</p><p>🔥 Headshop • Tabacaria • Acessórios • O ponto do rolê</p><p>⭐ 4.9 - Aberto agora • Perto do Metrô Catete</p><button class="btn br" onclick="comoChegar('Space 420 Headshop Catete Rio de Janeiro')">📍 VER NO MAPA - CLICK AQUI</button></div>
 <div class="card"><b>🔥 O QUE VOCÊ VAI VER LÁ DENTRO:</b><p>🏖️ Melhores praias HOJE<br>🎉 Festas de HOJE e amanhã<br>🔥 Baile Funk - onde tá rolando<br>🗺️ Mapa completo<br>👽 Ponto SPACE 4:20</p></div>
-<button class="btn bv" onclick="comecarGratis()">QUERO MEU ACESSO GRÁTIS - 30 MIN</button>
 </div>
 
 <div id="festas" class="secao">
@@ -142,6 +143,8 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 
 <div class="barra"><span>Início</span><span>Mapa</span><span>Favoritos</span><span>Perfil</span></div>
 
+<div id="bloqueio"><div class="box"><h3>🔒 LIBERE SEU ACESSO PRIMEIRO</h3><p>Para mexer no app, você precisa liberar primeiro.</p><button class="btn bv" onclick="fecharBloqueioEComecar()">👉 CLIQUE AQUI E GARANTA SEU ACESSO GRÁTIS - 30 MIN</button><button class="btn ba" onclick="fecharBloqueioEPagar()">💳 QUERO PAGAR AGORA</button><button class="btn" onclick="fecharBloqueio()" style="background:#eee">Voltar</button></div></div>
+
 <div id="trava">
 <h1 style="text-align:center">⏰ TEMPO ACABOU!</h1>
 <div class="box"><b>Seu tempo grátis acabou! ⏰</b><p>Para continuar usando o Rio na Mão, escolha um plano abaixo.</p><p>Quer continuar? Assine aqui!</p></div>
@@ -166,6 +169,7 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 <p>Pay with Card - Secure</p>
 <button class="btn ba" onclick="jaPaguei('GRINGO')">I paid - Send on WhatsApp</button>
 </div>
+<button class="btn" onclick="document.getElementById('trava').style.display='none'" style="background:#fff;color:#000">Fechar</button>
 </div>
 
 <script>
@@ -173,14 +177,19 @@ var NUMERO_THIAGO="5521988189111";
 var NUMERO_DUDU="552199113829";
 var NUMERO_PILAR="5521988906447";
 var tempo=30*60, travado=false, comecou=false, intervalo=null, liberado=false;
-if(window.location.search.indexOf('liberado=thiago123')>-1){ liberado=true; travado=false; document.addEventListener('DOMContentLoaded',function(){ var s=document.getElementById('statusLiberado'); if(s) s.innerText='✅ ACESSO LIBERADO - SEM TRAVA'; var t=document.getElementById('timer'); if(t) t.innerText='LIBERADO'; }); }
-function falarDudu(){ if(travado) return; window.open('https://wa.me/'+NUMERO_DUDU+'?text='+encodeURIComponent('Olá, estou vindo pelo app do Tiago. Rio está na mão'),'_blank'); }
-function falarPilar(){ if(travado) return; window.open('https://wa.me/'+NUMERO_PILAR+'?text='+encodeURIComponent('Olá, estou vindo pelo app do Tiago. Rio está na mão'),'_blank'); }
-function mostrar(id,btn){ if(travado){ document.getElementById('trava').style.display='block'; return; } var s=document.querySelectorAll('.secao'); for(var i=0;i<s.length;i++) s[i].classList.remove('ativa'); var a=document.getElementById(id); if(a) a.classList.add('ativa'); var b=document.querySelectorAll('.menu button'); for(var j=0;j<b.length;j++) b[j].classList.remove('ativo'); if(btn) btn.classList.add('ativo'); window.scrollTo(0,0); }
-function mostrarSub(id){ if(travado) return; document.getElementById('sub-boates').style.display='none'; document.getElementById('sub-0800').style.display='none'; document.getElementById('sub-bailes').style.display='none'; document.getElementById(id).style.display='block'; }
-function mostrarSubH(id){ if(travado) return; document.getElementById('sub-barata').style.display='none'; document.getElementById('sub-luxo').style.display='none'; document.getElementById(id).style.display='block'; }
-function comoChegar(l){ if(travado) return; window.open('https://www.google.com/maps/search/'+encodeURIComponent(l+' Rio de Janeiro'),'_blank'); }
-function comecarGratis(){ if(comecou) return; comecou=true; if(liberado) return; intervalo=setInterval(function(){ tempo--; var m=Math.floor(tempo/60); var s=tempo%60; document.getElementById('timer').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s); if(tempo<=0){ clearInterval(intervalo); travado=true; document.getElementById('trava').style.display='block'; } },1000); mostrar('festas',null); }
+if(window.location.search.indexOf('liberado=thiago123')>-1){ liberado=true; comecou=true; travado=false; document.addEventListener('DOMContentLoaded',function(){ var s=document.getElementById('statusLiberado'); if(s) s.innerText='✅ ACESSO LIBERADO - SEM TRAVA'; var t=document.getElementById('timer'); if(t) t.innerText='LIBERADO'; }); }
+function falarDudu(){ if(!podeUsar()) return; window.open('https://wa.me/'+NUMERO_DUDU+'?text='+encodeURIComponent('Olá, estou vindo pelo app do Tiago. Rio está na mão'),'_blank'); }
+function falarPilar(){ if(!podeUsar()) return; window.open('https://wa.me/'+NUMERO_PILAR+'?text='+encodeURIComponent('Olá, estou vindo pelo app do Tiago. Rio está na mão'),'_blank'); }
+function podeUsar(){ if(liberado) return true; if(travado){ document.getElementById('trava').style.display='block'; return false; } if(!comecou){ document.getElementById('bloqueio').style.display='flex'; return false; } return true; }
+function mostrar(id,btn){ if(id!=='principal' && !podeUsar()) return; var s=document.querySelectorAll('.secao'); for(var i=0;i<s.length;i++) s[i].classList.remove('ativa'); var a=document.getElementById(id); if(a) a.classList.add('ativa'); var b=document.querySelectorAll('.menu button'); for(var j=0;j<b.length;j++) b[j].classList.remove('ativo'); if(btn) btn.classList.add('ativo'); window.scrollTo(0,0); }
+function mostrarSub(id){ if(!podeUsar()) return; document.getElementById('sub-boates').style.display='none'; document.getElementById('sub-0800').style.display='none'; document.getElementById('sub-bailes').style.display='none'; document.getElementById(id).style.display='block'; }
+function mostrarSubH(id){ if(!podeUsar()) return; document.getElementById('sub-barata').style.display='none'; document.getElementById('sub-luxo').style.display='none'; document.getElementById(id).style.display='block'; }
+function comoChegar(l){ if(!podeUsar()) return; window.open('https://www.google.com/maps/search/'+encodeURIComponent(l+' Rio de Janeiro'),'_blank'); }
+function comecarGratis(){ if(comecou || liberado) return; comecou=true; intervalo=setInterval(function(){ tempo--; var m=Math.floor(tempo/60); var s=tempo%60; document.getElementById('timer').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s); if(tempo<=0){ clearInterval(intervalo); travado=true; document.getElementById('trava').style.display='block'; } },1000); mostrar('festas',null); }
+function fecharBloqueio(){ document.getElementById('bloqueio').style.display='none'; }
+function fecharBloqueioEComecar(){ document.getElementById('bloqueio').style.display='none'; comecarGratis(); }
+function fecharBloqueioEPagar(){ document.getElementById('bloqueio').style.display='none'; abrirPagamento(); }
+function abrirPagamento(){ document.getElementById('trava').style.display='block'; }
 function aplicarCupom(){ var v=document.getElementById('cupom').value.trim().toUpperCase(); if(v==='RIO50'||v==='RIO CINQUENTA'||v==='RIOCINQUENTA'){ document.getElementById('pA').innerText='R$ 19,99'; document.getElementById('pB').innerText='R$ 34,99'; document.getElementById('pC').innerText='R$ 89,99'; document.getElementById('cupomMsg').innerText='Cupom RIO CINQUENTA aplicado! 50% OFF - Agora é metade do valor!'; } else { document.getElementById('cupomMsg').innerText='Cupom inválido'; } }
 function jaPaguei(tipo){ var msg=tipo==='BR'?'Olá Thiago, paguei o plano no PIX - Chave 21 988189111 - Me manda o link liberado!':'Hello Thiago, I paid - Send me the unlocked link!'; window.open('https://wa.me/'+NUMERO_THIAGO+'?text='+encodeURIComponent(msg),'_blank'); }
 </script>
