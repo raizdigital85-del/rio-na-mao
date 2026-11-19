@@ -3,195 +3,307 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RIO NA MÃO 👽 - Copacabana - SPACE 4:20</title>
-<meta name="description" content="SaaS Rio na Mão - O mapa do Rio que o turista precisa. Copacabana, Praias, Festas, Baile Funk, SPACE 4:20.">
+<title>RIO NA MÃO 👽 SPACE 4:20 - Copacabana</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-body{background:#0a0a1a;color:#fff;text-align:center;padding-bottom:40px}
-.top{background:linear-gradient(135deg,#00ff88,#7b2fff);padding:28px 15px;color:#000}
-.top h1{font-size:34px;font-weight:900;letter-spacing:1px}
-.top p{font-weight:800;margin-top:6px}
-.badge{background:#000;color:#00ff88;padding:9px 16px;border-radius:20px;display:inline-block;margin-top:12px;font-weight:900;font-size:13px}
+body{background:#f2f2f2;color:#111;text-align:center;padding-bottom:90px}
+.top{background:linear-gradient(135deg,#00ff88,#7b2fff);padding:26px 15px;color:#fff;position:relative}
+.top h1{font-size:32px}
+.top p{margin:5px 0;font-weight:bold}
+.badge{background:#000;color:#00ff88;padding:8px 15px;border-radius:20px;display:inline-block;margin-top:10px;font-weight:900;font-size:13px}
 .timer{position:fixed;top:0;left:0;right:0;background:#ff0000;color:#fff;padding:12px;font-size:19px;font-weight:900;z-index:9999;display:none}
-.btn-green{background:#00c853;color:#fff;padding:19px 15px;font-size:20px;font-weight:900;border:none;border-radius:14px;cursor:pointer;width:100%;max-width:430px;margin:14px auto;display:block}
-.space-btn{background:#fff;color:#000;margin:15px;border-radius:20px;padding:18px;text-align:left;border:3px solid #00ff88;cursor:pointer}
-.space-btn h2{font-size:21px}
-.space-btn p{color:#333;margin-top:4px}
-.selo{background:#00c853;color:#fff;padding:6px 12px;border-radius:15px;font-size:12px;font-weight:900;display:inline-block;margin-bottom:8px}
-.card{background:#fff;color:#111;margin:15px;border-radius:20px;padding:16px;text-align:left}
-.card h2{font-size:20px;margin-bottom:8px}
-.map{width:100%;height:280px;border:0;border-radius:15px}
-.pin{background:#00c853;color:#fff;padding:13px;border-radius:12px;margin-top:12px;text-align:left}
-.pin b{font-size:18px}
-.tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:15px 10px;position:sticky;top:45px;background:#0a0a1a;padding:10px 0;z-index:100}
-.tab{background:#222;color:#fff;padding:12px 15px;border-radius:25px;border:1px solid #00ff88;cursor:pointer;font-weight:800;font-size:14px}
-.tab.active{background:#00ff88;color:#000}
-.item{background:#1a1a2e;padding:15px;border-radius:12px;margin:12px auto;max-width:540px;text-align:left;border-left:4px solid #00ff88}
-.item h3{color:#00ff88}
-.item p{color:#ddd}
-.qr{background:#fff;color:#111;margin:15px;border-radius:20px;padding:20px}
+.btn-green{background:#00c853;color:#fff;padding:19px 15px;font-size:20px;font-weight:900;border:none;border-radius:14px;cursor:pointer;width:100%;max-width:430px;margin:15px auto;display:block;text-decoration:none}
+.btn-black{background:#000;color:#00ff88;padding:15px;width:100%;max-width:430px;border:2px solid #00ff88;border-radius:12px;font-weight:900;font-size:16px;cursor:pointer;margin:10px auto;display:block;text-decoration:none}
+.card{background:#fff;color:#111;margin:15px;border-radius:16px;padding:18px;text-align:left;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.card h2{margin:0 0 10px;font-size:20px}
+.map{width:100%;height:280px;border:0;border-radius:12px}
+.space-card{background:#0d2a16;border:2px solid #00ff88;border-radius:20px;padding:20px;margin:15px;text-align:left;color:#fff}
+.qr{background:#fff;color:#111;margin:15px;border-radius:20px;padding:22px}
 .qr img{width:210px;height:210px;cursor:pointer}
-.lock{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;z-index:10000;display:none;overflow-y:auto;padding:28px 15px 60px}
-.plan{background:#fff;color:#000;padding:22px 15px;border-radius:16px;margin:16px auto;max-width:420px}
+.tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:15px 10px;position:sticky;top:44px;background:#f2f2f2;padding:10px 0;z-index:100}
+.tab{background:#fff;color:#111;padding:12px 16px;border-radius:25px;border:1px solid #ccc;cursor:pointer;font-weight:800;font-size:14px}
+.tab.active{background:#00c853;color:#fff;border-color:#00c853}
+.mini-card{background:#fff;color:#111;padding:16px;border-radius:14px;margin:10px 0;text-align:left;border-left:5px solid #00c853;box-shadow:0 1px 6px rgba(0,0,0,.06)}
+.mini-card h3{margin-bottom:6px}
+.mini-card p{line-height:1.5;font-size:14px}
+.mini-card b{color:#000}
+.faixa{display:inline-block;padding:5px 12px;border-radius:15px;color:#fff;font-weight:900;font-size:12px;margin-bottom:8px}
+.faixa-verde-petroleo{background:#00695c}.faixa-laranja{background:#ff6d00}.faixa-verde{background:#00c853}.faixa-vermelha{background:#b71c1c}.faixa-roxa{background:#7b2fff}.faixa-amarela{background:#ffc400;color:#000}.faixa-azul{background:#0288d1}
+.back-btn{background:#111;color:#fff;border:none;padding:12px 18px;border-radius:25px;font-weight:900;font-size:16px;cursor:pointer;margin:15px 0 0 15px;display:none;float:left}
+.back-btn:hover{background:#00c853}
+.lock{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;z-index:10000;display:none;overflow-y:auto;padding:28px 15px 60px;color:#fff}
+.plan{background:#fff;color:#000;padding:22px 16px;border-radius:16px;margin:16px auto;max-width:430px}
 .plan .price{font-size:32px;font-weight:900;color:#00aa55;margin:8px 0}
-.btn-pay{background:#00c853;color:#fff;padding:16px;width:100%;border:none;border-radius:11px;font-weight:900;font-size:18px;cursor:pointer;margin-top:10px}
-.footer{color:#888;font-size:12px;margin-top:25px;padding:0 20px}
+.btn-pay{background:#00c853;color:#fff;padding:16px;width:100%;border:none;border-radius:11px;font-weight:900;font-size:18px;cursor:pointer;margin-top:12px}
+.small{font-size:13px;opacity:.7;padding:0 15px 20px;line-height:1.6}
+.bottom-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;display:flex;justify-content:space-around;padding:12px 0;z-index:999;font-weight:900}
+.bottom-bar span{cursor:pointer}
+.bottom-bar .active{color:#00c853}
+.clear{clear:both}
 </style>
 </head>
 <body>
 
 <div id="timer" class="timer">⏰ TEMPO GRÁTIS: <span id="time">30:00</span> - APROVEITA!</div>
 
-<!-- ===== PÁGINA 1 - PRINCIPAL - RIO NA MÃO ===== -->
+<!-- ===== PÁGINA 1 - PRINCIPAL ===== -->
 <div id="home">
   <div class="top">
     <h1>👽 RIO NA MÃO</h1>
+    <p>Rio na Mão com Thiago Alien</p>
     <p>Copacabana • Rio de Janeiro</p>
-    <p>Your Guide in Copacabana</p>
+    <p style="font-size:13px">Your Guide in Copacabana</p>
     <div class="badge">🔓 30 MINUTOS GRÁTIS PARA TESTAR</div>
   </div>
 
-  <button class="btn-green" onclick="startFree()">👉 COMEÇAR GRÁTIS - START FREE</button>
+  <div style="background:#2563eb;color:#fff;padding:12px;font-weight:900">Bem-vindo! Use grátis por 30 minutos</div>
 
-  <!-- ===== SPACE 4:20 - BOTÃO EXCLUSIVO - ÚNICA TABACARIA - TRAVADO ===== -->
-  <div class="space-btn" onclick="openSpace()">
-    <span class="selo">✅ Selo de Qualidade Autorizado - Rio na Mão</span>
-    <h2>👽 SPACE 4:20 Headshop</h2>
-    <p><b>Sua tabacaria em Copacabana - Orla Posto 4</b></p>
-    <p>⭐ 4.9 - Aberto Agora • A tabacaria oficial do Rio na Mão em Copacabana</p>
-    <p style="color:#00aa55;font-weight:900;margin-top:8px">👉 CLIQUE PARA VER A LOJA →</p>
+  <!-- BOTÕES 7 - PÁGINA 1 TRAVADA -->
+  <div style="padding:15px">
+    <button class="btn-green" onclick="startFree()">👉 CLIQUE AQUI E GARANTA SEU ACESSO GRÁTIS - 30 MIN</button>
+    <p style="color:#00c853;font-weight:900">✅ Sem cartão • Sem cadastro • Entra na hora</p>
   </div>
 
-  <!-- ===== TELA DA LOJA SPACE 4:20 - QUANDO CLICA ===== -->
-  <div id="space-detail" style="display:none">
-    <div class="card">
-      <span class="selo">✅ Selo de Qualidade Autorizado - Rio na Mão</span>
-      <h2>RJ - Tabacaria SPACE 4:20 Headshop</h2>
-      <p><b>📍 Local:</b> Copacabana - Orla Posto 4<br>
-      <b>📍 Endereço:</b> Av. Nossa Senhora de Copacabana, Copacabana - RJ<br>
-      <b>⭐ Avaliação:</b> 4.9 - 1.200 avaliações<br>
-      <b>🕐 Aberto agora</b> - Seg a Sáb: 10h às 22h • Dom: 12h às 20h<br>
-      <b>🔥 Headshop • Tabacaria • Acessórios • Souvenir</b><br><br>
-      <b>Frase oficial:</b> A tabacaria oficial do Rio na Mão em Copacabana</p>
-      <br>
-      <a href="https://www.google.com/maps/search/?api=1&query=Space+420+Headshop+Copacabana+Rio+de+Janeiro" target="_blank" style="display:block;background:#000;color:#fff;text-align:center;padding:15px;border-radius:12px;text-decoration:none;font-weight:900">📍 COMO CHEGAR / HOW TO GET THERE</a>
-      <br>
-      <a href="https://wa.me/5521999999999?text=Oi%20SPACE%204:20!%20Vim%20pelo%20Rio%20na%20Mão!" target="_blank" style="display:block;background:#25D366;color:#fff;text-align:center;padding:15px;border-radius:12px;text-decoration:none;font-weight:900">💬 CHAMAR NO WHATSAPP</a>
-      <br>
-      <button onclick="closeSpace()" style="width:100%;padding:12px;border-radius:10px;border:1px solid #ccc;background:#eee;font-weight:800;cursor:pointer">⬅ VOLTAR</button>
-    </div>
+  <!-- SPACE 4:20 - EXCLUSIVO -->
+  <div class="space-card">
+    <div style="background:#00ff88;color:#000;display:inline-block;padding:5px 12px;border-radius:15px;font-weight:900;font-size:12px">✅ SELO DE QUALIDADE AUTORIZADO - RIO NA MÃO</div>
+    <h2 style="margin-top:12px;color:#00ff88">👽 SPACE 4:20 Headshop</h2>
+    <p style="margin:8px 0"><b>Sua tabacaria em Copacabana - Orla Posto 4</b></p>
+    <p>RJ - Tabacaria SPACE 4:20 Headshop</p>
+    <p>📍 Copacabana - Orla Posto 4</p>
+    <p>⭐ 4.9 - Aberto Agora</p>
+    <p style="margin-top:10px">A tabacaria oficial do Rio na Mão em Copacabana</p>
+    <br>
+    <a href="https://www.google.com/maps/search/?api=1&query=Space+420+Headshop+Copacabana+Rio+de+Janeiro" target="_blank" style="display:block;background:#00ff88;color:#000;text-align:center;padding:14px;border-radius:12px;text-decoration:none;margin-bottom:10px;font-weight:900">📍 COMO CHEGAR / HOW TO GET THERE</a>
+    <a href="https://wa.me/5521999999999?text=Oi%20SPACE%204:20!%20Vim%20pelo%20Rio%20na%20Mão!" target="_blank" style="display:block;background:#fff;color:#000;text-align:center;padding:14px;border-radius:12px;text-decoration:none;font-weight:900">💬 CHAMAR NO WHATSAPP</a>
+  </div>
+
+  <!-- 7 BOTÕES - PÁGINA 1 -->
+  <div class="card">
+    <h2>👽 O que você quer fazer hoje?</h2>
+    <button class="btn-black" onclick="startFreeAndGo('festas')">🎉 Festas</button>
+    <button class="btn-black" onclick="startFreeAndGo('comer')">🍽️ Onde comer</button>
+    <button class="btn-black" onclick="startFreeAndGo('hospedagem')">🏨 Hospedagens</button>
+    <button class="btn-black" onclick="startFreeAndGo('turistico')">📍 Lugares turísticos</button>
+    <button class="btn-black" onclick="startFreeAndGo('praias')">🏖️ Praias</button>
+    <button class="btn-black" onclick="startFreeAndGo('pilar')">✨ Passeio exclusivo com guia</button>
+    <button class="btn-black" onclick="startFreeAndGo('comer-quiosques')">🏖️ Melhores quiosques da orla de Copacabana</button>
   </div>
 
   <div class="card">
     <h2>🗺️ Mapa de Copacabana</h2>
-    <iframe class="map" src="https://www.google.com/maps?q=Copacabana+Rio+de+Janeiro&output=embed"></iframe>
-    <div class="pin">
-      <b>📍 SPACE COPACABANA</b><br>
-      Souvenir & Gift Shop<br>
-      Av. Nossa Senhora de Copacabana<br>
-      ⭐ 4.9 - Aberto Agora
-    </div>
+    <iframe class="map" src="https://www.google.com/maps?q=Copacabana+Rio+de+Janeiro&output=embed" loading="lazy"></iframe>
+    <div style="background:#00c853;color:#fff;padding:14px;border-radius:12px;margin-top:12px"><b>📍 SPACE COPACABANA</b><br>Souvenir & Gift Shop<br>Av. Nossa Senhora de Copacabana<br>⭐ 4.9 - Aberto Agora</div>
+    <div style="background:#7b2fff;color:#fff;padding:14px;border-radius:12px;margin-top:10px"><b>👽 SPACE 4:20 HEADSHOP - BALÃO</b><br>Tabacaria Oficial - Orla Posto 4<br>Do lado do Nativo - Pino no mapa<br>⭐ 4.9 - Aberto Agora</div>
   </div>
+
+  <div class="qr" onclick="startFree()">
+    <h2>SCAN ME</h2>
+    <p>Aponte sua câmera aqui<br>Point your camera here</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=210x210&data=https://raizdigital85-del.github.io/rio-na-mao/" alt="QR Code Rio na Mão">
+    <p><b>START FREE 30 MIN TRIAL</b><br>Comece Grátis - 30 Minutos</p>
+  </div>
+  <p class="small">SPACE COPACABANA - Av. Nossa Senhora de Copacabana<br>SPACE 4:20 Headshop - Orla Posto 4<br>Feito com ❤️ no Rio | Made in Rio</p>
 </div>
 
-<!-- ===== CONTEÚDO GRÁTIS - DEPOIS DE CLICAR GRÁTIS ===== -->
+<!-- ===== CONTEÚDO - DEPOIS DO GRÁTIS ===== -->
 <div id="content" style="display:none">
-  <div style="padding:55px 15px 5px">
+  <!-- SETINHA DE VOLTAR - TRAVADA - APARECE EM TODAS AS ABAS DE DENTRO -->
+  <button id="backBtn" class="back-btn" onclick="goHome()">⬅️ VOLTAR</button>
+  <div class="clear"></div>
+  <div style="padding:10px 15px 0">
     <h2>🔓 VOCÊ ESTÁ NO MODO GRÁTIS</h2>
-    <p style="color:#00ff88;font-weight:900">Aproveita! 30 minutos para explorar tudo.</p>
+    <p style="color:#00c853;font-weight:900">Aproveita! Quando acabar, você assina pra continuar.</p>
   </div>
+
   <div class="tabs">
-    <div class="tab active" onclick="showTab('praias',this)">🏖️ Praias</div>
-    <div class="tab" onclick="showTab('festas',this)">🎉 Festas</div>
-    <div class="tab" onclick="showTab('baile',this)">🔥 Baile Funk</div>
-    <div class="tab" onclick="showTab('mapa',this)">🗺️ Mapa</div>
+    <div class="tab" data-tab="festas" onclick="showTab('festas',this)">🎉 Festas</div>
+    <div class="tab" data-tab="comer" onclick="showTab('comer',this)">🍽️ Onde comer</div>
+    <div class="tab" data-tab="hospedagem" onclick="showTab('hospedagem',this)">🏨 Hospedagem</div>
+    <div class="tab" data-tab="turistico" onclick="showTab('turistico',this)">📍 Turísticos</div>
+    <div class="tab" data-tab="praias" onclick="showTab('praias',this)">🏖️ Praias</div>
+    <div class="tab" data-tab="pilar" onclick="showTab('pilar',this)">✨ Guia Pilar</div>
+    <div class="tab" data-tab="mapa" onclick="showTab('mapa',this)">🗺️ Mapa</div>
   </div>
-  <div id="tab-praias">
-    <div class="item"><h3>🏖️ Copacabana - Posto 4 e 5</h3><p>Praia mais famosa do mundo. Posto 4 é onde fica o SPACE 4:20. Melhor para turista.</p></div>
-    <div class="item"><h3>🏖️ Ipanema - Posto 9</h3><p>Pôr do sol mais bonito. Arpoador. Galera jovem.</p></div>
-    <div class="item"><h3>🏖️ Leblon</h3><p>Mais tranquila e chique.</p></div>
-    <div class="item"><h3>🏖️ Barra da Tijuca</h3><p>Gigante, ótima para surf.</p></div>
-    <div class="item"><h3>🏖️ Praia Vermelha - Urca</h3><p>Vista do Pão de Açúcar. Água calma.</p></div>
-  </div>
-  <div id="tab-festas" style="display:none">
-    <div class="item"><h3>🎉 Baile da Gaiola</h3><p>Sexta e Sábado - 23h - O maior baile do Rio.</p></div>
-    <div class="item"><h3>🎉 Festa no Vidigal</h3><p>Sábado - 22h - Vista mais bonita + funk.</p></div>
-    <div class="item"><h3>🎉 Lapa - Arcos</h3><p>Todos os dias - Samba, forró, pagode.</p></div>
-    <div class="item"><h3>🎉 Samba no Pedra do Sal</h3><p>Segunda e Sexta - 19h - Samba de raiz, gratuito.</p></div>
-  </div>
-  <div id="tab-baile" style="display:none">
-    <div class="item"><h3>🔥 Baile Funk - Manguinhos</h3><p>Domingo - 21h - O baile raiz.</p></div>
-    <div class="item"><h3>🔥 Baile da Nova Holanda</h3><p>Sábado - 22h - Funk mandelão.</p></div>
-    <div class="item"><h3>🔥 Baile da Chatuba</h3><p>Sexta - 23h - Um dos mais famosos.</p></div>
-  </div>
-  <div id="tab-mapa" style="display:none">
-    <div class="card">
-      <h2>🗺️ Mapa Completo</h2>
-      <iframe class="map" src="https://www.google.com/maps?q=Rio+de+Janeiro&output=embed"></iframe>
-      <p style="margin-top:10px">👽 SPACE 4:20 - Copacabana Posto 4 - Seu ponto de partida</p>
+
+  <!-- ===== FESTAS - ABAS INTERNAS ===== -->
+  <div id="tab-festas" class="tab-content" style="display:none;padding:0 15px">
+    <div style="background:#ff6d00;color:#fff;padding:12px;border-radius:12px;font-weight:900">Festas / Diversão / RJ</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0">
+      <button class="tab active" onclick="showSub('boats',this)">Boats</button>
+      <button class="tab" onclick="showSub('boates',this)">Discotecas / Festas Pagas</button>
+      <button class="tab" onclick="showSub('0800',this)">Festas 0800</button>
+      <button class="tab" onclick="showSub('bailes',this)">Bailes / Favela</button>
+    </div>
+
+    <div id="sub-boats">
+      <div class="mini-card"><span class="faixa faixa-laranja">BOATS</span><h3>🛥️ Boat Party - Rio</h3><p>Passeio de barco + festa no mar. Saída Marina da Glória. <br><b>📍 Como chegar</b> - Clique em Mapa</p><a href="https://www.google.com/maps/search/?api=1&query=Marina+da+Gloria+Rio+de+Janeiro" target="_blank">📍 Como chegar</a></div>
+    </div>
+    <div id="sub-boates" style="display:none">
+      <div class="mini-card"><span class="faixa faixa-laranja">PAGA</span><h3>Boite Paradiso - Copacabana - Posto 4</h3><p>Reggaeton / Latina / MIX - Qui e Sáb - PAGA - Foto boate lotada luzes</p><a href="https://www.google.com/maps/search/?api=1&query=Paradiso+Copacabana+Rio" target="_blank">📍 Como chegar</a></div>
+      <div class="mini-card"><span class="faixa faixa-laranja">PAGA</span><h3>Substation Club - Copacabana</h3><p>Funk / Reggaeton / Afrobeat - Qua e Sáb - PAGA</p><a href="https://www.google.com/maps/search/?api=1&query=Substation+Club+Copacabana" target="_blank">📍 Como chegar</a></div>
+      <div class="mini-card"><span class="faixa faixa-laranja">PAGA</span><h3>Boate La Cueva - Copacabana - Miguel Lemos</h3><p>Latina / Reggaeton - Sex e Sáb - PAGA</p><a href="https://www.google.com/maps/search/?api=1&query=La+Cueva+Copacabana+Rio" target="_blank">📍 Como chegar</a></div>
+    </div>
+    <div id="sub-0800" style="display:none">
+      <div style="background:#fff;padding:12px;border-radius:12px;font-weight:900;margin-bottom:10px">Tudo 0800 - Grátis - <span style="background:#00c853;color:#000;padding:3px 8px;border-radius:8px">0800</span></div>
+      <div class="mini-card"><span class="faixa faixa-verde">0800 GRÁTIS</span><h3>1. Pedra do Sal - Rua Pedra do Sal, Saúde</h3><p>Samba segunda e sexta - Grátis 0800</p><a href="https://www.google.com/maps/search/?api=1&query=Pedra+do+Sal+Rio+de+Janeiro" target="_blank">📍 Como chegar</a></div>
+      <div class="mini-card"><span class="faixa faixa-verde">0800 GRÁTIS</span><h3>2. Lapa Arcos da Lapa - Rua da Lapa / Arcos da Lapa, Centro</h3><p>Samba Forró Rua - Grátis 0800</p><a href="https://www.google.com/maps/search/?api=1&query=Arcos+da+Lapa+Rio" target="_blank">📍 Como chegar</a></div>
+      <div class="mini-card"><span class="faixa faixa-verde">0800 GRÁTIS</span><h3>3. Feira da Glória - Praça Duque de Caxias, Glória</h3><p>Domingo Feira + Samba - Grátis 0800</p><a href="https://www.google.com/maps/search/?api=1&query=Feira+da+Gloria+Rio" target="_blank">📍 Como chegar</a></div>
+      <div class="mini-card"><span class="faixa faixa-verde">0800 GRÁTIS</span><h3>4. Santa Teresa Samba dos Guimarães - Largo dos Guimarães</h3><p>Sábado - Grátis 0800</p><a href="https://www.google.com/maps/search/?api=1&query=Largo+dos+Guimaraes+Santa+Teresa+Rio" target="_blank">📍 Como chegar</a></div>
+    </div>
+    <div id="sub-bailes" style="display:none">
+      <div style="background:#4a148c;color:#fff;padding:12px;border-radius:12px;font-weight:900">Só com Guia Local - Falar com Pilar <a href="https://wa.me/5521999999999?text=Oi%20Pilar!%20Quero%20ir%20pro%20baile%20pelo%20Rio%20na%20Mão!" target="_blank" style="background:#00c853;color:#fff;padding:8px 12px;border-radius:10px;text-decoration:none;display:inline-block;margin-top:8px">💬 WhatsApp Pilar</a></div>
+      <div class="mini-card"><span class="faixa faixa-roxa">BAILE FUNK</span><h3>1. Baile da Gaiola / Estrelas - Vila Cruzeiro Penha</h3><p>Funk 150 BPM - Sábado - SÓ COM GUIA PILAR</p><a href="https://wa.me/5521999999999?text=Oi%20Pilar!%20Quero%20Baile%20da%20Gaiola" target="_blank">📍 Falar com Pilar</a></div>
+      <div class="mini-card"><span class="faixa faixa-roxa">BAILE FUNK</span><h3>2. Baile da Nova Holanda - Complexo da Maré</h3><p>Funk - Sábado - SÓ COM GUIA PILAR</p><a href="https://wa.me/5521999999999?text=Oi%20Pilar!%20Quero%20Baile%20Nova%20Holanda" target="_blank">📍 Falar com Pilar</a></div>
+      <div class="mini-card"><span class="faixa faixa-roxa">BAILE FUNK</span><h3>3. Baile do Santo Amaro - Santo Amaro</h3><p>Funk - SÓ COM GUIA PILAR</p><a href="https://wa.me/5521999999999?text=Oi%20Pilar!%20Quero%20Baile%20Santo%20Amaro" target="_blank">📍 Falar com Pilar</a></div>
+      <div class="mini-card"><span class="faixa faixa-roxa">BAILE FUNK</span><h3>4. Baile do Vidigal - Vidigal</h3><p>Funk - SÓ COM GUIA PILAR</p><a href="https://wa.me/5521999999999?text=Oi%20Pilar!%20Quero%20Baile%20Vidigal" target="_blank">📍 Falar com Pilar</a></div>
     </div>
   </div>
-  <button class="btn-green" onclick="showLock()">🔒 VER PLANOS PARA CONTINUAR</button>
+
+  <!-- ===== ONDE COMER / GASTRONOMIA ===== -->
+  <div id="tab-comer" class="tab-content" style="display:none;padding:0 15px">
+    <div style="background:#00c853;color:#fff;padding:12px;border-radius:12px;font-weight:900">Onde comer / Gastronomia</div>
+    <div class="mini-card"><span class="faixa faixa-verde-petroleo">RESTAURANTES</span><h3>1. Pavão Azul - Copacabana</h3><p>R$ 45-80 - Frutos do mar, clássico de Copa</p><a href="https://www.google.com/maps/search/?api=1&query=Pavao+Azul+Copacabana" target="_blank">📍 Como chegar</a></div>
+    <div class="mini-card"><span class="faixa faixa-verde-petroleo">RESTAURANTES</span><h3>2. Bar do Mineiro - Santa Teresa</h3><p>Feijoada - R$ 38-65</p><a href="https://www.google.com/maps/search/?api=1&query=Bar+do+Mineiro+Santa+Teresa+Rio" target="_blank">📍 Como chegar</a></div>
+    <div class="mini-card"><span class="faixa faixa-laranja">LANCHES</span><h3>3. Bibi Sucos - Copacabana</h3><p>R$ 12-25 - Sucos, sanduíches</p><a href="https://www.google.com/maps/search/?api=1&query=Bibi+Sucos+Copacabana" target="_blank">📍 Como chegar</a></div>
+    <div class="mini-card"><span class="faixa faixa-laranja">LANCHES</span><h3>4. Galeto Sat's - Copacabana</h3><p>R$ 28-40 - Galeto famoso</p><a href="https://www.google.com/maps/search/?api=1&query=Galeto+Sats+Copacabana" target="_blank">📍 Como chegar</a></div>
+    <div id="comer-quiosques"></div>
+    <div class="mini-card"><span class="faixa faixa-verde">MELHORES QUIOSQUES</span><h3>5. Quiosque Nativo - Posto 4 - Copacabana</h3><p>R$ 28-65 - Do lado do SPACE 4:20</p><a href="https://www.google.com/maps/search/?api=1&query=Quiosque+Nativo+Copacabana+Posto+4" target="_blank">📍 Como chegar</a></div>
+    <div class="mini-card"><span class="faixa faixa-verde">MELHORES QUIOSQUES</span><h3>6. Baródromo - Posto 3 - Copacabana</h3><p>R$ 35-90</p><a href="https://www.google.com/maps/search/?api=1&query=Barodromo+Copacabana" target="_blank">📍 Como chegar</a></div>
+    <div class="mini-card"><span class="faixa faixa-verde">MELHORES QUIOSQUES</span><h3>7. Areia MPB - Entre Posto 2 e 3 - Copacabana</h3><p>R$ 30-70</p><a href="https://www.google.com/maps/search/?api=1&query=Areia+MPB+Copacabana" target="_blank">📍 Como chegar</a></div>
+    <div class="mini-card"><span class="faixa faixa-verde">MELHORES QUIOSQUES</span><h3>8. Coisas de Bamba - Posto 4 - Copacabana</h3><p>R$ 25-60</p><a href="https://www.google.com/maps/search/?api=1&query=Coisas+de+Bamba+Copacabana" target="_blank">📍 Como chegar</a></div>
+    <div class="mini-card"><span class="faixa faixa-vermelha">CHURRASCO</span><h3>9. Porcão Rio's - Flamengo</h3><p>R$ 90-120 - Rodízio</p><a href="https://www.google.com/maps/search/?api=1&query=Porcao+Rios+Flamengo+Rio" target="_blank">📍 Como chegar</a></div>
+    <div class="mini-card"><span class="faixa faixa-vermelha">CHURRASCO</span><h3>10. Carretão - Ipanema</h3><p>R$ 70-95</p><a href="https://www.google.com/maps/search/?api=1&query=Carretao+Ipanema+Rio" target="_blank">📍 Como chegar</a></div>
+  </div>
+
+  <!-- ===== HOSPEDAGEM ===== -->
+  <div id="tab-hospedagem" class="tab-content" style="display:none;padding:0 15px">
+    <div style="background:#ffc400;color:#000;padding:12px;border-radius:12px;font-weight:900">Hospedagem</div>
+    <div style="display:flex;gap:8px;margin:12px 0"><button class="tab active" onclick="showHosp('conta',this)">MAIS EM CONTA 💚</button><button class="tab" onclick="showHosp('luxo',this)">LUXO ✨</button></div>
+    <div id="hosp-conta">
+      <div class="mini-card"><h3>Che Lagarto Hostel - Copacabana</h3><p>Mochileiro - Preço estimado: R$ 65-95 / noite - <span style="background:#00c853;color:#fff;padding:2px 8px;border-radius:8px;font-size:11px">DESCONTO PELO APP DO THIAGO</span></p><a href="https://www.google.com/maps/search/?api=1&query=Che+Lagarto+Hostel+Copacabana" target="_blank">📍 Como chegar</a></div>
+      <div class="mini-card"><h3>Bamboo Rio Hostel - Copacabana</h3><p>Piscina e bar - R$ 70-110 / noite</p><a href="https://www.google.com/maps/search/?api=1&query=Bamboo+Rio+Hostel+Copacabana" target="_blank">📍 Como chegar</a></div>
+      <div class="mini-card"><h3>ibis budget Copacabana</h3><p>Perto do metrô - R$ 180-260 / noite</p><a href="https://www.google.com/maps/search/?api=1&query=ibis+budget+Copacabana" target="_blank">📍 Como chegar</a></div>
+    </div>
+    <div id="hosp-luxo" style="display:none">
+      <div class="mini-card"><h3>Copacabana Palace - Av. Atlântica</h3><p>R$ 1.800-3.500 - Piscina, praia, clássico - <span style="background:#ffc400;padding:2px 8px;border-radius:8px;font-size:11px">DESCONTO PELO APP DO THIAGO</span></p><a href="https://www.google.com/maps/search/?api=1&query=Copacabana+Palace+Rio" target="_blank">📍 Como chegar</a></div>
+      <div class="mini-card"><h3>Fairmont Rio de Janeiro Copacabana - Av. Atlântica</h3><p>R$ 1.200-2.200 - Piscina, vista mar</p><a href="https://www.google.com/maps/search/?api=1&query=Fairmont+Rio+Copacabana" target="_blank">📍 Como chegar</a></div>
+      <div class="mini-card"><h3>Hilton Rio de Janeiro Copacabana - Av. Atlântica</h3><p>R$ 900-1.600 - Piscina, perto do metrô</p><a href="https://www.google.com/maps/search/?api=1&query=Hilton+Copacabana+Rio" target="_blank">📍 Como chegar</a></div>
+    </div>
+  </div>
+
+  <!-- ===== LUGARES TURÍSTICOS ===== -->
+  <div id="tab-turistico" class="tab-content" style="display:none;padding:0 15px">
+    <div style="background:#0288d1;color:#fff;padding:12px;border-radius:12px;font-weight:900">Lugares Turísticos</div>
+    <div class="mini-card"><h3>1. Pão de Açúcar - Bondinho - Urca</h3><p>Vista mais famosa do Rio</p><a href="https://www.google.com/maps/search/?api=1&query=Pao+de+Acucar+Rio" target="_blank">📍 Como chegar</a></div>
+    <div class="mini-card"><h3>2. Cristo Redentor - Corcovado</h3><p>Cartão postal do mundo</p><a href="https://www.google.com/maps/search/?api=1&query=Cristo+Redentor+Rio" target="_blank">📍 Como chegar</a></div>
+    <div class="mini-card"><h3>3. Bondinho de Santa Teresa - Santa Teresa</h3><p>Charme histórico</p><a href="https://www.google.com/maps/search/?api=1&query=Bondinho+Santa+Teresa+Rio" target="_blank">📍 Como chegar</a></div>
+    <div style="background:#ffc400;padding:18px;border-radius:14px;margin:15px 0;font-weight:900;cursor:pointer" onclick="showTab('pilar',document.querySelector('[data-tab=pilar]'))">✨ Passeio com a Nossa Guia Parceira Pilar ✨<br><span style="font-weight:400;font-size:13px">Passeios Exclusivos que só ela faz - Clique aqui</span></div>
+  </div>
+
+  <!-- ===== PRAIAS ===== -->
+  <div id="tab-praias" class="tab-content" style="display:none;padding:0 15px">
+    <div style="background:#00bcd4;color:#fff;padding:12px;border-radius:12px;font-weight:900">Praias</div>
+    <div class="mini-card"><h3>1. Leme - Posto 1 e Posto 2</h3><p>Ref: Quiosque RASTA BEACH - Galera nova, alternativa, reggae, música, caixinha de som</p><a href="https://www.google.com/maps/search/?api=1&query=Praia+do+Leme+Rio" target="_blank">📍 Como chegar</a></div>
+    <div class="mini-card"><h3>2. Copacabana - Posto 4</h3><p>Ref: Quiosque Nativo - Do lado do SPACE 4:20</p><a href="https://www.google.com/maps/search/?api=1&query=Copacabana+Posto+4+Rio" target="_blank">📍 Como chegar</a></div>
+    <div class="mini-card"><h3>3. Ipanema - Posto 9</h3><p>Galera jovem</p><a href="https://www.google.com/maps/search/?api=1&query=Ipanema+Posto+9+Rio" target="_blank">📍 Como chegar</a></div>
+    <div class="mini-card"><h3>4. Leblon - Posto 11</h3><p>Mais calma</p><a href="https://www.google.com/maps/search/?api=1&query=Leblon+Posto+11+Rio" target="_blank">📍 Como chegar</a></div>
+    <div class="mini-card"><h3>5. Arpoador</h3><p>Pôr do sol</p><a href="https://www.google.com/maps/search/?api=1&query=Arpoador+Rio" target="_blank">📍 Como chegar</a></div>
+    <div class="mini-card"><h3>6. Barra da Tijuca - Posto 7</h3><p>Surf, mais espaço</p><a href="https://www.google.com/maps/search/?api=1&query=Barra+da+Tijuca+Posto+7+Rio" target="_blank">📍 Como chegar</a></div>
+  </div>
+
+  <!-- ===== PILAR ===== -->
+  <div id="tab-pilar" class="tab-content" style="display:none;padding:0 15px">
+    <div style="background:#7b2fff;color:#fff;padding:14px;border-radius:12px;font-weight:900">Passeio Exclusivo com a Nossa Guia Pilar</div>
+    <div class="mini-card"><h3>✨ Passeio Exclusivo com a Pilar</h3><p>Passeios exclusivos que só ela faz - Rolê turístico com guia parceira<br><b>Guia: Pilar</b></p><a href="https://wa.me/5521999999999?text=Oi%20Pilar!%20Quero%20Passeio%20Exclusivo%20pelo%20Rio%20na%20Mão!" target="_blank" style="display:block;background:#00c853;color:#fff;text-align:center;padding:14px;border-radius:12px;text-decoration:none;margin-top:10px;font-weight:900">💬 Falar com a Pilar</a><a href="https://wa.me/5521999999999?text=Oi%20Pilar!%20Quero%20reservar%20passeio!" target="_blank" style="display:block;background:#111;color:#fff;text-align:center;padding:14px;border-radius:12px;text-decoration:none;margin-top:10px;font-weight:900">QUERO RESERVAR COM A PILAR</a></div>
+    <p style="font-size:13px;color:#666;margin:10px 0">Pilar só aparece em: Baile de Favela + Passeio Exclusivo + Botão Dourado em Lugares Turísticos. Não aparece em Praias, Onde Comer, Boates, Festas 0800.</p>
+  </div>
+
+  <!-- ===== MAPA ===== -->
+  <div id="tab-mapa" class="tab-content" style="display:none;padding:0 15px">
+    <iframe class="map" src="https://www.google.com/maps?q=Rio+de+Janeiro&output=embed" loading="lazy"></iframe>
+    <p style="margin-top:10px">👽 SPACE 4:20 - Copacabana Posto 4 - Seu ponto de partida</p>
+  </div>
+
+  <div style="padding:15px">
+    <button class="btn-green" onclick="showLock()">🔒 VER PLANOS PARA CONTINUAR</button>
+  </div>
 </div>
 
-<!-- ===== QR CODE - RODAPÉ PÁGINA 1 - TRAVADO ===== -->
-<div class="qr" onclick="startFree()">
-  <h2 style="margin:0">SCAN ME</h2>
-  <p style="margin:5px 0">Aponte sua câmera aqui<br>Point your camera here</p>
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://raizdigital85-del.github.io/rio-na-mao/" alt="QR Code Rio na Mão">
-  <p><b>START FREE 30 MIN TRIAL</b><br>Comece Grátis - 30 Minutos</p>
-  <p style="font-size:12px;color:#666">Link: raizdigital85-del.github.io/rio-na-mao</p>
-</div>
-
-<a href="https://www.google.com/maps?q=Av.+Nossa+Senhora+de+Copacabana" target="_blank" style="display:block;background:#7b2fff;color:#fff;text-decoration:none;padding:15px;border-radius:15px;font-weight:bold;margin:0 15px 20px">📍 COMO CHEGAR / HOW TO GET THERE</a>
-
-<!-- ===== TRAVA - QUANDO ACABA O TEMPO ===== -->
+<!-- ===== TRAVA - QUANDO ACABA 30 MIN ===== -->
 <div id="lock" class="lock">
   <h1 style="color:#ff3333;font-size:34px">⏰ TEMPO ACABOU!</h1>
-  <h2 style="margin:15px 0">Seu tempo grátis acabou!</h2>
-  <p style="font-size:19px">Para continuar, assine aqui, pague o plano!</p>
-  <p style="color:#aaa">Your free time is over! To continue, pay the plan!</p>
-  <div class="plan">
-    <h3>PLANO A - 1 DIA</h3>
-    <div class="price">R$ 39,99</div>
-    <p>✅ Todas praias ✅ Todas festas ✅ Mapa completo</p>
-    <button class="btn-pay" onclick="pay('A')">QUERO PAGAR - PIX / CARTÃO</button>
-    <p style="font-size:12px;color:#555;margin-top:5px">🇧🇷 PIX - QR Code + Copia e Cola<br>🇺🇸 Cartão Internacional</p>
-  </div>
-  <div class="plan" style="border:4px solid #00c853">
-    <h3>⭐ PLANO B - 7 DIAS - MAIS VENDIDO</h3>
-    <div class="price">R$ 69,99</div>
-    <p>✅ Tudo do A + Suporte VIP</p>
-    <button class="btn-pay" onclick="pay('B')">QUERO PAGAR - PIX / CARTÃO</button>
-  </div>
-  <div class="plan">
-    <h3>PLANO C - 30 DIAS</h3>
-    <div class="price">R$ 179,99</div>
-    <p>✅ Tudo + VIP SPACE 4:20</p>
-    <button class="btn-pay" onclick="pay('C')">QUERO PAGAR - PIX / CARTÃO</button>
-  </div>
+  <h2 style="margin:15px 0">Seu tempo grátis acabou! ⏰ Para continuar usando o Rio na Mão, escolha um plano abaixo.</h2>
+  <p>Your free time is over! To continue, pay the plan!</p>
+  <div class="plan"><h3>DIÁRIO - 24h</h3><div class="price">R$ 39,99</div><p>✅ Todas praias ✅ Todas festas ✅ Mapa completo</p><p style="font-size:13px;color:#666">Com cupom ALIEN50: R$ 19,99</p><button class="btn-pay" onclick="pay('A')">Assinar e Continuar - PIX / CARTÃO</button></div>
+  <div class="plan" style="border:4px solid #00c853"><h3>⭐ SEMANAL - 7 DIAS - MAIS ESCOLHIDO</h3><div class="price">R$ 79,99</div><p>✅ Tudo + Suporte VIP</p><p style="font-size:13px;color:#666">Com cupom ALIEN50: R$ 39,99</p><button class="btn-pay" onclick="pay('B')">Assinar e Continuar - PIX / CARTÃO</button></div>
+  <div class="plan"><h3>MENSAL - 30 DIAS</h3><div class="price">R$ 179,99</div><p>✅ Tudo + VIP SPACE 4:20</p><p style="font-size:13px;color:#666">Com cupom ALIEN50: R$ 89,99</p><button class="btn-pay" onclick="pay('C')">Assinar e Continuar - PIX / CARTÃO</button></div>
+  <p style="margin-top:15px">Cupom ALIEN50 dá 50%: <b>Cupom ALIEN50 aplicado! Desconto de outro planeta 👽</b></p>
+  <button onclick="goHome()" style="background:#fff;color:#000;padding:14px 22px;border:none;border-radius:12px;font-weight:900;margin-top:15px;cursor:pointer">⬅️ VOLTAR PARA INÍCIO</button>
 </div>
 
-<p class="footer">SPACE COPACABANA - Av. Nossa Senhora de Copacabana<br>RIO NA MÃO - SaaS - Feito com ❤️ no Rio | Made in Rio<br>Pagamento seguro • Stripe • PIX • Cartão</p>
+<div class="bottom-bar">
+  <span class="active" onclick="goHome()">🏠 Início</span>
+  <span onclick="startFreeAndGo('mapa')">🗺️ Mapa</span>
+  <span onclick="alert('Favoritos em breve!')">❤️ Favoritos</span>
+  <span onclick="alert('Perfil em breve!')">👤 Perfil</span>
+</div>
 
 <script>
-let seconds = 30*60;
-let timerInterval;
-let started = false;
+let seconds=30*60, timerInterval, started=false;
 function startFree(){
   if(started) return;
-  started = true;
+  started=true;
   document.getElementById('home').style.display='none';
   document.getElementById('content').style.display='block';
   document.getElementById('timer').style.display='block';
+  document.getElementById('backBtn').style.display='block';
+  showTab('festas',document.querySelector('[data-tab=festas]'));
   window.scrollTo(0,0);
-  timerInterval = setInterval(()=>{
-    seconds--;
-    let m = Math.floor(seconds/60);
-    let s = seconds%60;
-    document.getElementById('time').innerText = (m<10?'0'+m:m)+':'+(s<10?'0'+s:s);
-    if(seconds<=0){ clearInterval(timerInterval); showLock(); }
+  timerInterval=setInterval(()=>{
+    seconds--; let m=Math.floor(seconds/60), s=seconds%60;
+    document.getElementById('time').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);
+    if(seconds<=0){clearInterval(timerInterval); showLock();}
   },1000);
+}
+function startFreeAndGo(tab){
+  if(!started) startFree();
+  else { document.getElementById('home').style.display='none'; document.getElementById('content').style.display='block'; document.getElementById('backBtn').style.display='block'; }
+  // mapeia botões da home
+  if(tab==='comer-quiosques') tab='comer';
+  let el=document.querySelector('[data-tab="'+tab+'"]');
+  if(el) showTab(tab,el);
+  window.scrollTo(0,0);
+}
+function goHome(){
+  // SETINHA DE VOLTAR - NUNCA SAI DO SITE, VOLTA PRA PÁGINA 1
+  document.getElementById('content').style.display='none';
+  document.getElementById('lock').style.display='none';
+  document.getElementById('home').style.display='block';
+  window.scrollTo(0,0);
+}
+function showTab(id,el){
+  document.querySelectorAll('.tabs .tab').forEach(t=>t.classList.remove('active'));
+  if(el) el.classList.add('active');
+  document.querySelectorAll('.tab-content').forEach(c=>c.style.display='none');
+  let target=document.getElementById('tab-'+id);
+  if(target) target.style.display='block';
+  document.getElementById('backBtn').style.display='block';
+  window.scrollTo(0,0);
+}
+function showSub(id,el){
+  document.querySelectorAll('#tab-festas .tab').forEach(t=>t.classList.remove('active'));
+  if(el) el.classList.add('active');
+  ['boats','boates','0800','bailes'].forEach(t=>{
+    let e=document.getElementById('sub-'+t);
+    if(e) e.style.display=(t===id?'block':'none');
+  });
+}
+function showHosp(id,el){
+  document.querySelectorAll('#tab-hospedagem .tab').forEach(t=>t.classList.remove('active'));
+  if(el) el.classList.add('active');
+  document.getElementById('hosp-conta').style.display=(id==='conta'?'block':'none');
+  document.getElementById('hosp-luxo').style.display=(id==='luxo'?'block':'none');
 }
 function showLock(){
   document.getElementById('content').style.display='none';
@@ -200,27 +312,9 @@ function showLock(){
   document.getElementById('lock').style.display='block';
   window.scrollTo(0,0);
 }
-function showTab(id,el){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  ['praias','festas','baile','mapa'].forEach(t=>{
-    document.getElementById('tab-'+t).style.display = (t===id?'block':'none');
-  });
-}
-function openSpace(){
-  document.getElementById('space-detail').style.display='block';
-  window.scrollTo(0,0);
-}
-function closeSpace(){
-  document.getElementById('space-detail').style.display='none';
-}
 function pay(plano){
-  let links = {
-    'A': 'https://buy.stripe.com/5kA3c...PLANO_A_3999',
-    'B': 'https://buy.stripe.com/5kA3c...PLANO_B_6999',
-    'C': 'https://buy.stripe.com/5kA3c...PLANO_C_17999'
-  };
-  alert('🔥 Boa! PLANO '+plano+'!\n\n🇧🇷 Brasileiro: Escolha PIX - QR Code + Copia e Cola\n🇺🇸 Gringo: Escolha CARTÃO');
+  let links={'A':'https://buy.stripe.com/5kA3c...PLANO_A_3999','B':'https://buy.stripe.com/5kA3c...PLANO_B_7999','C':'https://buy.stripe.com/5kA3c...PLANO_C_17999'};
+  alert('🔥 PLANO '+plano+'!\n\n🇧🇷 PIX - QR Code + Copia e Cola\n🇺🇸 Gringo - CARTÃO\n\nCupom ALIEN50 = 50% OFF\n\nClicando em OK vai para pagamento seguro.');
   window.open(links[plano],'_blank');
 }
 </script>
