@@ -8,7 +8,6 @@
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
 body{background:#f2f2f2;padding-bottom:70px}
 .topo{background:#fff;padding:14px;text-align:center;border:1px solid #ddd}.topo b{font-size:21px}
-.banner{background:#2563eb;color:#fff;text-align:center;padding:10px;font-weight:bold}
 .menu{display:flex;flex-wrap:wrap;gap:8px;padding:12px;justify-content:center;background:#e8f5e9}
 .menu button{padding:11px 14px;border:1px solid #ddd;border-radius:20px;background:#fff;font-weight:bold;cursor:pointer}
 .menu button.ativo{background:#f97316;color:#fff}
@@ -30,11 +29,14 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 #trava .box{background:#fff;color:#000;border-radius:12px;padding:14px;margin-bottom:12px;text-align:center}
 #bloqueio{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
 #bloqueio .box{background:#fff;color:#000;border-radius:12px;padding:20px;text-align:center;max-width:400px;width:100%}
+.planos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.plano{border-radius:12px;padding:12px;text-align:center;color:#fff;font-weight:bold}
+.plano small{display:block;font-weight:normal;font-size:12px;margin-top:4px}
+.planoA{background:#22c55e}.planoB{background:#2563eb}.planoC{background:#7c3aed}
 </style>
 </head>
 <body>
 <div class="topo">👽<br><b>Rio na Mão com Thiago Alien</b><br><small>Bem-vindo! / <span id="timer">30:00</span></small><br><small id="statusLiberado" style="color:#22c55e;font-weight:bold"></small></div>
-<div class="banner">Depois escolha seu plano</div>
 <div class="menu">
 <button onclick="mostrar('principal',this)" class="ativo">Início</button>
 <button onclick="mostrar('festas',this)">Festas</button>
@@ -48,7 +50,23 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 
 <div id="principal" class="secao ativa">
 <div class="qr"><h3>📱 SCAN ME</h3><img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://raizdigital85-del.github.io/rio-na-mao/"></div>
-<div class="card" style="text-align:center"><b>QUER CONHECER O RIO DE VERDADE?</b><p>Sem enrolação. O que tá bombando AGORA no Rio.</p><button class="btn bv" onclick="comecarGratis()">👉 CLIQUE AQUI E GARANTA SEU ACESSO GRÁTIS</button><p>✅ Sem cartão • Sem cadastro • Entra na hora</p><button class="btn ba" onclick="abrirPagamento()">💳 QUERO PAGAR AGORA</button></div>
+<div class="card" style="text-align:center;border:2px solid #f97316">
+<b style="font-size:18px">💰 ESCOLHA SEU PLANO</b>
+<div class="planos" style="margin-top:10px">
+<div class="plano planoA">PLANO A<br>1 DIA<br><span style="font-size:20px">R$ 39,99</span><small>1 dia de acesso total</small></div>
+<div class="plano planoB">PLANO B<br>7 DIAS<br><span style="font-size:20px">R$ 69,99</span><small>7 dias de acesso total</small></div>
+<div class="plano planoC">PLANO C<br>30 DIAS<br><span style="font-size:20px">R$ 179,99</span><small>30 dias de acesso total</small></div>
+</div>
+<p><b>🇧🇷 BR / SUL-AMERICANO - PIX: 21 988189111</b></p>
+<p style="font-size:13px">🎟️ Cupom <b>RIO CINQUENTA - 50% OFF</b> - Só para BR / Sul-americano</p>
+<input id="cupomHome" placeholder="Digite o código aqui - Ex: RIO50">
+<button class="btn bam" onclick="aplicarCupomHome()">Aplicar cupom - 50% OFF</button>
+<p id="cupomHomeMsg" style="font-size:13px;font-weight:bold"></p>
+<p style="font-size:12px">🇺🇸 GRINGO - Paga com cartão - Sem cupom</p>
+<button class="btn ba" onclick="abrirPagamento()">💳 PAGUE AQUI - PAGUE O PLANO</button>
+<button class="btn bv" onclick="comecarGratis()">👉 ACESSE GRÁTIS POR 30 MINUTOS - 1 VEZ SÓ</button>
+<p style="font-size:12px">✅ Sem cartão • Sem cadastro • Entra na hora<br>⚠️ Grátis só 1 vez. Acabou, só pagando pra usar de novo.</p>
+</div>
 <div class="card-destaque"><b>🔥 O QUE VOCÊ VAI VER LÁ DENTRO:</b><br>🏖️ Melhores praias HOJE<br>🎉 Festas de HOJE e amanhã<br>🔥 Baile Funk - onde tá rolando<br>🗺️ Mapa completo<br>👽 Ponto SPACE 4:20</div>
 <div class="card" style="border:2px solid #22c55e"><b>👽 SPACE 4:20 HEADSHOP</b><p>📍 Rua do Catete, Rio de Janeiro - RJ</p><p>🔥 Headshop • Tabacaria • Acessórios • O ponto do rolê</p><p>⭐ 4.9 - Aberto agora • Perto do Metrô Catete</p><button class="btn br" onclick="comoChegar('Space 420 Headshop Catete Rio de Janeiro')">📍 VER NO MAPA - CLICK AQUI</button></div>
 </div>
@@ -138,10 +156,10 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 
 <div id="quiosques" class="secao">
 <div class="faixa verde">Melhores quiosques da orla de Copacabana</div>
-<div class="card"><b>Quiosque Nativo - Posto 4</b><p>R$ 28-65</p><button class="btn br" onclick="comoChegar('Quiosque Nativo Copacabana')">Como chegar</button></div>
-<div class="card"><b>Baródromo - Posto 3</b><p>R$ 35-90</p><button class="btn br" onclick="comoChegar('Barodromo Copacabana')">Como chegar</button></div>
-<div class="card"><b>Areia MPB - Entre Posto 2 e 3</b><p>R$ 30-70</p><button class="btn br" onclick="comoChegar('Areia MPB Copacabana')">Como chegar</button></div>
-<div class="card"><b>Coisas de Bamba - Posto 4</b><p>R$ 25-60</p><button class="btn br" onclick="comoChegar('Coisas de Bamba Copacabana')">Como chegar</button></div>
+<div class="card"><b>Quiosque Nativo - Posto 4</b><p>🍤 Prato forte: Camarão Alho e Óleo</p><p>Valor estimado: R$ 65</p><button class="btn br" onclick="comoChegar('Quiosque Nativo Copacabana')">Como chegar</button></div>
+<div class="card"><b>Baródromo - Posto 3</b><p>🐟 Prato forte: Bolinho de Bacalhau</p><p>Valor estimado: R$ 45</p><button class="btn br" onclick="comoChegar('Barodromo Copacabana')">Como chegar</button></div>
+<div class="card"><b>Areia MPB - Entre Posto 2 e 3</b><p>🥥 Prato forte: Bolinho de Aipim com Água de Coco</p><p>Valor estimado: R$ 35</p><button class="btn br" onclick="comoChegar('Areia MPB Copacabana')">Como chegar</button></div>
+<div class="card"><b>Coisas de Bamba - Posto 4</b><p>🍤 Prato forte: Pastel de Camarão</p><p>Valor estimado: R$ 38</p><button class="btn br" onclick="comoChegar('Coisas de Bamba Copacabana')">Como chegar</button></div>
 </div>
 
 <div class="barra"><span onclick="podeUsar()">Início</span><span onclick="podeUsar()">Mapa</span><span onclick="podeUsar()">Favoritos</span><span onclick="podeUsar()">Perfil</span></div>
@@ -194,6 +212,7 @@ function fecharBloqueioEComecar(){ document.getElementById('bloqueio').style.dis
 function fecharBloqueioEPagar(){ document.getElementById('bloqueio').style.display='none'; abrirPagamento(); }
 function abrirPagamento(){ document.getElementById('trava').style.display='block'; }
 function aplicarCupom(){ var v=document.getElementById('cupom').value.trim().toUpperCase(); if(v==='RIO50'||v==='RIO CINQUENTA'||v==='RIOCINQUENTA'){ document.getElementById('pA').innerText='R$ 19,99'; document.getElementById('pB').innerText='R$ 34,99'; document.getElementById('pC').innerText='R$ 89,99'; document.getElementById('cupomMsg').innerText='Cupom RIO CINQUENTA aplicado! 50% OFF - Agora é metade do valor!'; } else { document.getElementById('cupomMsg').innerText='Cupom inválido'; } }
+function aplicarCupomHome(){ var v=document.getElementById('cupomHome').value.trim().toUpperCase(); if(v==='RIO50'||v==='RIO CINQUENTA'||v==='RIOCINQUENTA'){ document.getElementById('cupomHomeMsg').innerText='✅ Cupom aplicado! Plano A R$ 19,99 | Plano B R$ 34,99 | Plano C R$ 89,99 - Paga no PIX 21 988189111'; } else { document.getElementById('cupomHomeMsg').innerText='Cupom inválido'; } }
 function jaPaguei(tipo){ var msg=tipo==='BR'?'Olá Thiago, paguei o plano no PIX - Chave 21 988189111 - Me manda o link liberado!':'Hello Thiago, I paid - Send me the unlocked link!'; window.open('https://wa.me/'+NUMERO_THIAGO+'?text='+encodeURIComponent(msg),'_blank'); }
 </script>
 </body>
