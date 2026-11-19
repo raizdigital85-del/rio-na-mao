@@ -27,7 +27,7 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 .sub{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}.sub button{flex:1}
 #trava{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;z-index:10000;display:none;overflow-y:auto;padding:20px 12px 60px;color:#fff}
 #trava .box{background:#fff;color:#000;border-radius:12px;padding:14px;margin-bottom:12px;text-align:center}
-#bloqueio{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
+#bloqueio{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
 #bloqueio .box{background:#fff;color:#000;border-radius:12px;padding:20px;text-align:center;max-width:400px;width:100%}
 .planos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
 .plano{border-radius:12px;padding:12px;text-align:center;color:#fff;font-weight:bold;cursor:pointer;border:3px solid transparent}
@@ -67,7 +67,7 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 <p id="cupomHomeMsg" style="font-size:13px;font-weight:bold"></p>
 <p style="font-size:12px">🇺🇸 GRINGO - Paga com cartão - Sem cupom</p>
 <button class="btn ba" onclick="abrirPagamento()">💳 PAGUE AQUI - PAGUE O PLANO</button>
-<button class="btn bv" onclick="comecarGratis()">👉 ACESSE GRÁTIS POR 30 MINUTOS - 1 VEZ SÓ</button>
+<button class="btn bv" onclick="comecarGratis()">👉 CLIQUE AQUI E TENHA ACESSO GRÁTIS POR 30 MINUTOS</button>
 <p style="font-size:12px">✅ Sem cartão • Sem cadastro • Entra na hora<br>⚠️ Grátis só 1 vez. Acabou, só pagando pra usar de novo.</p>
 </div>
 <div class="card-destaque"><b>🔥 O QUE VOCÊ VAI VER LÁ DENTRO:</b><br>🏖️ Melhores praias HOJE<br>🎉 Festas de HOJE e amanhã<br>🔥 Baile Funk - onde tá rolando<br>🗺️ Mapa completo<br>👽 Ponto SPACE 4:20</div>
@@ -167,7 +167,7 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 
 <div class="barra"><span onclick="podeUsar()">Início</span><span onclick="podeUsar()">Mapa</span><span onclick="podeUsar()">Favoritos</span><span onclick="podeUsar()">Perfil</span></div>
 
-<div id="bloqueio"><div class="box"><h3>🔒 LIBERE SEU ACESSO PRIMEIRO</h3><p>Para mexer no app, você precisa liberar primeiro.</p><button class="btn bv" onclick="fecharBloqueioEComecar()">INICIAR MEU ACESSO - 30 MIN</button><button class="btn ba" onclick="fecharBloqueioEPagar()">💳 QUERO PAGAR AGORA</button><button class="btn" onclick="fecharBloqueio()" style="background:#eee">Voltar</button></div></div>
+<div id="bloqueio"><div class="box"><h3>🔒 LIBERE SEU ACESSO PRIMEIRO</h3><p>Para mexer no app, você precisa liberar primeiro.</p><button class="btn bv" onclick="fecharBloqueioEComecar()">👉 CLIQUE AQUI E TENHA ACESSO GRÁTIS POR 30 MINUTOS</button><button class="btn ba" onclick="fecharBloqueioEPagar()">💳 QUERO PAGAR AGORA</button><button class="btn" onclick="fecharBloqueio()" style="background:#eee">Voltar</button></div></div>
 
 <div id="trava">
 <h1 style="text-align:center">⏰ SEU TEMPO ACABOU!</h1>
@@ -207,16 +207,16 @@ var LINK_STRIPE_A="https://buy.stripe.com/aFafZhdpYcWPfrJcqS9EI07";
 var LINK_STRIPE_B="https://buy.stripe.com/9B69AT5Xw9KD1AT2Qi9EI05";
 var LINK_STRIPE_C="https://buy.stripe.com/28E7sL85EcWP2EX0Ia9EI06";
 var tempo=30*60, travado=false, comecou=false, intervalo=null, liberado=false, planoEscolhido='', cupomAplicado=false;
-if(window.location.search.indexOf('liberado=thiago123')>-1){ liberado=true; comecou=true; travado=false; document.addEventListener('DOMContentLoaded',function(){ var s=document.getElementById('statusLiberado'); if(s) s.innerText='✅ ACESSO LIBERADO - SEM TRAVA'; var t=document.getElementById('timer'); if(t) t.innerText='LIBERADO'; }); }
+if(window.location.search.indexOf('liberado=thiago123')>-1){ liberado=true; comecou=true; travado=false; }
 function falarDudu(){ if(!podeUsar()) return; window.open('https://wa.me/'+NUMERO_DUDU+'?text='+encodeURIComponent('Olá, estou vindo pelo app do Tiago. Rio está na mão'),'_blank'); }
 function falarPilar(){ if(!podeUsar()) return; window.open('https://wa.me/'+NUMERO_PILAR+'?text='+encodeURIComponent('Olá, estou vindo pelo app do Tiago. Rio está na mão'),'_blank'); }
 function podeUsar(){ if(liberado) return true; if(travado){ document.getElementById('trava').style.display='block'; return false; } if(!comecou){ document.getElementById('bloqueio').style.display='flex'; return false; } return true; }
-function mostrar(id,btn){ if(id!=='principal' && !podeUsar()) return; var s=document.querySelectorAll('.secao'); for(var i=0;i<s.length;i++) s[i].classList.remove('ativa'); var a=document.getElementById(id); if(a) a.classList.add('ativa'); var b=document.querySelectorAll('.menu button'); for(var j=0;j<b.length;j++) b[j].classList.remove('ativo'); if(btn) btn.classList.add('ativo'); window.scrollTo(0,0); }
+function mostrar(id,btn){ if(id!=='principal' && !podeUsar()) return; if(!liberado && !comecou){ document.getElementById('bloqueio').style.display='flex'; return; } var s=document.querySelectorAll('.secao'); for(var i=0;i<s.length;i++) s[i].classList.remove('ativa'); var a=document.getElementById(id); if(a) a.classList.add('ativa'); var b=document.querySelectorAll('.menu button'); for(var j=0;j<b.length;j++) b[j].classList.remove('ativo'); if(btn) btn.classList.add('ativo'); window.scrollTo(0,0); }
 function mostrarSub(id){ if(!podeUsar()) return; document.getElementById('sub-boates').style.display='none'; document.getElementById('sub-0800').style.display='none'; document.getElementById('sub-bailes').style.display='none'; document.getElementById(id).style.display='block'; }
 function mostrarSubH(id){ if(!podeUsar()) return; document.getElementById('sub-barata').style.display='none'; document.getElementById('sub-luxo').style.display='none'; document.getElementById(id).style.display='block'; }
 function comoChegar(l){ if(!podeUsar()) return; window.open('https://www.google.com/maps/search/'+encodeURIComponent(l+' Rio de Janeiro'),'_blank'); }
 function comecarGratis(){ if(comecou || liberado) return; comecou=true; document.getElementById('bloqueio').style.display='none'; intervalo=setInterval(function(){ tempo--; var m=Math.floor(tempo/60); var s=tempo%60; document.getElementById('timer').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s); if(tempo<=0){ clearInterval(intervalo); travado=true; document.getElementById('trava').style.display='block'; } },1000); }
-function fecharBloqueio(){ document.getElementById('bloqueio').style.display='none'; }
+function fecharBloqueio(){ if(liberado || comecou){ document.getElementById('bloqueio').style.display='none'; } }
 function fecharBloqueioEComecar(){ document.getElementById('bloqueio').style.display='none'; comecarGratis(); }
 function fecharBloqueioEPagar(){ document.getElementById('bloqueio').style.display='none'; abrirPagamento(); }
 function pagarStripe(p){ var link=p==='A'?LINK_STRIPE_A:p==='B'?LINK_STRIPE_B:LINK_STRIPE_C; window.open(link,'_blank'); }
@@ -225,6 +225,7 @@ function abrirPagamento(){ document.getElementById('trava').style.display='block
 function aplicarCupom(){ var v=document.getElementById('cupom').value.trim().toUpperCase(); if(v==='RIO50'||v==='RIO CINQUENTA'||v==='RIOCINQUENTA'){ document.getElementById('pA').innerText='R$ 19,99'; document.getElementById('pB').innerText='R$ 34,99'; document.getElementById('pC').innerText='R$ 89,99'; document.getElementById('cupomMsg').innerText='Cupom RIO CINQUENTA aplicado! 50% OFF - Agora é metade do valor!'; } else { document.getElementById('cupomMsg').innerText='Cupom inválido'; } }
 function aplicarCupomHome(){ var v=document.getElementById('cupomHome').value.trim().toUpperCase(); if(v==='RIO50'||v==='RIO CINQUENTA'||v==='RIOCINQUENTA'){ cupomAplicado=true; document.getElementById('precoA').innerText='R$ 19,99'; document.getElementById('precoB').innerText='R$ 34,99'; document.getElementById('precoC').innerText='R$ 89,99'; document.getElementById('pA').innerText='R$ 19,99'; document.getElementById('pB').innerText='R$ 34,99'; document.getElementById('pC').innerText='R$ 89,99'; document.getElementById('cupomHomeMsg').innerText='✅ Cupom aplicado! Plano A R$ 19,99 | Plano B R$ 34,99 | Plano C R$ 89,99 - Paga no PIX 21 988189111'; } else { document.getElementById('cupomHomeMsg').innerText='Cupom inválido'; } }
 function jaPaguei(tipo){ var planoTxt=planoEscolhido?(' Plano '+planoEscolhido):''; var msg=tipo==='BR'?'Olá Thiago, paguei o plano'+planoTxt+' no PIX - Chave 21 988189111 - Me manda o link liberado!':'Hello Thiago, I paid Plan '+planoEscolhido+' - Send me the unlocked link!'; window.open('https://wa.me/'+NUMERO_THIAGO+'?text='+encodeURIComponent(msg),'_blank'); }
+window.addEventListener('load',function(){ if(liberado){ var s=document.getElementById('statusLiberado'); if(s) s.innerText='✅ ACESSO LIBERADO - SEM TRAVA'; var t=document.getElementById('timer'); if(t) t.innerText='LIBERADO'; } else { document.getElementById('bloqueio').style.display='flex'; } });
 </script>
 </body>
 </html>
