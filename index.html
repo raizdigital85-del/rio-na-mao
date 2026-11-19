@@ -155,7 +155,7 @@ function show(id){
 if(acabou && id!=='capa' && id!=='paywall'){id='paywall';}
 document.querySelectorAll('#capa,#p1,#festas,#comer,#hosp,#lugares,#praias,#pilar,#quiosques,#space,#transporte,#paywall').forEach(e=>e.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');window.scrollTo(0,0);}
 window.addEventListener('load', ()=>{ show('capa'); });
-let s=30*60;setInterval(()=>{let m=Math.floor(s/60),ss=s%60;document.getElementById('clock').innerText=(m<10?'0'+m:m)+':'+(ss<10?'0'+ss:ss);if(s>0)s--;else{acabou=true;show('paywall');document.getElementById('timerBox').innerText='Tempo grátis acabou! Pague para continuar!';}},1000);
+let s=10;setInterval(()=>{let m=Math.floor(s/60),ss=s%60;document.getElementById('clock').innerText=(m<10?'0'+m:m)+':'+(ss<10?'0'+ss:ss);if(s>0)s--;else{acabou=true;show('paywall');document.getElementById('timerBox').innerText='Tempo grátis acabou! Pague para continuar!';}},1000);
 </script>
 </body>
 </html>
