@@ -30,9 +30,11 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 #bloqueio{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px}
 #bloqueio .box{background:#fff;color:#000;border-radius:12px;padding:20px;text-align:center;max-width:400px;width:100%}
 .planos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
-.plano{border-radius:12px;padding:12px;text-align:center;color:#fff;font-weight:bold}
+.plano{border-radius:12px;padding:12px;text-align:center;color:#fff;font-weight:bold;cursor:pointer;border:3px solid transparent}
+.plano:active{transform:scale(0.97)}
 .plano small{display:block;font-weight:normal;font-size:12px;margin-top:4px}
 .planoA{background:#22c55e}.planoB{background:#2563eb}.planoC{background:#7c3aed}
+.planoSel{border-color:#000 !important;box-shadow:0 0 0 3px #facc15}
 </style>
 </head>
 <body>
@@ -51,12 +53,13 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 <div id="principal" class="secao ativa">
 <div class="qr"><h3>📱 SCAN ME</h3><img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://raizdigital85-del.github.io/rio-na-mao/"></div>
 <div class="card" style="text-align:center;border:2px solid #f97316">
-<b style="font-size:18px">💰 ESCOLHA SEU PLANO</b>
+<b style="font-size:18px">💰 ESCOLHA SEU PLANO - CLIQUE NO PLANO</b>
 <div class="planos" style="margin-top:10px">
-<div class="plano planoA">PLANO A<br>1 DIA<br><span style="font-size:20px">R$ 39,99</span><small>1 dia de acesso total</small></div>
-<div class="plano planoB">PLANO B<br>7 DIAS<br><span style="font-size:20px">R$ 69,99</span><small>7 dias de acesso total</small></div>
-<div class="plano planoC">PLANO C<br>30 DIAS<br><span style="font-size:20px">R$ 179,99</span><small>30 dias de acesso total</small></div>
+<div class="plano planoA" id="cardA" onclick="selecionarPlano('A')">PLANO A<br>1 DIA<br><span style="font-size:20px" id="precoA">R$ 39,99</span><small>1 dia de acesso total</small><small>👆 CLIQUE PARA PAGAR</small></div>
+<div class="plano planoB" id="cardB" onclick="selecionarPlano('B')">PLANO B<br>7 DIAS<br><span style="font-size:20px" id="precoB">R$ 69,99</span><small>7 dias de acesso total</small><small>👆 CLIQUE PARA PAGAR</small></div>
+<div class="plano planoC" id="cardC" onclick="selecionarPlano('C')">PLANO C<br>30 DIAS<br><span style="font-size:20px" id="precoC">R$ 179,99</span><small>30 dias de acesso total</small><small>👆 CLIQUE PARA PAGAR</small></div>
 </div>
+<p id="planoEscolhidoMsg" style="font-weight:bold;color:#4c1d95"></p>
 <p><b>🇧🇷 BR / SUL-AMERICANO - PIX: 21 988189111</b></p>
 <p style="font-size:13px">🎟️ Cupom <b>RIO CINQUENTA - 50% OFF</b> - Só para BR / Sul-americano</p>
 <input id="cupomHome" placeholder="Digite o código aqui - Ex: RIO50">
@@ -168,26 +171,26 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 
 <div id="trava">
 <h1 style="text-align:center">⏰ SEU TEMPO ACABOU!</h1>
-<div class="box"><b>Seu tempo acabou! Para continuar, acesse aqui ⏰</b><p>Para continuar usando o Rio na Mão, escolha um plano abaixo.</p><p>Quer continuar? Assine aqui!</p></div>
+<div class="box"><b>Seu tempo acabou! Para continuar, acesse aqui ⏰</b><p>Para continuar usando o Rio na Mão, escolha um plano abaixo.</p><p id="travaPlanoMsg" style="font-weight:bold;color:#4c1d95"></p><p>Quer continuar? Assine aqui!</p></div>
 <div class="box" style="border:3px solid #22c55e">
 <h3>🇧🇷 BRASILEIRO / SUL-AMERICANO - PIX DIRETO</h3>
 <p><b>Chave PIX: 21 988189111</b></p>
 <p>Plano A - 1 Dia: <b id="pA">R$ 39,99</b></p>
 <p>Plano B - 7 Dias: <b id="pB">R$ 69,99</b></p>
 <p>Plano C - 30 Dias: <b id="pC">R$ 179,99</b></p>
-<p><b>Cupom RIO CINQUENTA - 50% OFF</b></p>
+<p><b>Cupom RIO CINQUENTA - 50% OFF - Só BR / Sul-americano</b></p>
 <input id="cupom" placeholder="Digite o código aqui">
 <button class="btn bv" onclick="aplicarCupom()">Aplicar cupom</button>
 <p id="cupomMsg"></p>
 <button class="btn bv" onclick="jaPaguei('BR')">Já paguei - Mandar comprovante no WhatsApp</button>
-<p style="font-size:12px">Copia a chave PIX, paga no seu banco, clica em Já paguei</p>
+<p style="font-size:12px">Copia a chave PIX, paga no seu banco, clica em Já paguei - Cai mensagem no WhatsApp do Thiago</p>
 </div>
 <div class="box" style="border:3px solid #2563eb">
 <h3>🇺🇸 GRINGO - INTERNATIONAL - CARD</h3>
 <p>Plan A - 1 Day: <b>R$ 39,99</b></p>
 <p>Plan B - 7 Days: <b>R$ 69,99</b></p>
 <p>Plan C - 30 Days: <b>R$ 179,99</b></p>
-<p>Pay with Card - Secure</p>
+<p>Pay with Card - Secure - No coupon</p>
 <button class="btn ba" onclick="jaPaguei('GRINGO')">I paid - Send on WhatsApp</button>
 </div>
 <button class="btn" onclick="document.getElementById('trava').style.display='none'" style="background:#fff;color:#000">Fechar</button>
@@ -197,7 +200,7 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 var NUMERO_THIAGO="5521988189111";
 var NUMERO_DUDU="552199113829";
 var NUMERO_PILAR="5521988906447";
-var tempo=30*60, travado=false, comecou=false, intervalo=null, liberado=false;
+var tempo=30*60, travado=false, comecou=false, intervalo=null, liberado=false, planoEscolhido='', cupomAplicado=false;
 if(window.location.search.indexOf('liberado=thiago123')>-1){ liberado=true; comecou=true; travado=false; document.addEventListener('DOMContentLoaded',function(){ var s=document.getElementById('statusLiberado'); if(s) s.innerText='✅ ACESSO LIBERADO - SEM TRAVA'; var t=document.getElementById('timer'); if(t) t.innerText='LIBERADO'; }); }
 function falarDudu(){ if(!podeUsar()) return; window.open('https://wa.me/'+NUMERO_DUDU+'?text='+encodeURIComponent('Olá, estou vindo pelo app do Tiago. Rio está na mão'),'_blank'); }
 function falarPilar(){ if(!podeUsar()) return; window.open('https://wa.me/'+NUMERO_PILAR+'?text='+encodeURIComponent('Olá, estou vindo pelo app do Tiago. Rio está na mão'),'_blank'); }
@@ -210,10 +213,11 @@ function comecarGratis(){ if(comecou || liberado) return; comecou=true; document
 function fecharBloqueio(){ document.getElementById('bloqueio').style.display='none'; }
 function fecharBloqueioEComecar(){ document.getElementById('bloqueio').style.display='none'; comecarGratis(); }
 function fecharBloqueioEPagar(){ document.getElementById('bloqueio').style.display='none'; abrirPagamento(); }
+function selecionarPlano(p){ planoEscolhido=p; document.getElementById('cardA').classList.remove('planoSel'); document.getElementById('cardB').classList.remove('planoSel'); document.getElementById('cardC').classList.remove('planoSel'); document.getElementById('card'+p).classList.add('planoSel'); var nome=p==='A'?'PLANO A - 1 DIA':p==='B'?'PLANO B - 7 DIAS':'PLANO C - 30 DIAS'; document.getElementById('planoEscolhidoMsg').innerText='✅ Você escolheu: '+nome+' - Desce e paga no PIX ou cartão!'; document.getElementById('travaPlanoMsg').innerText='✅ Você escolheu: '+nome; abrirPagamento(); }
 function abrirPagamento(){ document.getElementById('trava').style.display='block'; }
 function aplicarCupom(){ var v=document.getElementById('cupom').value.trim().toUpperCase(); if(v==='RIO50'||v==='RIO CINQUENTA'||v==='RIOCINQUENTA'){ document.getElementById('pA').innerText='R$ 19,99'; document.getElementById('pB').innerText='R$ 34,99'; document.getElementById('pC').innerText='R$ 89,99'; document.getElementById('cupomMsg').innerText='Cupom RIO CINQUENTA aplicado! 50% OFF - Agora é metade do valor!'; } else { document.getElementById('cupomMsg').innerText='Cupom inválido'; } }
-function aplicarCupomHome(){ var v=document.getElementById('cupomHome').value.trim().toUpperCase(); if(v==='RIO50'||v==='RIO CINQUENTA'||v==='RIOCINQUENTA'){ document.getElementById('cupomHomeMsg').innerText='✅ Cupom aplicado! Plano A R$ 19,99 | Plano B R$ 34,99 | Plano C R$ 89,99 - Paga no PIX 21 988189111'; } else { document.getElementById('cupomHomeMsg').innerText='Cupom inválido'; } }
-function jaPaguei(tipo){ var msg=tipo==='BR'?'Olá Thiago, paguei o plano no PIX - Chave 21 988189111 - Me manda o link liberado!':'Hello Thiago, I paid - Send me the unlocked link!'; window.open('https://wa.me/'+NUMERO_THIAGO+'?text='+encodeURIComponent(msg),'_blank'); }
+function aplicarCupomHome(){ var v=document.getElementById('cupomHome').value.trim().toUpperCase(); if(v==='RIO50'||v==='RIO CINQUENTA'||v==='RIOCINQUENTA'){ cupomAplicado=true; document.getElementById('precoA').innerText='R$ 19,99'; document.getElementById('precoB').innerText='R$ 34,99'; document.getElementById('precoC').innerText='R$ 89,99'; document.getElementById('pA').innerText='R$ 19,99'; document.getElementById('pB').innerText='R$ 34,99'; document.getElementById('pC').innerText='R$ 89,99'; document.getElementById('cupomHomeMsg').innerText='✅ Cupom aplicado! Plano A R$ 19,99 | Plano B R$ 34,99 | Plano C R$ 89,99 - Paga no PIX 21 988189111'; } else { document.getElementById('cupomHomeMsg').innerText='Cupom inválido'; } }
+function jaPaguei(tipo){ var planoTxt=planoEscolhido?(' Plano '+planoEscolhido):''; var msg=tipo==='BR'?'Olá Thiago, paguei o plano'+planoTxt+' no PIX - Chave 21 988189111 - Me manda o link liberado!':'Hello Thiago, I paid Plan '+planoEscolhido+' - Send me the unlocked link!'; window.open('https://wa.me/'+NUMERO_THIAGO+'?text='+encodeURIComponent(msg),'_blank'); }
 </script>
 </body>
 </html>
