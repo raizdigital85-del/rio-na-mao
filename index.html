@@ -10,7 +10,7 @@ body{margin:0;font-family:Arial;background:#0a0a1a;color:white;text-align:center
 .top h1{margin:0;font-size:32px}
 .top p{margin:5px 0 0;opacity:.9}
 .timer{background:#ffcc00;color:#111;margin:15px;border-radius:15px;padding:15px;font-size:20px;font-weight:bold}
-.btn-entrar{display:block;background:#00c853;color:white;text-decoration:none;padding:20px;border-radius:15px;font-size:21px;font-weight:bold;margin:15px;line-height:1.3}
+.btn-entrar{display:block;background:#00c853;color:white;text-decoration:none;padding:20px;border-radius:15px;font-size:21px;font-weight:bold;margin:15px;line-height:1.3;cursor:pointer;border:none;width:calc(100% - 30px)}
 .btn-entrar span{font-size:15px;font-weight:normal;opacity:.9}
 .card{background:white;color:#111;margin:15px;border-radius:20px;padding:15px;text-align:left}
 .card h2{margin:0 0 10px;font-size:20px}
@@ -18,15 +18,16 @@ body{margin:0;font-family:Arial;background:#0a0a1a;color:white;text-align:center
 .pin{display:block;background:#f1f1f1;color:#333;text-decoration:none;padding:10px 12px;border-radius:10px;margin-top:10px;font-size:13px;line-height:1.4}
 .pin b{font-size:14px;color:#111}
 .pin span{color:#00c853;font-weight:bold;font-size:12px}
-.qr{background:white;color:#111;margin:15px;border-radius:20px;padding:20px}
+.qr{background:white;color:#111;margin:15px;border-radius:20px;padding:20px;cursor:pointer}
 .qr img{width:200px;height:200px}
 .qr a{color:#00c853;font-weight:bold;text-decoration:none}
-.gratis{background:white;color:#111;margin:15px;border-radius:20px;padding:20px;text-align:left}
+.gratis{background:white;color:#111;margin:15px;border-radius:20px;padding:20px;text-align:left;display:none}
 .gratis h2{text-align:center;margin:0 0 15px}
 .cat{background:#f1f1f1;border-radius:15px;padding:15px;margin-bottom:12px}
 .cat b{font-size:18px}
 .cat p{margin:5px 0 0;font-size:14px;color:#444}
 .cat a{display:inline-block;background:#00c853;color:white;text-decoration:none;padding:10px 15px;border-radius:10px;margin-top:10px;font-weight:bold;font-size:14px}
+.planos{display:none}
 .plano{background:white;color:#111;margin:15px;border-radius:20px;padding:20px;text-align:center}
 .plano h3{margin:0;font-size:22px}
 .plano p{font-size:28px;font-weight:bold;margin:10px 0}
@@ -43,16 +44,16 @@ body{margin:0;font-family:Arial;background:#0a0a1a;color:white;text-align:center
 <p>Your Guide in Copacabana</p>
 </div>
 
-<div class="timer" id="timerBox">Tempo grátis: 30:00 / Free time: 30:00</div>
+<div class="timer" id="timerBox">Clique para começar seu grátis / Click to start your free trial</div>
 
-<a class="btn-entrar" href="#gratis">👆 CLIQUE E GARANTA<br>SEU ACESSO GRÁTIS<br><span>CLICK AND GET YOUR FREE ACCESS</span></a>
+<button class="btn-entrar" onclick="entrarGratis()">👆 CLIQUE E GARANTA<br>SEU ACESSO GRÁTIS<br><span>CLICK AND GET YOUR FREE ACCESS</span></button>
 
-<div class="qr">
+<div class="qr" onclick="entrarGratis()">
 <h2 style="margin:0">SCAN ME</h2>
 <p style="margin:5px 0">Aponte sua câmera aqui<br>Point your camera here</p>
-<a href="#gratis"><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://raizdigital85-del.github.io/rio-na-mao/" alt="QR Code"></a>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://raizdigital85-del.github.io/rio-na-mao/" alt="QR Code">
 <p><b>COMECE GRÁTIS - 30 MINUTOS<br>START FREE - 30 MIN TRIAL</b></p>
-<p><a href="#gratis">👆 Toque no QR para entrar grátis<br>Tap QR to enter free →</a></p>
+<p>👆 Toque no QR para entrar grátis<br>Tap QR to enter free →</p>
 </div>
 
 <div class="card">
@@ -72,38 +73,36 @@ Souvenir & Gift Shop - Av. Nossa Senhora de Copacabana<br>
 
 <div class="cat">
 <b>🏖️ Praias / Beaches</b>
-<p>Praia de Copacabana, Ipanema, Leblon - As melhores praias do Rio!</p>
+<p>Praia de Copacabana, Ipanema, Leblon - As melhores praias do Rio! / Best beaches in Rio!</p>
 <a href="https://www.google.com/maps?q=Praia+de+Copacabana" target="_blank">Ver no mapa / View on map →</a>
 </div>
 
 <div class="cat">
 <b>🍽️ Onde Comer / Where to Eat</b>
-<p>Restaurantes, lanchonetes e comida de rua em Copacabana!</p>
+<p>Restaurantes, lanchonetes e comida de rua em Copacabana! / Restaurants and street food!</p>
 <a href="https://www.google.com/maps?q=restaurantes+Copacabana" target="_blank">Ver no mapa / View on map →</a>
 </div>
 
 <div class="cat">
 <b>🎉 Festas / Parties</b>
-<p>As melhores festas e baladas do Rio hoje!</p>
+<p>As melhores festas e baladas do Rio hoje! / Best parties in Rio today!</p>
 <a href="https://www.google.com/maps?q=baladas+Copacabana" target="_blank">Ver no mapa / View on map →</a>
 </div>
 
 <div class="cat">
 <b>🚶 Passeios / Tours</b>
-<p>Cristo Redentor, Pão de Açúcar, Maracanã!</p>
+<p>Cristo Redentor, Pão de Açúcar, Maracanã! / Christ, Sugar Loaf, Maracanã!</p>
 <a href="https://www.google.com/maps?q=Cristo+Redentor" target="_blank">Ver no mapa / View on map →</a>
 </div>
 
 <div class="cat">
 <b>🛍️ Compras / Shopping</b>
-<p>SPACE COPACABANA - Souvenirs e presentes!</p>
+<p>SPACE COPACABANA - Souvenirs e presentes! / Souvenirs and gifts!</p>
 <a href="https://www.google.com/maps?q=Av.+Nossa+Senhora+de+Copacabana" target="_blank">Como chegar / How to get there →</a>
 </div>
-
-<p style="text-align:center;font-size:13px;color:#777">Você tem 30 minutos grátis para explorar!<br>You have 30 free minutes to explore!</p>
 </div>
 
-<div id="planos">
+<div class="planos" id="planos">
 <div class="plano">
 <h3>PLANO A - 1 DIA / PLAN A - 1 DAY</h3>
 <p>R$ 39,99</p>
@@ -130,16 +129,31 @@ Souvenir & Gift Shop - Av. Nossa Senhora de Copacabana<br>
 
 <script>
 let s=30*60;
+let comecou=false;
 let timerBox=document.getElementById('timerBox');
 let gratisBox=document.getElementById('gratis');
-setInterval(function(){
-  if(s<=0){ timerBox.innerText='Tempo grátis acabou! / Free time is over! Pague para continuar! / Pay to continue!'; gratisBox.style.display='none'; return; }
-  let m=Math.floor(s/60);
-  let sec=s%60;
-  if(sec<10){sec='0'+sec;}
-  timerBox.innerText='Tempo grátis: '+m+':'+sec+' / Free time: '+m+':'+sec;
-  s--;
-},1000);
+let planosBox=document.getElementById('planos');
+
+function entrarGratis(){
+  if(comecou) return;
+  comecou=true;
+  gratisBox.style.display='block';
+  gratisBox.scrollIntoView({behavior:'smooth'});
+  setInterval(function(){
+    if(s<=0){
+      timerBox.innerText='Tempo grátis acabou! / Free time is over! Pague para continuar! / Pay to continue!';
+      gratisBox.style.display='none';
+      planosBox.style.display='block';
+      planosBox.scrollIntoView({behavior:'smooth'});
+      return;
+    }
+    let m=Math.floor(s/60);
+    let sec=s%60;
+    if(sec<10){sec='0'+sec;}
+    timerBox.innerText='Tempo grátis: '+m+':'+sec+' / Free time: '+m+':'+sec;
+    s--;
+  },1000);
+}
 </script>
 </body>
 </html>
