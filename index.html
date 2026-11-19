@@ -188,10 +188,13 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 <div class="box" style="border:3px solid #2563eb">
 <h3>🇺🇸 GRINGO - INTERNATIONAL - CARD</h3>
 <p>Plan A - 1 Day: <b>R$ 39,99</b></p>
+<button class="btn ba" onclick="pagarStripe('A')">💳 PAY PLAN A - CARD - STRIPE</button>
 <p>Plan B - 7 Days: <b>R$ 69,99</b></p>
+<button class="btn ba" onclick="pagarStripe('B')">💳 PAY PLAN B - CARD - STRIPE</button>
 <p>Plan C - 30 Days: <b>R$ 179,99</b></p>
+<button class="btn ba" onclick="pagarStripe('C')">💳 PAY PLAN C - CARD - STRIPE</button>
 <p>Pay with Card - Secure - No coupon</p>
-<button class="btn ba" onclick="jaPaguei('GRINGO')">I paid - Send on WhatsApp</button>
+<button class="btn bv" onclick="jaPaguei('GRINGO')">I paid - Send on WhatsApp</button>
 </div>
 <button class="btn" onclick="document.getElementById('trava').style.display='none'" style="background:#fff;color:#000">Fechar</button>
 </div>
@@ -200,6 +203,9 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 var NUMERO_THIAGO="5521988189111";
 var NUMERO_DUDU="552199113829";
 var NUMERO_PILAR="5521988906447";
+var LINK_STRIPE_A="https://buy.stripe.com/aFafZhdpYcWPfrJcqS9EI07";
+var LINK_STRIPE_B="https://buy.stripe.com/9B69AT5Xw9KD1AT2Qi9EI05";
+var LINK_STRIPE_C="https://buy.stripe.com/28E7sL85EcWP2EX0Ia9EI06";
 var tempo=30*60, travado=false, comecou=false, intervalo=null, liberado=false, planoEscolhido='', cupomAplicado=false;
 if(window.location.search.indexOf('liberado=thiago123')>-1){ liberado=true; comecou=true; travado=false; document.addEventListener('DOMContentLoaded',function(){ var s=document.getElementById('statusLiberado'); if(s) s.innerText='✅ ACESSO LIBERADO - SEM TRAVA'; var t=document.getElementById('timer'); if(t) t.innerText='LIBERADO'; }); }
 function falarDudu(){ if(!podeUsar()) return; window.open('https://wa.me/'+NUMERO_DUDU+'?text='+encodeURIComponent('Olá, estou vindo pelo app do Tiago. Rio está na mão'),'_blank'); }
@@ -213,7 +219,8 @@ function comecarGratis(){ if(comecou || liberado) return; comecou=true; document
 function fecharBloqueio(){ document.getElementById('bloqueio').style.display='none'; }
 function fecharBloqueioEComecar(){ document.getElementById('bloqueio').style.display='none'; comecarGratis(); }
 function fecharBloqueioEPagar(){ document.getElementById('bloqueio').style.display='none'; abrirPagamento(); }
-function selecionarPlano(p){ planoEscolhido=p; document.getElementById('cardA').classList.remove('planoSel'); document.getElementById('cardB').classList.remove('planoSel'); document.getElementById('cardC').classList.remove('planoSel'); document.getElementById('card'+p).classList.add('planoSel'); var nome=p==='A'?'PLANO A - 1 DIA':p==='B'?'PLANO B - 7 DIAS':'PLANO C - 30 DIAS'; document.getElementById('planoEscolhidoMsg').innerText='✅ Você escolheu: '+nome+' - Desce e paga no PIX ou cartão!'; document.getElementById('travaPlanoMsg').innerText='✅ Você escolheu: '+nome; abrirPagamento(); }
+function pagarStripe(p){ var link=p==='A'?LINK_STRIPE_A:p==='B'?LINK_STRIPE_B:LINK_STRIPE_C; window.open(link,'_blank'); }
+function selecionarPlano(p){ planoEscolhido=p; document.getElementById('cardA').classList.remove('planoSel'); document.getElementById('cardB').classList.remove('planoSel'); document.getElementById('cardC').classList.remove('planoSel'); document.getElementById('card'+p).classList.add('planoSel'); var nome=p==='A'?'PLANO A - 1 DIA':p==='B'?'PLANO B - 7 DIAS':'PLANO C - 30 DIAS'; document.getElementById('planoEscolhidoMsg').innerText='✅ Você escolheu: '+nome+' - Abrindo pagamento Stripe...'; document.getElementById('travaPlanoMsg').innerText='✅ Você escolheu: '+nome; pagarStripe(p); }
 function abrirPagamento(){ document.getElementById('trava').style.display='block'; }
 function aplicarCupom(){ var v=document.getElementById('cupom').value.trim().toUpperCase(); if(v==='RIO50'||v==='RIO CINQUENTA'||v==='RIOCINQUENTA'){ document.getElementById('pA').innerText='R$ 19,99'; document.getElementById('pB').innerText='R$ 34,99'; document.getElementById('pC').innerText='R$ 89,99'; document.getElementById('cupomMsg').innerText='Cupom RIO CINQUENTA aplicado! 50% OFF - Agora é metade do valor!'; } else { document.getElementById('cupomMsg').innerText='Cupom inválido'; } }
 function aplicarCupomHome(){ var v=document.getElementById('cupomHome').value.trim().toUpperCase(); if(v==='RIO50'||v==='RIO CINQUENTA'||v==='RIOCINQUENTA'){ cupomAplicado=true; document.getElementById('precoA').innerText='R$ 19,99'; document.getElementById('precoB').innerText='R$ 34,99'; document.getElementById('precoC').innerText='R$ 89,99'; document.getElementById('pA').innerText='R$ 19,99'; document.getElementById('pB').innerText='R$ 34,99'; document.getElementById('pC').innerText='R$ 89,99'; document.getElementById('cupomHomeMsg').innerText='✅ Cupom aplicado! Plano A R$ 19,99 | Plano B R$ 34,99 | Plano C R$ 89,99 - Paga no PIX 21 988189111'; } else { document.getElementById('cupomHomeMsg').innerText='Cupom inválido'; } }
