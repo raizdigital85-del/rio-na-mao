@@ -3,159 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RIO NA MÃO</title>
+<title>RIO NA MÃO - Copacabana</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#f2f2f2;color:#111}
-.top{background:#fff;padding:14px 15px 10px;position:sticky;top:0;z-index:10;border-bottom:1px solid #ddd;text-align:center}
-.timer{background:#ffcc00;font-weight:bold;padding:10px;font-size:16px}
-.banner{background:#2563eb;color:#fff;margin:12px;border-radius:14px;padding:14px;text-align:center}
-.btn{display:block;background:#fff;border:1px solid #ddd;border-radius:14px;padding:16px;margin:10px 12px;font-size:18px;font-weight:bold;text-align:left;cursor:pointer}
-.btn small{display:block;font-weight:normal;color:#555;font-size:13px}
-.card{background:#fff;margin:10px 12px;border-radius:14px;padding:14px;border:1px solid #ddd}
-.card b{font-size:16px}.card p{margin:6px 0;color:#333;font-size:14px}
-.tag{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold;color:#fff}
-.go{display:block;background:#00c853;color:#fff;text-align:center;padding:13px;border-radius:12px;text-decoration:none;font-weight:bold;margin-top:10px}
-.wa{display:block;background:#25D366;color:#fff;text-align:center;padding:13px;border-radius:12px;text-decoration:none;font-weight:bold;margin-top:8px}
-.big{display:block;background:#00c853;color:#fff;text-align:center;padding:18px;border-radius:14px;text-decoration:none;font-weight:bold;font-size:20px;margin:12px}
-.back{background:#111;color:#fff;border:0;padding:10px 14px;border-radius:10px;margin:10px 12px}
-.nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;border-top:1px solid #ddd;padding:10px 0;text-align:center;font-size:12px}
-.nav div{flex:1;cursor:pointer}.pad{padding-bottom:70px}
-.pay{background:#111;color:#fff;margin:12px;border-radius:14px;padding:16px;text-align:center}
-.pay a{display:block;background:#00c853;color:#fff;padding:14px;border-radius:12px;text-decoration:none;font-weight:bold;margin:8px 0}
-.gold{background:#FFD700;color:#111;padding:16px;border-radius:14px;margin:10px 12px;font-weight:bold;text-align:center;cursor:pointer}
-.hidden{display:none}
+body{margin:0;font-family:Arial;background:#0a0a1a;color:white;text-align:center}
+.top{background:linear-gradient(135deg,#00ff88,#7b2fff);padding:25px 15px}
+.top h1{margin:0;font-size:32px}
+.top p{margin:5px 0 0;opacity:.9}
+.card{background:white;color:#111;margin:15px;border-radius:20px;padding:15px;text-align:left}
+.card h2{margin:0 0 10px;font-size:20px}
+.map{width:100%;height:280px;border:0;border-radius:15px}
+.pin{background:#00c853;color:white;padding:12px;border-radius:12px;margin-top:12px}
+.pin b{font-size:18px}
+.timer{background:#ffcc00;color:#111;margin:15px;border-radius:15px;padding:15px;font-size:20px;font-weight:bold}
+.plano{background:white;color:#111;margin:15px;border-radius:20px;padding:20px;text-align:center}
+.plano h3{margin:0;font-size:22px}
+.plano p{font-size:28px;font-weight:bold;margin:10px 0}
+.btn{display:block;background:#00c853;color:white;text-decoration:none;padding:18px;border-radius:15px;font-size:20px;font-weight:bold;margin:15px}
+.btn2{display:block;background:#7b2fff;color:white;text-decoration:none;padding:15px;border-radius:15px;font-weight:bold;margin:0 15px 20px}
+.small{font-size:13px;opacity:.7;padding:0 15px 20px}
 </style>
 </head>
 <body>
-<div class="top"><div style="font-size:22px;font-weight:bold">👽 RIO NA MÃO <span style="font-weight:normal;font-size:14px">com Thiago Alien</span></div><div style="font-size:12px;color:#666">Copacabana • Rio de Janeiro</div></div>
-<div class="timer" id="timerBox">⏰ Use grátis por 30 minutos: <span id="clock">30:00</span></div>
-<div class="pad">
-
-<div id="capa">
-<div class="banner"><b>Bem-vindo! Welcome!</b><br>Turista no Rio? Tudo na palma da mão em 1 clique!</div>
-<div class="card" style="text-align:center"><h2>SCAN ME</h2><p>Aponte sua câmera aqui<br>Point your camera here</p><img style="width:180px" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://raizdigital85-del.github.io/rio-na-mao/"><br><b>START FREE 30 MIN TRIAL</b><br>Comece Grátis - 30 Minutos</div>
-<a class="big" href="#" onclick="show('p1');return false;">🚀 ENTRAR NO APP GRÁTIS - 30 MIN<br><small style="font-size:13px;font-weight:normal">ENTER FREE APP</small></a>
-<div class="card" style="text-align:center"><h2>🗺️ Mapa de Copacabana</h2><iframe style="width:100%;height:250px;border:0;border-radius:12px" src="https://www.google.com/maps?q=Copacabana+Rio+de+Janeiro&output=embed"></iframe><div style="background:#00c853;color:#fff;padding:12px;border-radius:12px;margin-top:10px;text-align:left"><b>📍 SPACE COPACABANA</b><br>Souvenir & Gift Shop<br>Av. Nossa Senhora de Copacabana<br>⭐ 4.9 - Aberto Agora</div></div>
-<div class="pay"><h2>💳 Choose Your Pass / Escolha Seu Plano</h2><p>DIÁRIO - R$ 39,99 - Vale por 24h<br>SEMANAL - R$ 79,99 - Vale por 7 dias - MAIS ESCOLHIDO<br>MENSAL - R$ 179,99 - Vale por 30 dias</p><p>CUPOM ALIEN50 dá 50%: R$ 19,99 / R$ 39,99 / R$ 89,99<br><b>Cupom ALIEN50 aplicado! Desconto de outro planeta 👽</b></p>
-<a href="https://buy.stripe.com/6oU8wP71A2ibenF2Qi9EI02" target="_blank">🚀 1 DAY PASS - R$ 19,99 com ALIEN50</a>
-<a style="background:#ff9800" href="https://buy.stripe.com/bJe14n0Dcg911ATfD49EI01" target="_blank">🔥 7 DAY PASS - R$ 39,99 com ALIEN50</a>
-<a style="background:#7b2fff" href="https://buy.stripe.com/14A5kDdpYg91a7p1Me9EI03" target="_blank">👑 30 DAY PASS - R$ 89,99 com ALIEN50</a></div>
-<a class="big" style="background:#7b2fff" href="#" onclick="show('p1');return false;">👉 JÁ PAGUEI - ENTRAR NO APP</a>
-<p style="text-align:center;font-size:12px;color:#777">SPACE COPACABANA - Av. Nossa Senhora de Copacabana<br>Feito com ❤️ no Rio | Made in Rio</p>
+<div class="top">
+<h1>👽 RIO NA MÃO</h1>
+<p>Copacabana • Rio de Janeiro</p>
+<p>Your Guide in Copacabana</p>
 </div>
 
-<div id="p1" class="hidden">
-<div class="banner"><b>Bem-vindo! Welcome!</b><br>Use grátis por 30 minutos / Free 30 min</div>
-<button class="back" onclick="show('capa')">← Voltar pra Capa / Pagar</button>
-<button class="btn" onclick="show('festas')">🎉 Festas<small>Boates • Festas 0800 • Bailes</small></button>
-<button class="btn" onclick="show('comer')">🍽️ Onde Comer / Gastronomia<small>Restaurantes • Lanches • Quiosques • Churrasco</small></button>
-<button class="btn" onclick="show('hosp')">🛏️ Hospedagem<small>Mais em conta • Luxo Copacabana</small></button>
-<button class="btn" onclick="show('lugares')">🗽 Lugares Turísticos<small>Cristo • Pão de Açúcar • Santa Teresa</small></button>
-<button class="btn" onclick="show('praias')">🏖️ Praias<small>Leme • Copacabana • Ipanema • Leblon • Arpoador • Barra</small></button>
-<button class="btn" onclick="show('pilar')">✨ Passeio Exclusivo com Guia<small>Com a Nossa Guia Parceira Pilar</small></button>
-<button class="btn" onclick="show('quiosques')">🥥 Melhores Quiosques da Orla de Copacabana<small>Posto 2 a 5</small></button>
-<div class="gold" onclick="show('space')">✅ SPACE 4:20 Headshop<br><small>Sua tabacaria em Copacabana - Orla Posto 4<br>Selo de Qualidade Autorizado - Rio na Mão</small></div>
-<button class="btn" onclick="show('transporte')">🚕 Motorista Parceira Pilar<small>Transfer • Aeroporto • Passeios - Pilar</small></button>
+<div class="timer" id="timerBox">Tempo grátis: 30:00</div>
+
+<div class="card">
+<h2>🗺️ Mapa de Copacabana</h2>
+<iframe class="map" src="https://www.google.com/maps?q=Copacabana+Rio+de+Janeiro&output=embed"></iframe>
+<div class="pin">
+<b>📍 SPACE COPACABANA</b><br>
+Souvenir & Gift Shop<br>
+Av. Nossa Senhora de Copacabana<br>
+⭐ 4.9 - Aberto Agora
+</div>
 </div>
 
-<div id="festas" class="hidden"><button class="back" onclick="show('p1')">← Voltar</button>
-<div class="card"><span class="tag" style="background:#ff6a00">FESTAS / DIVERSÃO / RJ</span><h3>Boates / Discotecas - Pagas</h3></div>
-<div class="card"><b>1. Boite Paradiso</b><p>Copacabana - Posto 4 - Reggaeton / Latina / MIX - Qui e Sáb - PAGA</p><a class="go" href="https://www.google.com/maps?q=Boite+Paradiso+Copacabana" target="_blank">Como Chegar</a></div>
-<div class="card"><b>2. Substation Club</b><p>Copacabana - Funk / Reggaeton / Afrobeat - Qua e Sáb - PAGA</p><a class="go" href="https://www.google.com/maps?q=Substation+Club+Copacabana" target="_blank">Como Chegar</a></div>
-<div class="card"><b>3. Boate La Cueva</b><p>Copacabana - Miguel Lemos - Latina / Reggaeton - Sex e Sáb - PAGA</p><a class="go" href="https://www.google.com/maps?q=La+Cueva+Copacabana" target="_blank">Como Chegar</a></div>
-<div class="card"><span class="tag" style="background:#00c853;color:#000">0800 GRÁTIS</span><h3>Festas 0800 - Tudo Grátis</h3></div>
-<div class="card"><b>1. Pedra do Sal</b><p>Rua Pedra do Sal, Saúde - Samba segunda e sexta - Grátis 0800</p><a class="go" href="https://www.google.com/maps?q=Pedra+do+Sal+Rio" target="_blank">Como Chegar</a></div>
-<div class="card"><b>2. Arcos da Lapa</b><p>Rua da Lapa / Arcos da Lapa, Centro - Samba Forró Rua - Grátis 0800</p><a class="go" href="https://www.google.com/maps?q=Arcos+da+Lapa" target="_blank">Como Chegar</a></div>
-<div class="card"><b>3. Feira da Glória</b><p>Praça Duque de Caxias, Glória - Domingo Feira + Samba - Grátis 0800</p><a class="go" href="https://www.google.com/maps?q=Feira+da+Gloria+Rio" target="_blank">Como Chegar</a></div>
-<div class="card"><b>4. Santa Teresa - Samba dos Guimarães</b><p>Largo dos Guimarães - Sábado - Grátis 0800</p><a class="go" href="https://www.google.com/maps?q=Largo+dos+Guimaraes+Santa+Teresa" target="_blank">Como Chegar</a></div>
-<div class="card"><span class="tag" style="background:#6a1b9a">BAILES / FAVELA</span><p><b>Só com Guia Local - Falar com Pilar</b></p><a class="wa" href="https://wa.me/5521988906447?text=Oi%20Pilar!%20Vim%20pelo%20Rio%20na%20M%C3%A3o%20-%20Quero%20ir%20para%20o%20Baile!" target="_blank">Falar com Pilar no WhatsApp</a></div>
-<div class="card"><b>1. Baile da Gaiola / Estrelas</b><p>Vila Cruzeiro - Penha - Funk 150 BPM - Sábado</p></div>
-<div class="card"><b>2. Baile da Nova Holanda</b><p>Complexo da Maré - Funk - Sábado</p></div>
-<div class="card"><b>3. Baile do Santo Amaro</b><p>Santo Amaro - Funk</p></div>
-<div class="card"><b>4. Baile do Vidigal</b><p>Vidigal - Funk</p></div>
+<div id="planos">
+<div class="plano">
+<h3>PLANO A - 1 DIA</h3>
+<p>R$ 39,99</p>
+<a class="btn" href="https://buy.stripe.com/aFafZhdpYcWPfrJcqS9EI07" target="_blank">QUERO PAGAR - PLANO A</a>
 </div>
 
-<div id="comer" class="hidden"><button class="back" onclick="show('p1')">← Voltar</button>
-<div class="card"><span class="tag" style="background:#00695c">RESTAURANTES</span></div>
-<div class="card"><b>Pavão Azul</b><p>Copacabana - R$ 45-80</p><a class="go" href="https://www.google.com/maps?q=Pavao+Azul+Copacabana" target="_blank">Como Chegar</a></div>
-<div class="card"><b>Bar do Mineiro</b><p>Santa Teresa - Feijoada - R$ 38-65</p><a class="go" href="https://www.google.com/maps?q=Bar+do+Mineiro+Santa+Teresa" target="_blank">Como Chegar</a></div>
-<div class="card"><span class="tag" style="background:#ff6a00">LANCHES</span></div>
-<div class="card"><b>Bibi Sucos</b><p>Copacabana - R$ 12-25</p><a class="go" href="https://www.google.com/maps?q=Bibi+Sucos+Copacabana" target="_blank">Como Chegar</a></div>
-<div class="card"><b>Galeto Sat's</b><p>Copacabana - R$ 28-40</p><a class="go" href="https://www.google.com/maps?q=Galeto+Sats+Copacabana" target="_blank">Como Chegar</a></div>
-<div class="card"><span class="tag" style="background:#00c853">MELHORES QUIOSQUES</span></div>
-<div class="card"><b>Quiosque Nativo - Posto 4</b><p>Copacabana - R$ 28-65</p><a class="go" href="https://www.google.com/maps?q=Quiosque+Nativo+Copacabana+Posto+4" target="_blank">Como Chegar</a></div>
-<div class="card"><b>Baródromo - Posto 3</b><p>Copacabana - R$ 35-90</p><a class="go" href="https://www.google.com/maps?q=Barodromo+Copacabana" target="_blank">Como Chegar</a></div>
-<div class="card"><b>Areia MPB - Entre Posto 2 e 3</b><p>Copacabana - R$ 30-70</p><a class="go" href="https://www.google.com/maps?q=Areia+MPB+Copacabana" target="_blank">Como Chegar</a></div>
-<div class="card"><b>Coisas de Bamba - Posto 4</b><p>Copacabana - R$ 25-60</p><a class="go" href="https://www.google.com/maps?q=Coisas+de+Bamba+Copacabana" target="_blank">Como Chegar</a></div>
-<div class="card"><span class="tag" style="background:#b71c1c">CHURRASCO</span></div>
-<div class="card"><b>Porcão Rio's</b><p>Flamengo - R$ 90-120</p><a class="go" href="https://www.google.com/maps?q=Porcao+Rios+Flamengo" target="_blank">Como Chegar</a></div>
-<div class="card"><b>Carretão</b><p>Ipanema - R$ 70-95</p><a class="go" href="https://www.google.com/maps?q=Carretao+Ipanema" target="_blank">Como Chegar</a></div>
+<div class="plano">
+<h3>PLANO B - 7 DIAS</h3>
+<p>R$ 69,99</p>
+<a class="btn" href="https://buy.stripe.com/9B69AT5Xw9KD1AT2Qi9EI05" target="_blank">QUERO PAGAR - PLANO B</a>
 </div>
 
-<div id="hosp" class="hidden"><button class="back" onclick="show('p1')">← Voltar</button>
-<div class="card"><span class="tag" style="background:#ffcc00;color:#000">HOSPEDAGEM</span><h3>MAIS EM CONTA 💚</h3></div>
-<div class="card"><b>Che Lagarto Hostel</b><p>Copacabana - Mochileiro - R$ 65-95 / noite</p><span class="tag" style="background:#00c853">DESCONTO PELO APP DO THIAGO</span></div>
-<div class="card"><b>Bamboo Rio Hostel</b><p>Copacabana - Piscina e bar - R$ 70-110 / noite</p><span class="tag" style="background:#00c853">DESCONTO PELO APP DO THIAGO</span></div>
-<div class="card"><b>ibis budget Copacabana</b><p>Perto do metrô - R$ 180-260 / noite</p><span class="tag" style="background:#00c853">DESCONTO PELO APP DO THIAGO</span></div>
-<div class="card"><h3>LUXO ✨ - SÓ COPACABANA</h3></div>
-<div class="card"><b>Copacabana Palace</b><p>Av. Atlântica - R$ 1.800-3.500 - Piscina, praia, clássico</p><span class="tag" style="background:#DAA520">DESCONTO PELO APP DO THIAGO</span></div>
-<div class="card"><b>Fairmont Rio de Janeiro Copacabana</b><p>Av. Atlântica - R$ 1.200-2.200 - Piscina, vista mar</p><span class="tag" style="background:#DAA520">DESCONTO PELO APP DO THIAGO</span></div>
-<div class="card"><b>Hilton Rio de Janeiro Copacabana</b><p>Av. Atlântica - R$ 900-1.600 - Piscina, perto do metrô</p><span class="tag" style="background:#DAA520">DESCONTO PELO APP DO THIAGO</span></div>
+<div class="plano">
+<h3>PLANO C - 30 DIAS</h3>
+<p>R$ 179,99</p>
+<a class="btn" href="https://buy.stripe.com/28E7sL85EcWP2EX0Ia9EI06" target="_blank">QUERO PAGAR - PLANO C</a>
+</div>
 </div>
 
-<div id="lugares" class="hidden"><button class="back" onclick="show('p1')">← Voltar</button>
-<div class="card"><b>1. Pão de Açúcar - Bondinho - Urca</b><a class="go" href="https://www.google.com/maps?q=Pao+de+Acucar+Rio" target="_blank">Como Chegar</a></div>
-<div class="card"><b>2. Cristo Redentor - Corcovado</b><a class="go" href="https://www.google.com/maps?q=Cristo+Redentor+Rio" target="_blank">Como Chegar</a></div>
-<div class="card"><b>3. Bondinho de Santa Teresa</b><a class="go" href="https://www.google.com/maps?q=Bondinho+Santa+Teresa" target="_blank">Como Chegar</a></div>
-<div class="gold" onclick="show('pilar')">✨ Passeio com a Nossa Guia Parceira Pilar ✨<br><small>Passeios Exclusivos que só ela faz - Clique aqui</small></div>
-</div>
+<a class="btn2" href="https://www.google.com/maps?q=Av.+Nossa+Senhora+de+Copacabana" target="_blank">📍 COMO CHEGAR / HOW TO GET THERE</a>
 
-<div id="praias" class="hidden"><button class="back" onclick="show('p1')">← Voltar</button>
-<div class="card"><b>1. Leme - Posto 1 e 2</b><p>Ref: Quiosque RASTA BEACH - Galera nova, alternativa, reggae</p></div>
-<div class="card"><b>2. Copacabana - Posto 4</b><p>Ref: Quiosque Nativo</p></div>
-<div class="card"><b>3. Ipanema - Posto 9</b><p>Galera jovem</p></div>
-<div class="card"><b>4. Leblon - Posto 11</b><p>Mais calma</p></div>
-<div class="card"><b>5. Arpoador</b><p>Pôr do sol</p></div>
-<div class="card"><b>6. Barra da Tijuca - Posto 7</b><p>Surf, mais espaço</p></div>
-</div>
+<p class="small">SPACE COPACABANA - Av. Nossa Senhora de Copacabana<br>Feito com ❤️ no Rio | Made in Rio</p>
 
-<div id="pilar" class="hidden"><button class="back" onclick="show('p1')">← Voltar</button>
-<div class="card" style="text-align:center"><h2>Passeio Exclusivo com a Nossa Guia Pilar</h2><p>Passeios exclusivos que só ela faz - Rolê turístico com guia parceira<br><b>Guia + Motorista Parceira</b><br>+55 21 98890-6447</p><a class="wa" href="https://wa.me/5521988906447?text=Oi%20Pilar!%20Vim%20pelo%20Rio%20na%20M%C3%A3o%20-%20Quero%20um%20passeio%20exclusivo!" target="_blank">Falar com a Pilar</a><a class="wa" href="https://wa.me/5521988906447?text=Oi%20Pilar!%20Vim%20pelo%20Rio%20na%20M%C3%A3o%20-%20QUERO%20RESERVAR%20COM%20A%20PILAR!" target="_blank">QUERO RESERVAR COM A PILAR</a></div>
-</div>
-
-<div id="quiosques" class="hidden"><button class="back" onclick="show('p1')">← Voltar</button>
-<div class="card"><b>Quiosque Nativo - Posto 4</b><p>R$ 28-65 - Do lado da Barraca do Thiago</p><a class="go" href="https://www.google.com/maps?q=Quiosque+Nativo+Copacabana" target="_blank">Como Chegar</a></div>
-<div class="card"><b>Baródromo - Posto 3</b><p>R$ 35-90</p></div>
-<div class="card"><b>Areia MPB - Posto 2-3</b><p>R$ 30-70</p></div>
-<div class="card"><b>Coisas de Bamba - Posto 4</b><p>R$ 25-60</p></div>
-</div>
-
-<div id="space" class="hidden"><button class="back" onclick="show('p1')">← Voltar</button>
-<div class="card" style="text-align:center"><span class="tag" style="background:#00c853">✅ Selo de Qualidade Autorizado - Rio na Mão</span><h2>SPACE 4:20 Headshop</h2><p><b>A tabacaria oficial do Rio na Mão em Copacabana</b></p><p>Copacabana - Orla Posto 4<br>⭐ Aberto Agora</p><a class="go" href="https://www.google.com/maps?q=SPACE+420+Headshop+Copacabana" target="_blank">Como Chegar</a><a class="wa" href="https://instagram.com/space420headshop" target="_blank">Chamar no Instagram / WhatsApp</a></div>
-</div>
-
-<div id="transporte" class="hidden"><button class="back" onclick="show('p1')">← Voltar</button>
-<div class="card"><h2>🚕 Motorista Parceira Pilar</h2><p><b>Pilar - Nossa Motorista Parceira e Guia</b><br>Transfer • Aeroporto Galeão / Santos Dumont • Passeios • Preço fechado sem surpresa<br>+55 21 98890-6447</p><a class="wa" href="https://wa.me/5521988906447?text=Oi%20Pilar!%20Vim%20pelo%20Rio%20na%20M%C3%A3o%20-%20Preciso%20de%20um%20motorista!" target="_blank">Chamar Pilar no WhatsApp</a><a class="go" href="https://www.google.com/maps?q=Copacabana+Rio" target="_blank">Ver no Mapa</a></div>
-</div>
-
-<div id="paywall" class="pay hidden"><h2>Seu tempo grátis acabou! ⏰</h2><p>Para continuar usando o Rio na Mão, escolha um plano abaixo.</p>
-<p>DIÁRIO - R$ 39,99 - Vale por 24h<br>SEMANAL - R$ 79,99 - Vale por 7 dias - MAIS ESCOLHIDO<br>MENSAL - R$ 179,99 - Vale por 30 dias</p>
-<p>CUPOM ALIEN50 dá 50%: R$ 19,99 / R$ 39,99 / R$ 89,99<br><b>Cupom ALIEN50 aplicado! Desconto de outro planeta 👽</b></p>
-<a href="https://buy.stripe.com/6oU8wP71A2ibenF2Qi9EI02" target="_blank">Assinar DIÁRIO - R$ 19,99 com ALIEN50</a>
-<a href="https://buy.stripe.com/bJe14n0Dcg911ATfD49EI01" target="_blank">Assinar SEMANAL - R$ 39,99 com ALIEN50</a>
-<a href="https://buy.stripe.com/14A5kDdpYg91a7p1Me9EI03" target="_blank">Assinar MENSAL - R$ 89,99 com ALIEN50</a>
-<a href="#" onclick="show('capa');return false;" style="background:#fff;color:#111">Voltar pra Capa</a>
-</div>
-
-</div>
-<div class="nav"><div onclick="show('capa')">🏠<br>Início</div><div onclick="show('praias')">🗺️<br>Mapa</div><div onclick="show('p1')">⭐<br>Favoritos</div><div onclick="show('p1')">👤<br>Perfil</div></div>
 <script>
-let acabou=false;
-function show(id){
-if(acabou && id!=='capa' && id!=='paywall'){id='paywall';}
-document.querySelectorAll('#capa,#p1,#festas,#comer,#hosp,#lugares,#praias,#pilar,#quiosques,#space,#transporte,#paywall').forEach(e=>e.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');window.scrollTo(0,0);}
-window.addEventListener('load', ()=>{ show('capa'); });
-let s=30*60;setInterval(()=>{let m=Math.floor(s/60),ss=s%60;document.getElementById('clock').innerText=(m<10?'0'+m:m)+':'+(ss<10?'0'+ss:ss);if(s>0)s--;else{acabou=true;show('paywall');document.getElementById('timerBox').innerText='Tempo grátis acabou! Pague para continuar!';}},1000);
+let s=30*60;
+let timerBox=document.getElementById('timerBox');
+setInterval(function(){
+  if(s<=0){
+    timerBox.innerText='Tempo grátis acabou! Pague para continuar!';
+    return;
+  }
+  let m=Math.floor(s/60);
+  let sec=s%60;
+  if(sec<10){sec='0'+sec;}
+  timerBox.innerText='Tempo grátis: '+m+':'+sec;
+  s--;
+},1000);
 </script>
 </body>
 </html>
