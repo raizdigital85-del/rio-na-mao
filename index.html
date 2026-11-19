@@ -3,42 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RIO NA MÃO - Guia do Rio</title>
+<title>RIO TA NA MÃO 👽</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#0a1a2f;color:#fff}
-.topo{background:#ff2d2d;text-align:center;padding:12px;font-weight:bold;font-size:15px}
-.preco{background:#ffcc00;color:#000;text-align:center;padding:10px;font-weight:bold}
-header{background:#007bff;text-align:center;padding:18px}
-header h1{font-size:28px;letter-spacing:1px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#0b1220;color:#fff}
+.topo-vermelho{background:#e11d48;text-align:center;padding:10px;font-weight:900;font-size:14px}
+.topo-amarelo{background:#facc15;color:#000;text-align:center;padding:10px;font-weight:900;font-size:15px}
+header{background:linear-gradient(180deg,#2563eb,#1d4ed8);text-align:center;padding:20px 14px}
+.et{font-size:56px}
+header h1{font-size:30px;font-weight:900}
 header p{font-size:14px;opacity:.9}
-.abas{display:flex;gap:8px;overflow-x:auto;padding:12px;background:#0a1a2f;position:sticky;top:0;z-index:10}
-.aba{background:#1e3a5f;color:#fff;border:none;padding:10px 16px;border-radius:20px;white-space:nowrap;cursor:pointer;font-weight:bold}
-.aba.ativa{background:#007bff}
-.secao{display:none;padding:14px}
+.contagem{background:#fff;color:#000;margin:14px;border-radius:14px;padding:14px;text-align:center}
+.contagem b{font-size:26px;color:#e11d48}
+.qr{background:#fff;color:#000;margin:0 14px 14px;border-radius:14px;padding:14px;text-align:center}
+.qr img{width:140px;height:140px}
+.btn-gratis{display:block;background:#22c55e;color:#fff;text-align:center;padding:16px;border-radius:12px;margin:0 14px 14px;text-decoration:none;font-weight:900;font-size:18px;border:none;width:calc(100% - 28px);cursor:pointer}
+.abas{display:flex;gap:8px;overflow-x:auto;padding:12px;background:#0b1220;position:sticky;top:0;z-index:10}
+.aba{background:#1e293b;color:#fff;border:none;padding:10px 16px;border-radius:999px;white-space:nowrap;cursor:pointer;font-weight:700}
+.aba.ativa{background:#2563eb}
+.secao{display:none;padding:0 14px 14px}
 .secao.ativa{display:block}
-.card{background:#122a4a;border-radius:12px;padding:14px;margin-bottom:12px}
-.card h3{color:#fff;font-size:18px}
+.card{background:#16233f;border-radius:14px;padding:14px;margin-bottom:12px;border:1px solid #263554;cursor:pointer}
+.card h3{font-size:18px}
 .card p{color:#cbd5e1;font-size:14px;margin-top:4px}
-.card span{color:#00e676;font-size:13px}
-.btn{display:block;background:#00c853;color:#fff;text-align:center;padding:12px;border-radius:10px;margin-top:10px;text-decoration:none;font-weight:bold}
-.rodape{text-align:center;padding:20px;color:#888;font-size:12px}
+.card span{color:#22c55e;font-size:13px;font-weight:700}
+.btn{display:block;background:#22c55e;color:#fff;text-align:center;padding:12px;border-radius:10px;margin-top:10px;text-decoration:none;font-weight:900}
+.btn-wpp{background:#25D366}
+.voltar{background:none;border:1px solid #334155;color:#fff;padding:8px 14px;border-radius:999px;margin:14px;cursor:pointer}
+.rodape{text-align:center;padding:20px;color:#64748b;font-size:12px}
 </style>
 </head>
 <body>
 
-<div class="topo">CUPOM: RIO50 - 50% OFF - PRA SEMPRE!</div>
-<div class="preco">DIÁRIO R$ 39,99</div>
+<div id="tela1">
+<div class="topo-vermelho">CUPOM: RIO50 - 50% OFF - PRA SEMPRE! 👽</div>
+<div class="topo-amarelo">DIÁRIO R$ 39,99</div>
+<header><div class="et">👽</div><h1>RIO TA NA MÃO</h1><p>Seu guia completo do Rio de Janeiro</p></header>
+<div class="contagem"><p>🔥 TEMPO GRÁTIS PRA TESTAR</p><b id="timer">14:59</b><p>Depois use o cupom RIO50</p></div>
+<div class="qr"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://raizdigital85-del.github.io/rio-na-mao/"><p><b>ESCANEIA AQUI 👽</b><br>Abre o RIO TA NA MÃO</p></div>
+<button class="btn-gratis" onclick="irParaApp()">👉 ACESSAR GRÁTIS 👈</button>
+<div class="rodape">RIO TA NA MÃO 👽 © 2026</div>
+</div>
 
-<header>
-<h1>🌊 RIO NA MÃO</h1>
-<p>Seu guia completo do Rio de Janeiro</p>
-</header>
-
+<div id="tela2" style="display:none">
+<button class="voltar" onclick="voltar()">← Voltar</button>
+<div class="topo-vermelho">CUPOM: RIO50 - 50% OFF 👽</div>
 <div class="abas">
 <button class="aba ativa" onclick="mostrar('passeios',this)">Passeios Turísticos</button>
 <button class="aba" onclick="mostrar('comer',this)">Onde Comer</button>
 <button class="aba" onclick="mostrar('quiosques',this)">Quiosques Zona Sul</button>
+<button class="aba" onclick="mostrar('festas',this)">Festas</button>
+<button class="aba" onclick="mostrar('baile',this)">Baile Funk</button>
 <button class="aba" onclick="mostrar('boates',this)">Discotecas / Boates</button>
 <button class="aba" onclick="mostrar('pilar',this)">Guia Pilar</button>
 <button class="aba" onclick="mostrar('hospedagem',this)">Hospedagem</button>
@@ -46,51 +61,52 @@ header p{font-size:14px;opacity:.9}
 </div>
 
 <div id="passeios" class="secao ativa">
-<div class="card"><h3>Lapa</h3><p>Passeio Lapa - Arcos, escadaria, vida noturna</p><span>Ver passeio</span></div>
-<div class="card"><h3>Santa Teresa</h3><p>Passeio Santa Teresa - Bondinho, arte e mirantes</p><span>Ver passeio</span></div>
-<div class="card"><h3>Cristo Redentor</h3><p>Passeio clássico - Corcovado</p><span>Ver passeio</span></div>
-<div class="card"><h3>Pão de Açúcar</h3><p>Bondinho e vista 360°</p><span>Ver passeio</span></div>
-<div class="card"><h3>Saveiros Tour - Navegação - Marina da Glória</h3><p>Dudu - Parceiro<br>Site: saveiros.com.br<br>Passeios e Locação de Barcos e Lanchas no Rio de Janeiro</p><a class="btn" href="#">Ver Saveiros</a></div>
+<div class="card"><h3>Lapa</h3><p>Arcos, escadaria, vida noturna</p><span>Clique pra ver →</span></div>
+<div class="card"><h3>Santa Teresa</h3><p>Bondinho, arte e mirantes</p><span>Clique pra ver →</span></div>
+<div class="card"><h3>Cristo Redentor</h3><p>Corcovado</p><span>Clique pra ver →</span></div>
+<div class="card"><h3>Pão de Açúcar</h3><p>Bondinho e vista 360°</p><span>Clique pra ver →</span></div>
+<div class="card"><h3>Saveiros Tour - Navegação - Marina da Glória</h3><p>DENTRO DE PASSEIOS TURÍSTICOS<br>Dudu - Parceiro<br><b>+55 21 99465-6620</b><br>Site: saveiros.com.br<br>Passeios e Locação de Barcos e Lanchas no Rio de Janeiro</p><a class="btn" href="https://saveiros.com.br" target="_blank">Ver Site Saveiros</a><a class="btn btn-wpp" href="https://wa.me/5521994656620?text=Ol%C3%A1%2C%20estou%20vindo%20pelo%20app%20do%20Thiago.%20Rio%20ta%20na%20m%C3%A3o!" target="_blank">💬 Chamar Dudu no WhatsApp</a></div>
 </div>
 
 <div id="comer" class="secao">
-<div class="card"><h3>Onde Comer - Zona Sul</h3><p>Restaurantes, lanchonetes e PF</p></div>
-<div class="card"><h3>Churrasco</h3><p>Churrascarias do Rio</p></div>
-<div class="card"><h3>Hamburgueria</h3><p>Melhores hambúrgueres</p></div>
-<div class="card"><h3>Quiosques</h3><p>Comer na orla</p></div>
+<div class="card"><h3>Lanches / Sucos</h3><p>Clique pra ver as opções</p><span>Ver opções →</span></div>
+<div class="card"><h3>Refeições / Almoço - Santa</h3><p>Clique pra ver</p><span>Ver opções →</span></div>
+<div class="card"><h3>Churrasco</h3><p>Clique pra ver</p><span>Ver opções →</span></div>
+<div class="card"><h3>Hamburgueria</h3><p>Clique pra ver</p><span>Ver opções →</span></div>
 </div>
 
 <div id="quiosques" class="secao">
-<div class="card"><h3>Quiosques Zona Sul</h3><p>Copacabana, Ipanema, Leblon</p></div>
-<div class="card"><h3>Quiosque Copacabana</h3><p>Orla completa</p></div>
+<div class="card"><h3>Quiosques Zona Sul - SEPARADO</h3><p>Não está dentro de Onde Comer. É aba própria!</p></div>
+<div class="card"><h3>Quiosque Copacabana</h3><p>Clique pra ver →</p></div>
+<div class="card"><h3>Quiosque Ipanema</h3><p>Clique pra ver →</p></div>
+<div class="card"><h3>Quiosque Leblon</h3><p>Clique pra ver →</p></div>
 </div>
 
-<div id="boates" class="secao">
-<div class="card"><h3>Discotecas / Boates</h3><p>Lapa, Centro, Zona Sul</p></div>
-<div class="card"><h3>Boates Lapa</h3><p>Samba, funk e eletrônico</p></div>
+<div id="festas" class="secao">
+<div class="card"><h3>Festas Lapa</h3><p>Clique pra ver todas as festas →</p></div>
+<div class="card"><h3>Festas Zona Sul</h3><p>Clique pra ver →</p></div>
+<div class="card"><h3>Festas Barra</h3><p>Clique pra ver →</p></div>
 </div>
 
-<div id="pilar" class="secao">
-<div class="card"><h3>Guia Pilar</h3><p>Guia oficial do Rio na Mão - Roteiros completos</p></div>
+<div id="baile" class="secao">
+<div class="card"><h3>Baile Funk</h3><p>Clique pra ver todos os bailes →</p></div>
+<div class="card"><h3>Baile da Gaiola</h3><p>Clique pra ver →</p></div>
+<div class="card"><h3>Baile do Alemão</h3><p>Clique pra ver →</p></div>
+<div class="card"><h3>🚖 Pilar - Motorista Parceira</h3><p>Pilar te leva pro baile com segurança!<br>Motorista parceira do Rio ta na Mão<br><b>+55 21 98890-6447</b></p><a class="btn btn-wpp" href="https://wa.me/5521988906447?text=Ol%C3%A1%2C%20estou%20vindo%20pelo%20app%20do%20Thiago.%20Rio%20ta%20na%20m%C3%A3o!" target="_blank">💬 Chamar Pilar no WhatsApp</a></div>
 </div>
 
-<div id="hospedagem" class="secao">
-<div class="card"><h3>Hospedagem</h3><p>Hotéis, hostels e pousadas</p></div>
+<div id="boates" class="secao"><div class="card"><h3>Discotecas / Boates</h3><p>Lapa, Centro, Zona Sul - Clique pra ver</p></div></div>
+<div id="pilar" class="secao"><div class="card"><h3>Guia Pilar</h3><p>Guia oficial - Roteiros completos<br><b>+55 21 98890-6447</b></p><a class="btn btn-wpp" href="https://wa.me/5521988906447?text=Ol%C3%A1%2C%20estou%20vindo%20pelo%20app%20do%20Thiago.%20Rio%20ta%20na%20m%C3%A3o!" target="_blank">💬 Chamar Pilar no WhatsApp</a></div></div>
+<div id="hospedagem" class="secao"><div class="card"><h3>Hospedagem</h3><p>Hotéis, hostels e pousadas</p></div></div>
+<div id="praias" class="secao"><div class="card"><h3>Praias</h3><p>Copacabana, Ipanema, Leblon, Barra</p></div></div>
+<div class="rodape">RIO TA NA MÃO 👽 © 2026</div>
 </div>
-
-<div id="praias" class="secao">
-<div class="card"><h3>Praias</h3><p>Copacabana, Ipanema, Leblon, Barra</p></div>
-</div>
-
-<div class="rodape">RIO NA MÃO © 2026 - Todos os direitos reservados</div>
 
 <script>
-function mostrar(id,btn){
-document.querySelectorAll('.secao').forEach(s=>s.classList.remove('ativa'));
-document.getElementById(id).classList.add('ativa');
-document.querySelectorAll('.aba').forEach(a=>a.classList.remove('ativa'));
-btn.classList.add('ativa');
-}
+function irParaApp(){document.getElementById('tela1').style.display='none';document.getElementById('tela2').style.display='block';window.scrollTo(0,0);}
+function voltar(){document.getElementById('tela2').style.display='none';document.getElementById('tela1').style.display='block';}
+function mostrar(id,btn){document.querySelectorAll('.secao').forEach(s=>s.classList.remove('ativa'));document.getElementById(id).classList.add('ativa');document.querySelectorAll('.aba').forEach(a=>a.classList.remove('ativa'));btn.classList.add('ativa');}
+let tempo=899;setInterval(()=>{let m=Math.floor(tempo/60);let s=tempo%60;document.getElementById('timer').innerText=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');if(tempo>0)tempo--;},1000);
 </script>
 </body>
 </html>
