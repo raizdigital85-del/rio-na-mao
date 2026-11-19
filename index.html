@@ -21,6 +21,12 @@ body{margin:0;font-family:Arial;background:#0a0a1a;color:white;text-align:center
 .qr{background:white;color:#111;margin:15px;border-radius:20px;padding:20px}
 .qr img{width:200px;height:200px}
 .qr a{color:#00c853;font-weight:bold;text-decoration:none}
+.gratis{background:white;color:#111;margin:15px;border-radius:20px;padding:20px;text-align:left}
+.gratis h2{text-align:center;margin:0 0 15px}
+.cat{background:#f1f1f1;border-radius:15px;padding:15px;margin-bottom:12px}
+.cat b{font-size:18px}
+.cat p{margin:5px 0 0;font-size:14px;color:#444}
+.cat a{display:inline-block;background:#00c853;color:white;text-decoration:none;padding:10px 15px;border-radius:10px;margin-top:10px;font-weight:bold;font-size:14px}
 .plano{background:white;color:#111;margin:15px;border-radius:20px;padding:20px;text-align:center}
 .plano h3{margin:0;font-size:22px}
 .plano p{font-size:28px;font-weight:bold;margin:10px 0}
@@ -39,14 +45,14 @@ body{margin:0;font-family:Arial;background:#0a0a1a;color:white;text-align:center
 
 <div class="timer" id="timerBox">Tempo grátis: 30:00 / Free time: 30:00</div>
 
-<a class="btn-entrar" href="#planos">👆 CLIQUE E GARANTA<br>SEU ACESSO GRÁTIS<br><span>CLICK AND GET YOUR FREE ACCESS</span></a>
+<a class="btn-entrar" href="#gratis">👆 CLIQUE E GARANTA<br>SEU ACESSO GRÁTIS<br><span>CLICK AND GET YOUR FREE ACCESS</span></a>
 
 <div class="qr">
 <h2 style="margin:0">SCAN ME</h2>
 <p style="margin:5px 0">Aponte sua câmera aqui<br>Point your camera here</p>
-<a href="#planos"><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://raizdigital85-del.github.io/rio-na-mao/" alt="QR Code"></a>
+<a href="#gratis"><img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://raizdigital85-del.github.io/rio-na-mao/" alt="QR Code"></a>
 <p><b>COMECE GRÁTIS - 30 MINUTOS<br>START FREE - 30 MIN TRIAL</b></p>
-<p><a href="#planos">👆 Toque no QR para entrar grátis<br>Tap QR to enter free →</a></p>
+<p><a href="#gratis">👆 Toque no QR para entrar grátis<br>Tap QR to enter free →</a></p>
 </div>
 
 <div class="card">
@@ -59,6 +65,42 @@ Souvenir & Gift Shop - Av. Nossa Senhora de Copacabana<br>
 <span>👆 Toque para abrir no mapa / Tap to open map →</span><br>
 <span style="color:#555;font-weight:normal">Como chegar / How to get there</span>
 </a>
+</div>
+
+<div class="gratis" id="gratis">
+<h2>🎉 SEU ACESSO GRÁTIS COMEÇOU!<br><span style="font-size:14px;color:#555">YOUR FREE ACCESS STARTED!</span></h2>
+
+<div class="cat">
+<b>🏖️ Praias / Beaches</b>
+<p>Praia de Copacabana, Ipanema, Leblon - As melhores praias do Rio!</p>
+<a href="https://www.google.com/maps?q=Praia+de+Copacabana" target="_blank">Ver no mapa / View on map →</a>
+</div>
+
+<div class="cat">
+<b>🍽️ Onde Comer / Where to Eat</b>
+<p>Restaurantes, lanchonetes e comida de rua em Copacabana!</p>
+<a href="https://www.google.com/maps?q=restaurantes+Copacabana" target="_blank">Ver no mapa / View on map →</a>
+</div>
+
+<div class="cat">
+<b>🎉 Festas / Parties</b>
+<p>As melhores festas e baladas do Rio hoje!</p>
+<a href="https://www.google.com/maps?q=baladas+Copacabana" target="_blank">Ver no mapa / View on map →</a>
+</div>
+
+<div class="cat">
+<b>🚶 Passeios / Tours</b>
+<p>Cristo Redentor, Pão de Açúcar, Maracanã!</p>
+<a href="https://www.google.com/maps?q=Cristo+Redentor" target="_blank">Ver no mapa / View on map →</a>
+</div>
+
+<div class="cat">
+<b>🛍️ Compras / Shopping</b>
+<p>SPACE COPACABANA - Souvenirs e presentes!</p>
+<a href="https://www.google.com/maps?q=Av.+Nossa+Senhora+de+Copacabana" target="_blank">Como chegar / How to get there →</a>
+</div>
+
+<p style="text-align:center;font-size:13px;color:#777">Você tem 30 minutos grátis para explorar!<br>You have 30 free minutes to explore!</p>
 </div>
 
 <div id="planos">
@@ -89,8 +131,9 @@ Souvenir & Gift Shop - Av. Nossa Senhora de Copacabana<br>
 <script>
 let s=30*60;
 let timerBox=document.getElementById('timerBox');
+let gratisBox=document.getElementById('gratis');
 setInterval(function(){
-  if(s<=0){ timerBox.innerText='Tempo grátis acabou! / Free time is over! Pague para continuar! / Pay to continue!'; return; }
+  if(s<=0){ timerBox.innerText='Tempo grátis acabou! / Free time is over! Pague para continuar! / Pay to continue!'; gratisBox.style.display='none'; return; }
   let m=Math.floor(s/60);
   let sec=s%60;
   if(sec<10){sec='0'+sec;}
