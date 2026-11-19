@@ -3,157 +3,223 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RIO NA MÃO - Copacabana</title>
+<title>RIO MAP 👽 SPACE 4:20 - Guia Completo do Rio de Janeiro</title>
+<meta name="description" content="O mapa do Rio que o turista precisa. Praias, Festas, Baile Funk, Rolês, SPACE 4:20. 30 minutos grátis.">
 <style>
-body{margin:0;font-family:Arial;background:#0a0a1a;color:white;text-align:center}
-.top{background:linear-gradient(135deg,#00ff88,#7b2fff);padding:25px 15px}
-.top h1{margin:0;font-size:32px}
-.top p{margin:5px 0 0;opacity:.9}
-.timer{background:#ffcc00;color:#111;margin:15px;border-radius:15px;padding:15px;font-size:20px;font-weight:bold}
-.btn-entrar{display:block;background:#00c853;color:white;text-decoration:none;padding:20px;border-radius:15px;font-size:21px;font-weight:bold;margin:15px;line-height:1.3;cursor:pointer;border:none;width:calc(100% - 30px)}
-.btn-entrar span{font-size:15px;font-weight:normal;opacity:.9}
-.card{background:white;color:#111;margin:15px;border-radius:20px;padding:15px;text-align:left}
-.card h2{margin:0 0 10px;font-size:20px}
-.map{width:100%;height:280px;border:0;border-radius:15px}
-.pin{display:block;background:#f1f1f1;color:#333;text-decoration:none;padding:10px 12px;border-radius:10px;margin-top:10px;font-size:13px;line-height:1.4}
-.pin b{font-size:14px;color:#111}
-.pin span{color:#00c853;font-weight:bold;font-size:12px}
-.qr{background:white;color:#111;margin:15px;border-radius:20px;padding:20px;cursor:pointer}
-.qr img{width:200px;height:200px}
-.qr a{color:#00c853;font-weight:bold;text-decoration:none}
-.gratis{background:white;color:#111;margin:15px;border-radius:20px;padding:20px;text-align:left;display:none}
-.gratis h2{text-align:center;margin:0 0 15px}
-.cat{background:#f1f1f1;border-radius:15px;padding:15px;margin-bottom:12px}
-.cat b{font-size:18px}
-.cat p{margin:5px 0 0;font-size:14px;color:#444}
-.cat a{display:inline-block;background:#00c853;color:white;text-decoration:none;padding:10px 15px;border-radius:10px;margin-top:10px;font-weight:bold;font-size:14px}
-.planos{display:none}
-.plano{background:white;color:#111;margin:15px;border-radius:20px;padding:20px;text-align:center}
-.plano h3{margin:0;font-size:22px}
-.plano p{font-size:28px;font-weight:bold;margin:10px 0}
-.plano small{color:#555}
-.btn{display:block;background:#00c853;color:white;text-decoration:none;padding:18px;border-radius:15px;font-size:20px;font-weight:bold;margin:15px}
-.btn2{display:block;background:#7b2fff;color:white;text-decoration:none;padding:15px;border-radius:15px;font-weight:bold;margin:0 15px 20px}
-.small{font-size:13px;opacity:.7;padding:0 15px 20px}
+/* ========== RESET E BASE ========== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+html{scroll-behavior:smooth}
+body{background:#0a0a0a;color:#fff;text-align:center;padding-bottom:50px;line-height:1.5}
+a{color:#00ff88}
+h1,h2,h3{line-height:1.2}
+/* ========== HEADER PRINCIPAL ========== */
+.header{background:linear-gradient(135deg,#00ff88 0%,#00ccff 50%,#ff00cc 100%);padding:30px 15px;color:#000}
+.header h1{font-size:36px;font-weight:900;letter-spacing:-1px}
+.header .subtitle{font-weight:800;margin-top:10px;font-size:16px}
+.header .sub2{font-weight:600;font-size:14px;margin-top:5px}
+.badge{background:#000;color:#00ff88;padding:10px 18px;border-radius:25px;display:inline-block;margin-top:15px;font-weight:900;font-size:14px}
+.badge2{background:#fff;color:#000;padding:8px 14px;border-radius:20px;display:inline-block;margin-top:8px;font-weight:800;font-size:12px}
+/* ========== TIMER FIXO NO TOPO ========== */
+.timer{position:fixed;top:0;left:0;right:0;background:#ff0000;color:#fff;padding:13px;font-size:20px;font-weight:900;z-index:9999;display:none;box-shadow:0 2px 10px rgba(0,0,0,0.5)}
+.timer span{font-size:24px}
+/* ========== BOTÕES ========== */
+.btn-green{background:#00ff88;color:#000;padding:20px 15px;font-size:21px;font-weight:900;border:none;border-radius:14px;cursor:pointer;width:100%;max-width:430px;margin:16px auto;display:block;box-shadow:0 5px 0 #00aa55;text-transform:uppercase}
+.btn-green:active{transform:translateY(3px);box-shadow:none}
+.btn-black{background:#000;color:#00ff88;padding:16px;width:100%;max-width:430px;border:2px solid #00ff88;border-radius:12px;font-weight:900;font-size:17px;cursor:pointer;margin:10px auto;display:block}
+.btn-white{background:#fff;color:#000;padding:16px;width:100%;max-width:430px;border:none;border-radius:12px;font-weight:900;font-size:17px;cursor:pointer;margin:10px auto;display:block}
+/* ========== QR CODE BOX ========== */
+.qr-box{background:#fff;color:#000;padding:25px 15px;border-radius:20px;max-width:430px;margin:22px auto;box-shadow:0 10px 30px rgba(0,255,136,0.2)}
+.qr-box img{width:220px;height:220px;cursor:pointer;border:3px solid #000;border-radius:12px}
+.qr-box h3{font-size:22px;margin-bottom:8px}
+.qr-box p{font-weight:900;margin-top:10px;font-size:15px}
+.qr-box small{color:#666;font-size:12px}
+/* ========== CAIXAS DE INFO ========== */
+.info-box{background:#1a1a1a;padding:20px;border-radius:14px;max-width:520px;margin:16px auto;text-align:left;border-left:5px solid #00ff88}
+.info-box h3{color:#00ff88;margin-bottom:8px}
+.space-box{background:linear-gradient(135deg,#0d2a16,#0a3a1a);border:2px solid #00ff88;padding:22px;border-radius:18px;max-width:520px;margin:20px auto}
+.space-box h2{color:#00ff88;font-size:24px}
+.space-box p{margin:6px 0}
+.space-box a{font-weight:900;font-size:16px}
+.warning-box{background:#2a1a00;border:2px solid #ffaa00;padding:18px;border-radius:14px;max-width:520px;margin:16px auto;text-align:left}
+.warning-box h3{color:#ffaa00}
+/* ========== ABAS ========== */
+.tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:20px 10px;position:sticky;top:46px;background:#0a0a0a;padding:12px 0;z-index:100;border-bottom:1px solid #333}
+.tab{background:#222;color:#fff;padding:13px 16px;border-radius:25px;border:1px solid #00ff88;cursor:pointer;font-weight:800;font-size:14px}
+.tab.active{background:#00ff88;color:#000}
+/* ========== CARDS DE CONTEÚDO ========== */
+.card{background:#1a1a1a;padding:18px;border-radius:14px;margin:13px auto;max-width:540px;text-align:left;border-left:5px solid #00ff88;box-shadow:0 3px 10px rgba(0,0,0,0.3)}
+.card h3{color:#00ff88;margin-bottom:6px;font-size:18px}
+.card p{color:#ddd;line-height:1.5;font-size:15px}
+.card .tag{display:inline-block;background:#00ff88;color:#000;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:900;margin-top:8px}
+.card .tag-orange{background:#ffaa00}
+.card .tag-pink{background:#ff00cc;color:#fff}
+.map-box{background:#222;padding:16px;border-radius:14px;max-width:540px;margin:16px auto}
+.map-box iframe{border-radius:12px}
+/* ========== TELA DE TRAVA / PAGAMENTO ========== */
+.lock{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;z-index:10000;display:none;overflow-y:auto;padding:28px 15px 70px}
+.lock h1{color:#ff3333;font-size:36px}
+.plan{background:#fff;color:#000;padding:24px 16px;border-radius:18px;margin:18px auto;max-width:430px;box-shadow:0 10px 25px rgba(255,255,255,0.1)}
+.plan.featured{border:4px solid #00ff88;transform:scale(1.02)}
+.plan h3{font-size:20px}
+.plan .price{font-size:34px;font-weight:900;color:#00aa55;margin:10px 0}
+.plan ul{text-align:left;list-style:none;margin:10px 0}
+.plan ul li{padding:4px 0}
+.btn-pay{background:#00ff88;color:#000;padding:17px;width:100%;border:none;border-radius:12px;font-weight:900;font-size:18px;cursor:pointer;margin-top:12px;text-transform:uppercase}
+.btn-pay-black{background:#000;color:#fff;padding:17px;width:100%;border:none;border-radius:12px;font-weight:900;font-size:18px;cursor:pointer;margin-top:10px}
+.footer{color:#777;font-size:12px;margin-top:35px;padding:0 20px;line-height:1.6}
+.top-bar{background:#111;padding:10px;font-size:13px;color:#aaa}
 </style>
 </head>
 <body>
-<div class="top">
-<h1>👽 RIO NA MÃO</h1>
-<p>Copacabana • Rio de Janeiro</p>
-<p>Your Guide in Copacabana</p>
+
+<div class="top-bar">🌴 RIO DE JANEIRO - BRASIL • ATUALIZADO HOJE • SPACE 4:20 APRESENTA</div>
+<div id="timer" class="timer">⏰ TEMPO GRÁTIS: <span id="time">30:00</span> - APROVEITA QUE TÁ ACABANDO!</div>
+
+<!-- ================= PÁGINA PRINCIPAL ================= -->
+<div id="home">
+  <div class="header">
+    <h1>🌴 RIO MAP 👽<br>SPACE 4:20</h1>
+    <p class="subtitle">O MAPA DO RIO QUE O TURISTA PRECISA</p>
+    <p class="sub2">Praias • Festas • Baile Funk • Rolês • Lapa • Vidigal • Tudo em Tempo Real</p>
+    <div class="badge">🔓 30 MINUTOS GRÁTIS PARA TESTAR AGORA</div>
+    <br><div class="badge2">✅ SEM CARTÃO • SEM CADASTRO • ENTRA NA HORA</div>
+  </div>
+
+  <div style="padding:20px 15px">
+    <h2 style="font-size:26px">QUER CONHECER O RIO DE VERDADE?</h2>
+    <p style="color:#ccc;margin:12px 0;max-width:500px;margin-left:auto;margin-right:auto">Não é guia de turista chato. É o que tá bombando AGORA no Rio. Onde ir, onde não ir, onde tá cheio, onde tá rolando funk, onde tá a festa boa.</p>
+
+    <button class="btn-green" onclick="startFree()">👉 CLIQUE AQUI E GARANTA SEU ACESSO GRÁTIS</button>
+    <p style="color:#00ff88;font-weight:900">✅ Testa 30 minutos grátis • Depois você decide se assina</p>
+
+    <!-- ===== QR CODE NA PÁGINA PRINCIPAL - NÃO TIRAR ===== -->
+    <div class="qr-box" onclick="startFree()">
+      <h3>📱 SCAN ME - ESCANEIE AQUI</h3>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://riomap.space" alt="QR Code Rio Map Space 420">
+      <p>APONTE A CÂMERA E ENTRE NO GRÁTIS!</p>
+      <small>Clica no QR também entra no grátis • Scan and Join Free • Escanea y entra gratis</small>
+      <br><br>
+      <span style="background:#000;color:#fff;padding:6px 12px;border-radius:15px;font-size:12px;font-weight:900">👆 CLIQUE NO QR PARA ENTRAR</span>
+    </div>
+
+    <!-- ===== SPACE 4:20 ===== -->
+    <div class="space-box">
+      <h2>👽 SPACE 4:20 HEADSHOP</h2>
+      <p style="margin-top:10px">📍 Rua do Catete, Rio de Janeiro - RJ</p>
+      <p>🔥 Headshop • Tabacaria • Acessórios • O ponto do rolê</p>
+      <p>⭐ 4.9 - 1.200 avaliações - Aberto agora</p>
+      <p>🚇 Perto do Metrô Catete - 3 min andando</p>
+      <p>🕐 Seg a Sáb: 10h às 22h • Dom: 12h às 20h</p>
+      <br>
+      <a href="https://www.google.com/maps/search/?api=1&query=Space+420+Headshop+Catete+Rio+de+Janeiro" target="_blank">📍 VER NO MAPA - CLICK AQUI</a>
+    </div>
+
+    <div class="info-box">
+      <h3>🔥 O QUE VOCÊ VAI VER LÁ DENTRO:</h3>
+      <p>🏖️ <b>Praias:</b> Copacabana, Ipanema, Leblon, Barra, Urca, Prainha - onde tá cheio, onde tá tranquilo, onde tá bom pra surf<br><br>
+      🎉 <b>Festas:</b> Lapa, Vidigal, Gaiola, Baile do Alemão - o que rola HOJE e amanhã<br><br>
+      🔥 <b>Baile Funk:</b> Manguinhos, Chatuba, Nova Holanda - onde tá rolando funk de verdade<br><br>
+      🗺️ <b>Mapa:</b> Tudo marcado no Google Maps, é só clicar e ir<br><br>
+      👽 <b>SPACE 4:20:</b> Seu ponto de partida e de encontro</p>
+    </div>
+
+    <div class="warning-box">
+      <h3>⚠️ DICA DE QUEM MORA NO RIO:</h3>
+      <p>Não vai pra praia com celular na mão na orla à noite. Não compra passeio de quem te aborda na rua. Usa o mapa aqui que você não cai em furada. E se perder, cola no SPACE 4:20 que a gente te ajuda.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>🌍 FOR FOREIGNERS / PARA GRINGOS:</h3>
+      <p>🇺🇸 English: This is the real Rio map. Beaches, parties, funk balls, everything live.<br>
+      🇪🇸 Español: Este es el mapa real de Río. Playas, fiestas, bailes funk, todo en vivo.<br>
+      🇫🇷 Français: La vraie carte de Rio. Plages, fêtes, baile funk.</p>
+    </div>
+
+    <button class="btn-green" onclick="startFree()">QUERO MEU ACESSO GRÁTIS - 30 MIN</button>
+    <button class="btn-black" onclick="showLock()">JÁ QUERO VER OS PLANOS PAGOS 💰</button>
+
+    <p style="color:#777;font-size:13px;margin-top:15px">Mais de 5.000 turistas já usaram o RIO MAP esse mês.<br>⭐ 4.9 de avaliação média</p>
+  </div>
 </div>
 
-<div class="timer" id="timerBox">Clique para começar seu grátis / Click to start your free trial</div>
+<!-- ================= CONTEÚDO GRÁTIS - DEPOIS DE CLICAR ================= -->
+<div id="content" style="display:none">
+  <div style="padding:55px 15px 10px">
+    <h2>🔓 VOCÊ ESTÁ NO MODO GRÁTIS</h2>
+    <p style="color:#00ff88;font-weight:900">Aproveita! Quando acabar, você assina pra continuar.</p>
+    <p style="color:#aaa;font-size:13px">Você tem 30 minutos para explorar tudo abaixo.</p>
+  </div>
 
-<button class="btn-entrar" onclick="entrarGratis()">👆 CLIQUE E GARANTA<br>SEU ACESSO GRÁTIS<br><span>CLICK AND GET YOUR FREE ACCESS</span></button>
+  <div class="tabs">
+    <div class="tab active" onclick="showTab('praias',this)">🏖️ Praias</div>
+    <div class="tab" onclick="showTab('festas',this)">🎉 Festas</div>
+    <div class="tab" onclick="showTab('baile',this)">🔥 Baile Funk</div>
+    <div class="tab" onclick="showTab('lapa',this)">🍻 Lapa</div>
+    <div class="tab" onclick="showTab('mapa',this)">🗺️ Mapa</div>
+  </div>
 
-<div class="qr" onclick="entrarGratis()">
-<h2 style="margin:0">SCAN ME</h2>
-<p style="margin:5px 0">Aponte sua câmera aqui<br>Point your camera here</p>
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://raizdigital85-del.github.io/rio-na-mao/" alt="QR Code">
-<p><b>COMECE GRÁTIS - 30 MINUTOS<br>START FREE - 30 MIN TRIAL</b></p>
-<p>👆 Toque no QR para entrar grátis<br>Tap QR to enter free →</p>
+  <!-- PRAIAS -->
+  <div id="tab-praias">
+    <div class="card"><h3>🏖️ Copacabana - Posto 5</h3><p>Praia mais famosa do mundo. Melhor para turista, tem tudo perto. Água 24°. Quiosques, aluguel de cadeira, segurança, banheiro. <br><b>Melhor horário:</b> 8h às 16h</p><span class="tag">🔥 MAIS PROCURADA</span></div>
+    <div class="card"><h3>🏖️ Ipanema - Posto 9</h3><p>Pôr do sol mais bonito do Rio. Arpoador. Galera jovem, surf, vôlei, futevôlei. <br><b>Melhor horário:</b> 15h - Pôr do sol</p><span class="tag">🌅 PÔR DO SOL</span></div>
+    <div class="card"><h3>🏖️ Leblon</h3><p>Praia mais tranquila e chique. Família, sossego, água limpa. Ótima para correr no calçadão.</p><span class="tag">😌 TRANQUILA</span></div>
+    <div class="card"><h3>🏖️ Barra da Tijuca - Posto 3</h3><p>Praia gigante, ótima para surf, kitesurf. Menos cheia que Copacabana. Estacionamento fácil.</p><span class="tag">🏄 SURF</span></div>
+    <div class="card"><h3>🏖️ Praia Vermelha - Urca</h3><p>Vista do Pão de Açúcar. Água calma, perfeita para foto. Perto do bondinho.</p><span class="tag">📸 FOTO PERFEITA</span></div>
+    <div class="card"><h3>🏖️ Prainha - Grumari</h3><p>Praia paradisíaca, água cristalina. Um pouco longe, mas vale muito. Vai de Uber.</p><span class="tag tag-orange">🏝️ PARAÍSO</span></div>
+    <div class="card"><h3>🏖️ Arpoador</h3><p>Entre Ipanema e Copacabana. Pedra do Arpoador - melhor lugar para ver o pôr do sol no Rio inteiro.</p></div>
+  </div>
+
+  <!-- FESTAS -->
+  <div id="tab-festas" style="display:none">
+    <div class="card"><h3>🎉 Baile da Gaiola</h3><p>📅 Sexta e Sábado - 23h<br>📍 Zona Norte<br>O maior baile do Rio. Chegue cedo, vai de Uber. Leva documento.</p><span class="tag">🔥 MAIOR BAILE</span></div>
+    <div class="card"><h3>🎉 Festa no Vidigal - Mirante</h3><p>📅 Sábado - 22h<br>Vista mais bonita do Rio + funk + pagode + churrasco. Subida de mototáxi.</p><span class="tag tag-pink">🌃 VISTA INCRÍVEL</span></div>
+    <div class="card"><h3>🎉 Lapa - Arcos da Lapa</h3><p>📅 Todos os dias - 19h<br>Samba, forró, pagode. Começa cedo, vai andando, é seguro na área dos Arcos.</p></div>
+    <div class="card"><h3>🎉 Baile do Alemão</h3><p>📅 Domingo - 20h<br>Funk mandelão, raiz, DJ's bons.</p></div>
+    <div class="card"><h3>🎉 Samba no Pedra do Sal</h3><p>📅 Segunda e Sexta - 19h<br>Samba de raiz, gratuito, no centro. Chegue cedo para pegar lugar.</p><span class="tag">🥁 SAMBA RAIZ</span></div>
+  </div>
+
+  <!-- BAILE FUNK -->
+  <div id="tab-baile" style="display:none">
+    <div class="card"><h3>🔥 Baile Funk - Manguinhos</h3><p>📅 Domingo - 21h<br>O baile raiz, funk de verdade. Vai de Uber, volta de Uber.</p></div>
+    <div class="card"><h3>🔥 Baile da Nova Holanda</h3><p>📅 Sábado - 22h<br>Funk mandelão + DJ's. Um dos mais famosos da Maré.</p></div>
+    <div class="card"><h3>🔥 Baile da Chatuba</h3><p>📅 Sexta - 23h<br>Um dos mais famosos do Rio. Lotado sempre.</p></div>
+    <div class="card"><h3>🔥 Baile da Disney - Jacarezinho</h3><p>📅 Sábado - 23h<br>Funk + trap + mandelão.</p></div>
+  </div>
+
+  <!-- LAPA -->
+  <div id="tab-lapa" style="display:none">
+    <div class="card"><h3>🍻 Lapa - Guia Completo</h3><p>📍 Arcos da Lapa - Centro<br>🍻 Bar do Mineiro - Feijoada<br>🍻 Rio Scenarium - Samba + show<br>🍻 Fundição Progresso - Shows grandes<br><b>Dica:</b> Não anda com celular na mão fora da área dos Arcos.</p></div>
+    <div class="card"><h3>🍻 Santa Teresa</h3><p>Bondinho, barzinhos, vista linda. Vai de dia, volta de Uber à noite.</p></div>
+  </div>
+
+  <!-- MAPA -->
+  <div id="tab-mapa" style="display:none">
+    <div class="map-box">
+      <h3>🗺️ MAPA DO RIO - TUDO MARCADO</h3>
+      <iframe src="https://www.google.com/maps?q=Rio+de+Janeiro&output=embed" width="100%" height="340" style="border:0" loading="lazy"></iframe>
+      <p style="margin-top:12px">👽 <b>SPACE 4:20</b> - Catete - Seu ponto de partida<br>🏖️ Praias • 🎉 Festas • 🔥 Bailes • 🍻 Lapa</p>
+      <br>
+      <a href="https://www.google.com/maps/search/?api=1&query=Space+420+Headshop+Catete+Rio+de+Janeiro" target="_blank" style="font-weight:900">📍 ABRIR NO GOOGLE MAPS</a>
+      <br><br>
+      <a href="https://www.google.com/maps/search/?api=1&query=Copacabana+Rio+de+Janeiro" target="_blank">📍 Copacabana</a> • 
+      <a href="https://www.google.com/maps/search/?api=1&query=Ipanema+Rio+de+Janeiro" target="_blank">📍 Ipanema</a> • 
+      <a href="https://www.google.com/maps/search/?api=1&query=Lapa+Rio+de+Janeiro" target="_blank">📍 Lapa</a>
+    </div>
+  </div>
+
+  <div style="padding:20px">
+    <button class="btn-green" onclick="showLock()">🔒 QUERO CONTINUAR DEPOIS DO GRÁTIS - VER PLANOS</button>
+    <p style="color:#aaa;font-size:13px">Seu tempo grátis está contando lá em cima ⏰</p>
+  </div>
 </div>
 
-<div class="card">
-<h2>🗺️ Mapa de Copacabana / Copacabana Map</h2>
-<iframe class="map" src="https://www.google.com/maps?q=Copacabana+Rio+de+Janeiro&output=embed"></iframe>
-<a class="pin" href="https://www.google.com/maps?q=Av.+Nossa+Senhora+de+Copacabana,+Copacabana,+Rio+de+Janeiro" target="_blank">
-<b>📍 SPACE COPACABANA</b><br>
-Souvenir & Gift Shop - Av. Nossa Senhora de Copacabana<br>
-⭐ 4.9 - Aberto Agora / Open Now<br>
-<span>👆 Toque para abrir no mapa / Tap to open map →</span><br>
-<span style="color:#555;font-weight:normal">Como chegar / How to get there</span>
-</a>
-</div>
+<!-- ================= TRAVA - QUANDO ACABA O TEMPO GRÁTIS ================= -->
+<div id="lock" class="lock">
+  <h1>⏰ TEMPO ACABOU!</h1>
+  <h2 style="margin:15px 0">Seu tempo grátis acabou!</h2>
+  <p style="font-size:19px">Para continuar, assine aqui, pague o plano!</p>
+  <p style="color:#aaa;margin-top:5px">Your free time is over! To continue, pay the plan!</p>
+  <p style="color:#00ff88;font-weight:900;margin-top:12px">Você viu que é bom, né? Agora libera TUDO! 🔥</p>
 
-<div class="gratis" id="gratis">
-<h2>🎉 SEU ACESSO GRÁTIS COMEÇOU!<br><span style="font-size:14px;color:#555">YOUR FREE ACCESS STARTED!</span></h2>
-
-<div class="cat">
-<b>🏖️ Praias / Beaches</b>
-<p>Praia de Copacabana, Ipanema, Leblon - As melhores praias do Rio! / Best beaches in Rio!</p>
-<a href="https://www.google.com/maps?q=Praia+de+Copacabana" target="_blank">Ver no mapa / View on map →</a>
-</div>
-
-<div class="cat">
-<b>🍽️ Onde Comer / Where to Eat</b>
-<p>Restaurantes, lanchonetes e comida de rua em Copacabana! / Restaurants and street food!</p>
-<a href="https://www.google.com/maps?q=restaurantes+Copacabana" target="_blank">Ver no mapa / View on map →</a>
-</div>
-
-<div class="cat">
-<b>🎉 Festas / Parties</b>
-<p>As melhores festas e baladas do Rio hoje! / Best parties in Rio today!</p>
-<a href="https://www.google.com/maps?q=baladas+Copacabana" target="_blank">Ver no mapa / View on map →</a>
-</div>
-
-<div class="cat">
-<b>🚶 Passeios / Tours</b>
-<p>Cristo Redentor, Pão de Açúcar, Maracanã! / Christ, Sugar Loaf, Maracanã!</p>
-<a href="https://www.google.com/maps?q=Cristo+Redentor" target="_blank">Ver no mapa / View on map →</a>
-</div>
-
-<div class="cat">
-<b>🛍️ Compras / Shopping</b>
-<p>SPACE COPACABANA - Souvenirs e presentes! / Souvenirs and gifts!</p>
-<a href="https://www.google.com/maps?q=Av.+Nossa+Senhora+de+Copacabana" target="_blank">Como chegar / How to get there →</a>
-</div>
-</div>
-
-<div class="planos" id="planos">
-<div class="plano">
-<h3>PLANO A - 1 DIA / PLAN A - 1 DAY</h3>
-<p>R$ 39,99</p>
-<small>1 Dia de acesso total / 1 Day full access</small>
-<a class="btn" href="https://buy.stripe.com/aFafZhdpYcWPfrJcqS9EI07" target="_blank">QUERO PAGAR - PLANO A<br><span style="font-size:14px">I WANT TO PAY - PLAN A</span></a>
-</div>
-<div class="plano">
-<h3>PLANO B - 7 DIAS / PLAN B - 7 DAYS</h3>
-<p>R$ 69,99</p>
-<small>7 Dias de acesso total / 7 Days full access</small>
-<a class="btn" href="https://buy.stripe.com/9B69AT5Xw9KD1AT2Qi9EI05" target="_blank">QUERO PAGAR - PLANO B<br><span style="font-size:14px">I WANT TO PAY - PLAN B</span></a>
-</div>
-<div class="plano">
-<h3>PLANO C - 30 DIAS / PLAN C - 30 DAYS</h3>
-<p>R$ 179,99</p>
-<small>30 Dias de acesso total / 30 Days full access</small>
-<a class="btn" href="https://buy.stripe.com/28E7sL85EcWP2EX0Ia9EI06" target="_blank">QUERO PAGAR - PLANO C<br><span style="font-size:14px">I WANT TO PAY - PLAN C</span></a>
-</div>
-</div>
-
-<a class="btn2" href="https://www.google.com/maps?q=Av.+Nossa+Senhora+de+Copacabana" target="_blank">📍 COMO CHEGAR / HOW TO GET THERE</a>
-
-<p class="small">SPACE COPACABANA - Av. Nossa Senhora de Copacabana<br>Feito com ❤️ no Rio | Made in Rio</p>
-
-<script>
-let s=30*60;
-let comecou=false;
-let timerBox=document.getElementById('timerBox');
-let gratisBox=document.getElementById('gratis');
-let planosBox=document.getElementById('planos');
-
-function entrarGratis(){
-  if(comecou) return;
-  comecou=true;
-  gratisBox.style.display='block';
-  gratisBox.scrollIntoView({behavior:'smooth'});
-  setInterval(function(){
-    if(s<=0){
-      timerBox.innerText='Tempo grátis acabou! / Free time is over! Pague para continuar! / Pay to continue!';
-      gratisBox.style.display='none';
-      planosBox.style.display='block';
-      planosBox.scrollIntoView({behavior:'smooth'});
-      return;
-    }
-    let m=Math.floor(s/60);
-    let sec=s%60;
-    if(sec<10){sec='0'+sec;}
-    timerBox.innerText='Tempo grátis: '+m+':'+sec+' / Free time: '+m+':'+sec;
-    s--;
-  },1000);
-}
-</script>
-</body>
-</html>
+  <!-- PLANO A -->
+  <div class
