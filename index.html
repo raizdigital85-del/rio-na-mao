@@ -3,103 +3,124 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alien - Rio</title>
+<title>Rio na Mão com Thiago Alien</title>
 <style>
-body{margin:0;font-family:Arial;background:#0f0f1a;color:#fff}
-.top{background:#22c55e;padding:12px;text-align:center;font-weight:900;font-size:18px}
-.card{background:#fff;color:#111;margin:12px;border-radius:12px;padding:12px;text-align:center}
+body{margin:0;font-family:Arial;background:#f2f2f2;color:#111}
+.top{background:#22c55e;padding:12px;text-align:center;font-weight:900;font-size:18px;color:#fff}
+.card{background:#fff;margin:12px;border-radius:12px;padding:12px;text-align:center;border:1px solid #ddd}
 .tabs{display:flex;gap:6px;padding:0 12px;overflow-x:auto}
 .tabs button{flex:1;padding:10px;border:none;border-radius:999px;background:#222;color:#fff;font-weight:700;white-space:nowrap}
 .tabs button.ativo{background:#f97316}
 .secao{display:none;padding:0 12px 20px}
 .secao.ativo{display:block}
-.item{background:#1e1e2e;padding:12px;border-radius:12px;margin-bottom:8px}
-.plano{width:100%;padding:14px;margin-top:8px;border:none;border-radius:12px;color:#fff;font-weight:900;font-size:16px;cursor:pointer}
+.item{background:#fff;padding:12px;border-radius:12px;margin-bottom:8px;border:1px solid #ddd}
+.item b{font-size:15px}
+.btn{padding:8px 12px;border:none;border-radius:8px;background:#7c3aed;color:#fff;font-weight:700;margin-top:6px}
+.plano{width:100%;padding:14px;margin-top:8px;border:none;border-radius:12px;color:#fff;font-weight:900;font-size:16px}
 input{padding:10px;border-radius:10px;border:1px solid #ccc;text-align:center}
+.barra{position:fixed;bottom:0;left:0;right:0;background:#7c3aed;color:#fff;display:flex;justify-content:space-around;padding:10px;font-weight:700}
 </style>
 </head>
 <body>
-
-<div class="top">👉 ACESSAR GRÁTIS 👈</div>
-
-<div class="card">
-<b style="font-size:20px">⏳ Seu tempo grátis: <span id="timer">29:47</span></b><br>
-<div style="margin:10px auto;width:120px;height:120px;background:#eee;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:12px;color:#333">QR CODE<br>AQUI</div>
-<span>Escaneie para continuar</span>
-</div>
+<div class="top">👽 Rio na Mão com Thiago Alien</div>
+<div class="card"><b>⏳ Seu tempo grátis: <span id="timer">29:47</span></b><br><div style="margin:10px auto;width:120px;height:120px;background:#eee;display:flex;align-items:center;justify-content:center;border-radius:10px">QR CODE<br>AQUI</div>Escaneie para continuar</div>
 
 <div class="tabs">
 <button class="ativo" onclick="aba('festas',this)">🎉 Festas</button>
-<button onclick="aba('bailes',this)">🎶 Bailes</button>
+<button onclick="aba('comer',this)">🍽️ Onde Comer</button>
 <button onclick="aba('hospedagem',this)">🏠 Hospedagem</button>
+<button onclick="aba('turistico',this)">📍 Turísticos</button>
 <button onclick="aba('praias',this)">🏖️ Praias</button>
-<button onclick="aba('dudu',this)">🎧 Dudu</button>
+<button onclick="aba('bailes',this)">🎶 Bailes</button>
 <button onclick="aba('pilar',this)">⭐ Pilar</button>
 </div>
 
-<div id="festas" class="secao ativo"><div class="item">Festas de hoje no Rio - lista aqui</div></div>
-<div id="bailes" class="secao"><div class="item">Bailes Funk - lista aqui</div></div>
-<div id="hospedagem" class="secao"><div class="item">Hospedagem - lista aqui</div></div>
-<div id="praias" class="secao"><div class="item">Praias - lista aqui</div></div>
-<div id="dudu" class="secao"><div class="item">Dudu - lista aqui</div></div>
-<div id="pilar" class="secao"><div class="item">Pilar - lista aqui</div></div>
+<div id="festas" class="secao ativo">
+<h3>🎉 Festas 0800 - Grátis</h3>
+<div class="item"><b>1. Pedra do Sal</b><br>Rua Pedra do Sal, Saúde - Samba segunda e sexta - Grátis 0800<br><button class="btn">Como chegar</button></div>
+<div class="item"><b>2. Lapa - Arcos da Lapa</b><br>Centro - Samba / Forró / Rua - Grátis 0800<br><button class="btn">Como chegar</button></div>
+<div class="item"><b>3. Feira da Glória</b><br>Praça Duque de Caxias, Glória - Domingo Feira + Samba - Grátis 0800<br><button class="btn">Como chegar</button></div>
+<div class="item"><b>4. Santa Teresa - Samba dos Guimarães</b><br>Largo dos Guimarães - Sábado - Grátis 0800<br><button class="btn">Como chegar</button></div>
+<h3>💃 Boates / Discotecas - Pagas</h3>
+<div class="item"><b>Boite Paradiso</b><br>Copacabana - Posto 4 - Reggaeton / Latina / MIX - Qui e Sáb - PAGA<br><button class="btn">Como chegar</button></div>
+<div class="item"><b>Substation Club</b><br>Copacabana - Funk / Reggaeton / Afrobeat - Qua e Sáb - PAGA<br><button class="btn">Como chegar</button></div>
+<div class="item"><b>Boate La Cueva</b><br>Copacabana - Miguel Lemos - Latina / Reggaeton - Sex e Sáb - PAGA<br><button class="btn">Como chegar</button></div>
+</div>
 
-<!-- PLANOS - 3 BOTÕES RETÂNGULO -->
+<div id="comer" class="secao">
+<h3>🍽️ Onde Comer</h3>
+<div class="item"><b>Pavão Azul</b> - Copacabana - R$ 45-80</div>
+<div class="item"><b>Bar do Mineiro</b> - Santa Teresa feijoada - R$ 38-65</div>
+<div class="item"><b>Bibi Sucos</b> - Copacabana - R$ 12-25</div>
+<div class="item"><b>Galeto Sat's</b> - Copacabana - R$ 28-40</div>
+<div class="item"><b>Quiosque Nativo - Posto 4</b> - Copacabana - R$ 28-65</div>
+<div class="item"><b>Baródromo - Posto 3</b> - Copacabana - R$ 35-90</div>
+<div class="item"><b>Areia MPB - Entre Posto 2 e 3</b> - Copacabana - R$ 30-70</div>
+<div class="item"><b>Coisas de Bamba - Posto 4</b> - Copacabana - R$ 25-60</div>
+<div class="item"><b>Porcão Rio's</b> - Flamengo - R$ 90-120</div>
+<div class="item"><b>Carretão</b> - Ipanema - R$ 70-95</div>
+</div>
+
+<div id="hospedagem" class="secao">
+<h3>🏠 Hospedagem - Mais em Conta</h3>
+<div class="item"><b>Che Lagarto Hostel</b> - Copacabana - Mochileiro<br>Preço estimado: R$ 65-95 / noite</div>
+<div class="item"><b>Bamboo Rio Hostel</b> - Copacabana - Piscina e bar<br>Preço estimado: R$ 70-110 / noite</div>
+<div class="item"><b>ibis budget Copacabana</b> - Perto do metrô<br>Preço estimado: R$ 180-260 / noite</div>
+<h3>✨ Luxo - Copacabana</h3>
+<div class="item"><b>Copacabana Palace</b> - Av. Atlântica - R$ 1.800-3.500 - Piscina, praia, clássico<br>💛 DESCONTO PELO APP DO THIAGO</div>
+<div class="item"><b>Fairmont Rio</b> - Av. Atlântica - R$ 1.200-2.200 - Piscina, vista mar<br>💛 DESCONTO PELO APP DO THIAGO</div>
+<div class="item"><b>Hilton Rio Copacabana</b> - Av. Atlântica - R$ 900-1.600 - Piscina, perto do metrô<br>💛 DESCONTO PELO APP DO THIAGO</div>
+</div>
+
+<div id="turistico" class="secao">
+<h3>📍 Lugares Turísticos</h3>
+<div class="item"><b>1. Pão de Açúcar</b> - Bondinho - Urca</div>
+<div class="item"><b>2. Cristo Redentor</b> - Corcovado</div>
+<div class="item"><b>3. Bondinho de Santa Teresa</b> - Santa Teresa</div>
+<button onclick="aba('pilar',document.querySelectorAll('.tabs button')[6])" style="width:100%;padding:14px;border:none;border-radius:12px;background:#d4af37;font-weight:900">✨ Passeio com a Nossa Guia Parceira Pilar ✨<br>Passeios Exclusivos que só ela faz</button>
+</div>
+
+<div id="praias" class="secao">
+<h3>🏖️ Praias</h3>
+<div class="item"><b>1. Leme - Posto 1 e 2</b> - Ref: Quiosque RASTA BEACH - Galera nova, alternativa, reggae</div>
+<div class="item"><b>2. Copacabana - Posto 4</b> - Ref: Quiosque Nativo</div>
+<div class="item"><b>3. Ipanema - Posto 9</b> - Galera jovem</div>
+<div class="item"><b>4. Leblon - Posto 11</b> - Mais calma</div>
+<div class="item"><b>5. Arpoador</b> - Pôr do sol</div>
+<div class="item"><b>6. Barra da Tijuca - Posto 7</b> - Surf, mais espaço</div>
+</div>
+
+<div id="bailes" class="secao">
+<h3>🎶 Bailes / Favela - SÓ COM GUIA LOCAL</h3>
+<div style="background:#4c1d95;color:#fff;padding:10px;border-radius:10px;text-align:center;margin-bottom:10px">Só com Guia Local - Falar com Pilar [WhatsApp]</div>
+<div class="item"><b>1. Baile da Gaiola / Estrelas</b> - Vila Cruzeiro Penha - Funk 150 BPM - Sábado</div>
+<div class="item"><b>2. Baile da Nova Holanda</b> - Complexo da Maré - Funk - Sábado</div>
+<div class="item"><b>3. Baile do Santo Amaro</b> - Santo Amaro - Funk</div>
+<div class="item"><b>4. Baile do Vidigal</b> - Vidigal - Funk</div>
+</div>
+
+<div id="pilar" class="secao">
+<h3>⭐ Passeio Exclusivo com a Nossa Guia Pilar</h3>
+<div class="item">Passeios exclusivos que só ela faz - Rolê turístico com guia parceira<br><b>Guia: Pilar</b><br><button class="btn" style="background:#22c55e">Falar com a Pilar - WhatsApp</button><br><br><button class="btn" style="background:#22c55e">QUERO RESERVAR COM A PILAR</button></div>
+</div>
+
 <div class="card">
 <b>Seu tempo grátis acabou? Escolha um plano.</b>
-
-<button onclick="escolherPlano('diario')" id="btnDiario" class="plano" style="background:#22c55e">DIÁRIO - R$39,99<div id="precoDiario" style="font-size:13px;font-weight:400">Clique para escolher</div></button>
-<button onclick="escolherPlano('semanal')" id="btnSemanal" class="plano" style="background:#f97316">SEMANAL - R$79,99<div id="precoSemanal" style="font-size:13px;font-weight:400">Clique para escolher</div></button>
-<button onclick="escolherPlano('mensal')" id="btnMensal" class="plano" style="background:#8b5cf6">MENSAL - R$179,99<div id="precoMensal" style="font-size:13px;font-weight:400">Clique para escolher - MELHOR VALOR</div></button>
-
-<div style="margin-top:12px">
-<input id="telInput" placeholder="Digite seu WhatsApp com DDD ex: +55 21 99999-9999" style="width:80%"><br>
-<button onclick="verificarDDD()" style="padding:10px;border:none;border-radius:10px;background:#2563eb;color:#fff;font-weight:900;margin-top:6px">CONTINUAR</button>
+<button onclick="escolherPlano('diario')" id="btnDiario" class="plano" style="background:#22c55e">DIÁRIO - R$39,99<div id="precoDiario" style="font-size:13px;font-weight:400">Clique para escolher - Vale por 24h</div></button>
+<button onclick="escolherPlano('semanal')" id="btnSemanal" class="plano" style="background:#f97316">SEMANAL - R$79,99<div id="precoSemanal" style="font-size:13px;font-weight:400">Clique para escolher - MAIS ESCOLHIDO - 7 dias</div></button>
+<button onclick="escolherPlano('mensal')" id="btnMensal" class="plano" style="background:#8b5cf6">MENSAL - R$179,99<div id="precoMensal" style="font-size:13px;font-weight:400">Clique para escolher - MELHOR VALOR - 30 dias</div></button>
+<div style="margin-top:12px"><input id="telInput" placeholder="Digite seu WhatsApp com DDD ex: +55 21 99999-9999" style="width:80%"><br><button onclick="verificarDDD()" style="padding:10px;border:none;border-radius:10px;background:#2563eb;color:#fff;font-weight:900;margin-top:6px">CONTINUAR</button></div>
+<div id="boxCupom" style="display:none;margin-top:12px"><b>Acabou o tempo, tem cupom de desconto? Digite aqui 👇</b><br><input id="cupomInput" placeholder="Digite aqui seu cupom" style="width:60%;margin-top:6px"><button onclick="aplicarCupom()" style="padding:10px;border:none;border-radius:10px;background:#f97316;color:#fff;font-weight:900">APLICAR</button><p id="msgCupom" style="font-size:12px"></p></div>
 </div>
-
-<div id="boxCupom" style="display:none;margin-top:12px">
-<b>Acabou o tempo, tem cupom de desconto? Digite aqui 👇</b><br>
-<input id="cupomInput" placeholder="Digite aqui seu cupom" style="width:60%;margin-top:6px">
-<button onclick="aplicarCupom()" style="padding:10px;border:none;border-radius:10px;background:#f97316;color:#fff;font-weight:900">APLICAR</button>
-<p id="msgCupom" style="font-size:12px"></p>
-</div>
-</div>
+<div style="height:60px"></div>
+<div class="barra"><span>Início</span><span>Mapa</span><span>Favoritos</span><span>Perfil</span></div>
 
 <script>
-let tempo = 29*60+47;
-setInterval(()=>{ if(tempo>0) tempo--; let m=Math.floor(tempo/60), s=tempo%60; document.getElementById('timer').innerText = m+':'+(s<10?'0':'')+s; },1000);
-
-function aba(id,btn){ document.querySelectorAll('.secao').forEach(e=>e.classList.remove('ativo')); document.getElementById(id).classList.add('ativo'); document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('ativo')); btn.classList.add('ativo'); }
-
-function escolherPlano(p){
-  document.getElementById('btnDiario').style.outline = p==='diario' ? '3px solid #000' : 'none';
-  document.getElementById('btnSemanal').style.outline = p==='semanal' ? '3px solid #000' : 'none';
-  document.getElementById('btnMensal').style.outline = p==='mensal' ? '3px solid #000' : 'none';
-}
-
-function verificarDDD(){
-  let tel = document.getElementById('telInput').value.trim();
-  let sul = ['+55','+54','+56','+51','+57','+598','+595','+591','+58','+593'];
-  let eDaqui = sul.some(c => tel.startsWith(c));
-  if(eDaqui){
-    document.getElementById('boxCupom').style.display = 'block';
-    document.getElementById('msgCupom').innerText = 'Você é daqui! Pode usar seu cupom.';
-  } else {
-    document.getElementById('boxCupom').style.display = 'none';
-  }
-}
-
-function aplicarCupom(){
-  let c = document.getElementById('cupomInput').value.trim().toUpperCase();
-  if(c==='ALIEN50'){
-    document.getElementById('precoDiario').innerText = 'Com cupom: R$19,99 ✅';
-    document.getElementById('precoSemanal').innerText = 'Com cupom: R$39,99 ✅';
-    document.getElementById('precoMensal').innerText = 'Com cupom: R$89,99 ✅';
-    document.getElementById('msgCupom').innerText = '✅ Cupom aplicado! Preço caiu na hora!';
-  } else {
-    document.getElementById('msgCupom').innerText = '❌ Cupom inválido';
-  }
-}
+let tempo=29*60+47; setInterval(()=>{ if(tempo>0) tempo--; let m=Math.floor(tempo/60), s=tempo%60; document.getElementById('timer').innerText=m+':'+(s<10?'0':'')+s; },1000);
+function aba(id,btn){ document.querySelectorAll('.secao').forEach(e=>e.classList.remove('ativo')); document.getElementById(id).classList.add('ativo'); document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('ativo')); if(btn) btn.classList.add('ativo'); }
+function escolherPlano(p){ document.getElementById('btnDiario').style.outline=p==='diario'?'3px solid #000':'none'; document.getElementById('btnSemanal').style.outline=p==='semanal'?'3px solid #000':'none'; document.getElementById('btnMensal').style.outline=p==='mensal'?'3px solid #000':'none'; }
+function verificarDDD(){ let tel=document.getElementById('telInput').value.trim(); let sul=['+55','+54','+56','+51','+57','+598','+595','+591','+58','+593']; let eDaqui=sul.some(c=>tel.startsWith(c)); if(eDaqui){ document.getElementById('boxCupom').style.display='block'; document.getElementById('msgCupom').innerText='Você é daqui! Pode usar seu cupom.'; } else { document.getElementById('boxCupom').style.display='none'; } }
+function aplicarCupom(){ let c=document.getElementById('cupomInput').value.trim().toUpperCase(); if(c==='ALIEN50'){ document.getElementById('precoDiario').innerText='Com cupom: R$19,99 ✅'; document.getElementById('precoSemanal').innerText='Com cupom: R$39,99 ✅'; document.getElementById('precoMensal').innerText='Com cupom: R$89,99 ✅'; document.getElementById('msgCupom').innerText='✅ Cupom ALIEN50 aplicado! Desconto de outro planeta 👽'; } else { document.getElementById('msgCupom').innerText='❌ Cupom inválido'; } }
 </script>
 </body>
 </html>
