@@ -16,6 +16,7 @@
 .tag{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold;color:#fff}
 .go{display:block;background:#00c853;color:#fff;text-align:center;padding:13px;border-radius:12px;text-decoration:none;font-weight:bold;margin-top:10px}
 .wa{display:block;background:#25D366;color:#fff;text-align:center;padding:13px;border-radius:12px;text-decoration:none;font-weight:bold;margin-top:8px}
+.big{display:block;background:#00c853;color:#fff;text-align:center;padding:18px;border-radius:14px;text-decoration:none;font-weight:bold;font-size:20px;margin:12px}
 .back{background:#111;color:#fff;border:0;padding:10px 14px;border-radius:10px;margin:10px 12px}
 .nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;border-top:1px solid #ddd;padding:10px 0;text-align:center;font-size:12px}
 .nav div{flex:1;cursor:pointer}.pad{padding-bottom:70px}
@@ -30,8 +31,24 @@
 <div class="timer" id="timerBox">⏰ Use grátis por 30 minutos: <span id="clock">30:00</span></div>
 <div class="pad">
 
-<div id="p1">
+<!-- CAPA - PAGINA INICIAL QUE FALTAVA -->
+<div id="capa">
+<div class="banner"><b>Bem-vindo! Welcome!</b><br>Turista no Rio? Tudo na palma da mão em 1 clique!</div>
+<div class="card" style="text-align:center"><h2>SCAN ME</h2><p>Aponte sua câmera aqui<br>Point your camera here</p><img style="width:180px" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://raizdigital85-del.github.io/rio-na-mao/"><br><b>START FREE 30 MIN TRIAL</b><br>Comece Grátis - 30 Minutos</div>
+<a class="big" href="#" onclick="show('p1');return false;">🚀 ENTRAR NO APP GRÁTIS - 30 MIN<br><small style="font-size:13px;font-weight:normal">ENTER FREE APP</small></a>
+<div class="card" style="text-align:center"><h2>🗺️ Mapa de Copacabana</h2><iframe style="width:100%;height:250px;border:0;border-radius:12px" src="https://www.google.com/maps?q=Copacabana+Rio+de+Janeiro&output=embed"></iframe><div style="background:#00c853;color:#fff;padding:12px;border-radius:12px;margin-top:10px;text-align:left"><b>📍 SPACE COPACABANA</b><br>Souvenir & Gift Shop<br>Av. Nossa Senhora de Copacabana<br>⭐ 4.9 - Aberto Agora</div></div>
+<div class="pay"><h2>💳 Choose Your Pass / Escolha Seu Plano</h2><p>DIÁRIO - R$ 39,99 - Vale por 24h<br>SEMANAL - R$ 79,99 - Vale por 7 dias - MAIS ESCOLHIDO<br>MENSAL - R$ 179,99 - Vale por 30 dias</p><p>CUPOM ALIEN50 dá 50%: R$ 19,99 / R$ 39,99 / R$ 89,99<br><b>Cupom ALIEN50 aplicado! Desconto de outro planeta 👽</b></p>
+<a href="https://buy.stripe.com/6oU8wP71A2ibenF2Qi9EI02" target="_blank">🚀 1 DAY PASS - R$ 19,99 com ALIEN50</a>
+<a style="background:#ff9800" href="https://buy.stripe.com/bJe14n0Dcg911ATfD49EI01" target="_blank">🔥 7 DAY PASS - R$ 39,99 com ALIEN50</a>
+<a style="background:#7b2fff" href="https://buy.stripe.com/14A5kDdpYg91a7p1Me9EI03" target="_blank">👑 30 DAY PASS - R$ 89,99 com ALIEN50</a></div>
+<a class="big" style="background:#7b2fff" href="#" onclick="show('p1');return false;">👉 JÁ PAGUEI - ENTRAR NO APP</a>
+<p style="text-align:center;font-size:12px;color:#777">SPACE COPACABANA - Av. Nossa Senhora de Copacabana<br>Feito com ❤️ no Rio | Made in Rio</p>
+</div>
+
+<!-- APP - PAGINA 1 -->
+<div id="p1" class="hidden">
 <div class="banner"><b>Bem-vindo! Welcome!</b><br>Use grátis por 30 minutos / Free 30 min</div>
+<button class="back" onclick="show('capa')">← Voltar pra Capa / Pagar</button>
 <button class="btn" onclick="show('festas')">🎉 Festas<small>Boates • Festas 0800 • Bailes</small></button>
 <button class="btn" onclick="show('comer')">🍽️ Onde Comer / Gastronomia<small>Restaurantes • Lanches • Quiosques • Churrasco</small></button>
 <button class="btn" onclick="show('hosp')">🛏️ Hospedagem<small>Mais em conta • Luxo Copacabana</small></button>
@@ -40,7 +57,6 @@
 <button class="btn" onclick="show('pilar')">✨ Passeio Exclusivo com Guia<small>Com a Nossa Guia Parceira Pilar</small></button>
 <button class="btn" onclick="show('quiosques')">🥥 Melhores Quiosques da Orla de Copacabana<small>Posto 2 a 5</small></button>
 <div class="gold" onclick="show('space')">✅ SPACE 4:20 Headshop<br><small>Sua tabacaria em Copacabana - Orla Posto 4<br>Selo de Qualidade Autorizado - Rio na Mão</small></div>
-<div class="card" style="text-align:center"><b>SCAN ME - Compartilhar</b><br><img style="width:170px" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://raizdigital85-del.github.io/rio-na-mao/"><br><small>START FREE 30 MIN TRIAL</small></div>
 <button class="btn" onclick="show('transporte')">🚕 Motorista Parceira Pilar<small>Transfer • Aeroporto • Passeios - Pilar</small></button>
 </div>
 
@@ -80,20 +96,20 @@
 
 <div id="hosp" class="hidden"><button class="back" onclick="show('p1')">← Voltar</button>
 <div class="card"><span class="tag" style="background:#ffcc00;color:#000">HOSPEDAGEM</span><h3>MAIS EM CONTA 💚</h3></div>
-<div class="card"><b>Che Lagarto Hostel</b><p>Copacabana - Mochileiro - Preço estimado: R$ 65-95 / noite</p><span class="tag" style="background:#00c853">DESCONTO PELO APP DO THIAGO</span></div>
-<div class="card"><b>Bamboo Rio Hostel</b><p>Copacabana - Piscina e bar - R$ 70-110 / noite</p><span class="tag" style="background:#00c853">DESCONTO PELO APP DO THIAGO</span></div>
-<div class="card"><b>ibis budget Copacabana</b><p>Perto do metrô - R$ 180-260 / noite</p><span class="tag" style="background:#00c853">DESCONTO PELO APP DO THIAGO</span></div>
+<div class="card"><b>Che Lagarto Hostel</b><p>Copacabana - Mochileiro - R$ 65-95 / noite</p></div>
+<div class="card"><b>Bamboo Rio Hostel</b><p>Copacabana - Piscina e bar - R$ 70-110 / noite</p></div>
+<div class="card"><b>ibis budget Copacabana</b><p>Perto do metrô - R$ 180-260 / noite</p></div>
 <div class="card"><h3>LUXO ✨ - SÓ COPACABANA</h3></div>
-<div class="card"><b>Copacabana Palace</b><p>Av. Atlântica - R$ 1.800-3.500 - Piscina, praia, clássico</p><span class="tag" style="background:#DAA520">DESCONTO PELO APP DO THIAGO</span></div>
-<div class="card"><b>Fairmont Rio de Janeiro Copacabana</b><p>Av. Atlântica - R$ 1.200-2.200 - Piscina, vista mar</p><span class="tag" style="background:#DAA520">DESCONTO PELO APP DO THIAGO</span></div>
-<div class="card"><b>Hilton Rio de Janeiro Copacabana</b><p>Av. Atlântica - R$ 900-1.600 - Piscina, perto do metrô</p><span class="tag" style="background:#DAA520">DESCONTO PELO APP DO THIAGO</span></div>
+<div class="card"><b>Copacabana Palace</b><p>Av. Atlântica - R$ 1.800-3.500</p></div>
+<div class="card"><b>Fairmont Rio de Janeiro Copacabana</b><p>Av. Atlântica - R$ 1.200-2.200</p></div>
+<div class="card"><b>Hilton Rio de Janeiro Copacabana</b><p>Av. Atlântica - R$ 900-1.600</p></div>
 </div>
 
 <div id="lugares" class="hidden"><button class="back" onclick="show('p1')">← Voltar</button>
 <div class="card"><b>1. Pão de Açúcar - Bondinho - Urca</b><a class="go" href="https://www.google.com/maps?q=Pao+de+Acucar+Rio" target="_blank">Como Chegar</a></div>
 <div class="card"><b>2. Cristo Redentor - Corcovado</b><a class="go" href="https://www.google.com/maps?q=Cristo+Redentor+Rio" target="_blank">Como Chegar</a></div>
 <div class="card"><b>3. Bondinho de Santa Teresa</b><a class="go" href="https://www.google.com/maps?q=Bondinho+Santa+Teresa" target="_blank">Como Chegar</a></div>
-<div class="gold" onclick="show('pilar')">✨ Passeio com a Nossa Guia Parceira Pilar ✨<br><small>Passeios Exclusivos que só ela faz - Clique aqui</small></div>
+<div class="gold" onclick="show('pilar')">✨ Passeio com a Nossa Guia Parceira Pilar ✨<br><small>Passeios Exclusivos que só ela faz</small></div>
 </div>
 
 <div id="praias" class="hidden"><button class="back" onclick="show('p1')">← Voltar</button>
@@ -106,7 +122,7 @@
 </div>
 
 <div id="pilar" class="hidden"><button class="back" onclick="show('p1')">← Voltar</button>
-<div class="card" style="text-align:center"><h2>Passeio Exclusivo com a Nossa Guia Pilar</h2><p>Passeios exclusivos que só ela faz - Rolê turístico com guia parceira<br><b>Guia + Motorista Parceira</b><br>+55 21 98890-6447</p><a class="wa" href="https://wa.me/5521988906447?text=Oi%20Pilar!%20Vim%20pelo%20Rio%20na%20M%C3%A3o%20-%20Quero%20um%20passeio%20exclusivo!" target="_blank">Falar com a Pilar</a><a class="wa" href="https://wa.me/5521988906447?text=Oi%20Pilar!%20Vim%20pelo%20Rio%20na%20M%C3%A3o%20-%20QUERO%20RESERVAR%20COM%20A%20PILAR!" target="_blank">QUERO RESERVAR COM A PILAR</a></div>
+<div class="card" style="text-align:center"><h2>Passeio Exclusivo com a Nossa Guia Pilar</h2><p>Passeios exclusivos que só ela faz<br><b>Guia + Motorista Parceira</b><br>+55 21 98890-6447</p><a class="wa" href="https://wa.me/5521988906447?text=Oi%20Pilar!%20Vim%20pelo%20Rio%20na%20M%C3%A3o%20-%20Quero%20um%20passeio%20exclusivo!" target="_blank">Falar com a Pilar</a><a class="wa" href="https://wa.me/5521988906447?text=Oi%20Pilar!%20Vim%20pelo%20Rio%20na%20M%C3%A3o%20-%20QUERO%20RESERVAR%20COM%20A%20PILAR!" target="_blank">QUERO RESERVAR COM A PILAR</a></div>
 </div>
 
 <div id="quiosques" class="hidden"><button class="back" onclick="show('p1')">← Voltar</button>
@@ -121,22 +137,23 @@
 </div>
 
 <div id="transporte" class="hidden"><button class="back" onclick="show('p1')">← Voltar</button>
-<div class="card"><h2>🚕 Motorista Parceira Pilar</h2><p><b>Pilar - Nossa Motorista Parceira e Guia</b><br>Transfer • Aeroporto Galeão / Santos Dumont • Passeios • Preço fechado sem surpresa<br>+55 21 98890-6447</p><a class="wa" href="https://wa.me/5521988906447?text=Oi%20Pilar!%20Vim%20pelo%20Rio%20na%20M%C3%A3o%20-%20Preciso%20de%20um%20motorista!" target="_blank">Chamar Pilar no WhatsApp</a><a class="go" href="https://www.google.com/maps?q=Copacabana+Rio" target="_blank">Ver no Mapa</a></div>
+<div class="card"><h2>🚕 Motorista Parceira Pilar</h2><p><b>Pilar - Nossa Motorista Parceira e Guia</b><br>Transfer • Aeroporto Galeão / Santos Dumont • Passeios<br>+55 21 98890-6447</p><a class="wa" href="https://wa.me/5521988906447?text=Oi%20Pilar!%20Vim%20pelo%20Rio%20na%20M%C3%A3o%20-%20Preciso%20de%20um%20motorista!" target="_blank">Chamar Pilar no WhatsApp</a></div>
 </div>
 
 <div id="paywall" class="pay hidden"><h2>Seu tempo grátis acabou! ⏰</h2><p>Para continuar usando o Rio na Mão, escolha um plano abaixo.</p>
-<p>DIÁRIO - R$ 39,99 - Vale por 24h<br>SEMANAL - R$ 79,99 - Vale por 7 dias - MAIS ESCOLHIDO<br>MENSAL - R$ 179,99 - Vale por 30 dias</p>
-<p>CUPOM ALIEN50 dá 50%: R$ 19,99 / R$ 39,99 / R$ 89,99<br><b>Cupom ALIEN50 aplicado! Desconto de outro planeta 👽</b></p>
+<p>DIÁRIO - R$ 39,99 / SEMANAL - R$ 79,99 / MENSAL - R$ 179,99</p>
+<p>CUPOM ALIEN50 50%: R$ 19,99 / R$ 39,99 / R$ 89,99</p>
 <a href="https://buy.stripe.com/6oU8wP71A2ibenF2Qi9EI02" target="_blank">Assinar DIÁRIO - R$ 19,99 com ALIEN50</a>
 <a href="https://buy.stripe.com/bJe14n0Dcg911ATfD49EI01" target="_blank">Assinar SEMANAL - R$ 39,99 com ALIEN50</a>
 <a href="https://buy.stripe.com/14A5kDdpYg91a7p1Me9EI03" target="_blank">Assinar MENSAL - R$ 89,99 com ALIEN50</a>
+<a href="#" onclick="show('capa');return false;" style="background:#fff;color:#111">Voltar pra Capa</a>
 </div>
 
 </div>
-<div class="nav"><div onclick="show('p1')">🏠<br>Início</div><div onclick="show('praias')">🗺️<br>Mapa</div><div onclick="show('p1')">⭐<br>Favoritos</div><div onclick="show('p1')">👤<br>Perfil</div></div>
+<div class="nav"><div onclick="show('capa')">🏠<br>Início</div><div onclick="show('praias')">🗺️<br>Mapa</div><div onclick="show('p1')">⭐<br>Favoritos</div><div onclick="show('p1')">👤<br>Perfil</div></div>
 <script>
-function show(id){document.querySelectorAll('#p1,#festas,#comer,#hosp,#lugares,#praias,#pilar,#quiosques,#space,#transporte').forEach(e=>e.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');window.scrollTo(0,0);}
-let s=30*60;setInterval(()=>{let m=Math.floor(s/60),ss=s%60;document.getElementById('clock').innerText=(m<10?'0'+m:m)+':'+(ss<10?'0'+ss:ss);if(s>0)s--;else{document.getElementById('paywall').classList.remove('hidden');document.getElementById('timerBox').innerText='Tempo grátis acabou!';}},1000);
+function show(id){document.querySelectorAll('#capa,#p1,#festas,#comer,#hosp,#lugares,#praias,#pilar,#quiosques,#space,#transporte,#paywall').forEach(e=>e.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');window.scrollTo(0,0);}
+let s=30*60;setInterval(()=>{let m=Math.floor(s/60),ss=s%60;document.getElementById('clock').innerText=(m<10?'0'+m:m)+':'+(ss<10?'0'+ss:ss);if(s>0)s--;else{show('paywall');document.getElementById('timerBox').innerText='Tempo grátis acabou!';}},1000);
 </script>
 </body>
 </html>
