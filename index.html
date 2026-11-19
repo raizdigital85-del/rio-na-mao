@@ -9,6 +9,7 @@ body{margin:0;font-family:Arial;background:#0a0a1a;color:white;text-align:center
 .top{background:linear-gradient(135deg,#00ff88,#7b2fff);padding:25px 15px}
 .top h1{margin:0;font-size:32px;letter-spacing:1px}
 .top p{margin:5px 0 0;opacity:.9}
+.timer{background:#ffcc00;color:#000;font-weight:bold;padding:12px;font-size:18px;position:sticky;top:0;z-index:99}
 .card{background:white;color:#111;margin:15px;border-radius:20px;padding:15px;text-align:left}
 .card h2{margin:0 0 10px;font-size:20px}
 .map{width:100%;height:280px;border:0;border-radius:15px}
@@ -22,6 +23,8 @@ body{margin:0;font-family:Arial;background:#0a0a1a;color:white;text-align:center
 </style>
 </head>
 <body>
+<div class="timer">⏰ SEU TESTE GRÁTIS TERMINA EM: <span id="clock">30:00</span></div>
+
 <div class="top">
 <h1>👽 RIO NA MÃO</h1>
 <p>Copacabana • Rio de Janeiro</p>
@@ -42,7 +45,7 @@ Av. Nossa Senhora de Copacabana<br>
 <div class="qr">
 <h2 style="margin:0">SCAN ME</h2>
 <p style="margin:5px 0">Aponte sua câmera aqui<br>Point your camera here</p>
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://rio-na-mao.netlify.app" alt="QR Code">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://raizdigital85-del.github.io/rio-na-mao/" alt="QR Code">
 <p><b>START FREE 30 MIN TRIAL</b><br>Comece Grátis - 30 Minutos</p>
 </div>
 
@@ -58,5 +61,15 @@ Av. Nossa Senhora de Copacabana<br>
 <a class="btn2" href="https://www.google.com/maps?q=Av.+Nossa+Senhora+de+Copacabana" target="_blank">📍 COMO CHEGAR / HOW TO GET THERE</a>
 
 <p class="small">SPACE COPACABANA - Av. Nossa Senhora de Copacabana<br>Feito com ❤️ no Rio | Made in Rio</p>
+
+<script>
+let s = 30*60;
+setInterval(()=>{
+let m = Math.floor(s/60);
+let ss = s%60;
+document.getElementById('clock').innerText = (m<10?'0'+m:m)+':'+(ss<10?'0'+ss:ss);
+if(s>0) s--;
+},1000);
+</script>
 </body>
 </html>
