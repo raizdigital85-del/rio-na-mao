@@ -3,137 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RIO NA MÃO</title>
+<title>RIO NA MÃO - Guia do Rio</title>
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-  body{background:#111;color:#fff}
-  header{background:#000;padding:15px;text-align:center;position:relative;z-index:10}
-  header h1{font-size:28px;letter-spacing:2px}
-  /* TRAVA 2 - SEM FAIXA VERMELHA TAMPANDO */
-  .et{font-size:50px;text-align:center;margin:10px 0}
-  /* TRAVA 1 - SETINHA VOLTAR PRETA E VISIVEL */
-  .voltar{position:absolute;left:10px;top:15px;background:#fff;color:#000;font-size:22px;padding:5px 12px;border-radius:50%;cursor:pointer;z-index:99;border:none}
-  .tabs{display:flex;overflow-x:auto;background:#222;gap:5px;padding:10px}
-  .tabs button{background:#333;color:#fff;border:none;padding:10px 15px;border-radius:20px;white-space:nowrap;cursor:pointer}
-  .tabs button.ativo{background:#FFD700;color:#000;font-weight:bold}
-  .conteudo{padding:15px;display:none}
-  .conteudo.ativo{display:block}
-  .card{background:#222;padding:15px;border-radius:12px;margin-bottom:12px}
-  .card h3{margin-bottom:5px}
-  .btn-wpp{display:block;background:#25D366;color:#fff;text-align:center;padding:12px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px}
-  .subtabs{display:flex;gap:8px;margin-bottom:12px}
-  .subtabs button{background:#444;color:#fff;border:none;padding:8px 12px;border-radius:15px}
-  .preco{background:#FFD700;color:#000;text-align:center;padding:12px;font-weight:bold;border-radius:10px;margin:15px 0}
-  .cupom{background:#FF0000;color:#fff;text-align:center;padding:12px;border-radius:10px;margin:10px 0}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0a1a2f;color:#fff}
+.topo{background:#ff2d2d;text-align:center;padding:12px;font-weight:bold;font-size:15px}
+.preco{background:#ffcc00;color:#000;text-align:center;padding:10px;font-weight:bold}
+header{background:#007bff;text-align:center;padding:18px}
+header h1{font-size:28px;letter-spacing:1px}
+header p{font-size:14px;opacity:.9}
+.abas{display:flex;gap:8px;overflow-x:auto;padding:12px;background:#0a1a2f;position:sticky;top:0;z-index:10}
+.aba{background:#1e3a5f;color:#fff;border:none;padding:10px 16px;border-radius:20px;white-space:nowrap;cursor:pointer;font-weight:bold}
+.aba.ativa{background:#007bff}
+.secao{display:none;padding:14px}
+.secao.ativa{display:block}
+.card{background:#122a4a;border-radius:12px;padding:14px;margin-bottom:12px}
+.card h3{color:#fff;font-size:18px}
+.card p{color:#cbd5e1;font-size:14px;margin-top:4px}
+.card span{color:#00e676;font-size:13px}
+.btn{display:block;background:#00c853;color:#fff;text-align:center;padding:12px;border-radius:10px;margin-top:10px;text-decoration:none;font-weight:bold}
+.rodape{text-align:center;padding:20px;color:#888;font-size:12px}
 </style>
 </head>
 <body>
 
-<header>
-  <button class="voltar" onclick="voltar()">←</button>
-  <h1>RIO NA MÃO</h1>
-</header>
-<div class="et">👽</div>
-
-<!-- TRAVA 8 - CUPOM RIO50 - 50% - PRA SEMPRE - ESCONDIDO PRA GRINGO -->
-<!-- SO MOSTRAR SE lang == pt-BR -->
-<div class="cupom" id="cupom">CUPOM: RIO50 - 50% OFF - PRA SEMPRE!</div>
-
-<!-- TRAVA PRECO - NAO MEXER -->
+<div class="topo">CUPOM: RIO50 - 50% OFF - PRA SEMPRE!</div>
 <div class="preco">DIÁRIO R$ 39,99</div>
 
-<div class="tabs">
-  <button class="ativo" onclick="aba('passeios',this)">Passeios Turísticos</button>
-  <button onclick="aba('comer',this)">Onde Comer</button>
-  <button onclick="aba('quiosques',this)">Quiosques Zona Sul</button>
-  <button onclick="aba('discotecas',this)">Discotecas / Boates</button>
-  <button onclick="aba('pilar',this)">Guia Pilar</button>
-  <!-- TRAVA 4 - ABA BOATS E BOAT PARTY - RIO JOGADOS FORA - NAO VOLTA -->
+<header>
+<h1>🌊 RIO NA MÃO</h1>
+<p>Seu guia completo do Rio de Janeiro</p>
+</header>
+
+<div class="abas">
+<button class="aba ativa" onclick="mostrar('passeios',this)">Passeios Turísticos</button>
+<button class="aba" onclick="mostrar('comer',this)">Onde Comer</button>
+<button class="aba" onclick="mostrar('quiosques',this)">Quiosques Zona Sul</button>
+<button class="aba" onclick="mostrar('boates',this)">Discotecas / Boates</button>
+<button class="aba" onclick="mostrar('pilar',this)">Guia Pilar</button>
+<button class="aba" onclick="mostrar('hospedagem',this)">Hospedagem</button>
+<button class="aba" onclick="mostrar('praias',this)">Praias</button>
 </div>
 
-<!-- TRAVA 9 - PASSEIOS TURISTICOS -->
-<div id="passeios" class="conteudo ativo">
-  <div class="card"><h3>Lapa</h3><p>Passeio Lapa</p></div>
-  <div class="card"><h3>Santa Teresa</h3><p>Passeio Santa Teresa</p></div>
-  <div class="card"><h3>Outros Passeios 1</h3></div>
-  <div class="card"><h3>Outros Passeios 2</h3></div>
-  <div class="card"><h3>Outros Passeios 3</h3></div>
-
-  <!-- TRAVA 10 - SAVEIROS TOUR - DUDU -->
-  <div class="card">
-    <h3>Saveiros Tour - Navegação - Marina da Glória</h3>
-    <p>Dudu - Parceiro</p>
-    <p>Passeios e Locação de Barcos e Lanchas no Rio de Janeiro</p>
-    <p>Site: saveiros.com.br</p>
-    <a class="btn-wpp" onclick="contarClique('dudu')" href="https://wa.me/5521994656620?text=Fala%20Dudu!%20Vim%20pelo%20App%20RIO%20NA%20MÃO%20do%20Thiago%20e%20quero%20saber%20do%20passeio%20de%20barco%20Saveiros%20Tour!" target="_blank">FALAR NO WHATSAPP COM O DUDU</a>
-    <p>Cliques: <span id="cliques-dudu">0</span></p>
-  </div>
+<div id="passeios" class="secao ativa">
+<div class="card"><h3>Lapa</h3><p>Passeio Lapa - Arcos, escadaria, vida noturna</p><span>Ver passeio</span></div>
+<div class="card"><h3>Santa Teresa</h3><p>Passeio Santa Teresa - Bondinho, arte e mirantes</p><span>Ver passeio</span></div>
+<div class="card"><h3>Cristo Redentor</h3><p>Passeio clássico - Corcovado</p><span>Ver passeio</span></div>
+<div class="card"><h3>Pão de Açúcar</h3><p>Bondinho e vista 360°</p><span>Ver passeio</span></div>
+<div class="card"><h3>Saveiros Tour - Navegação - Marina da Glória</h3><p>Dudu - Parceiro<br>Site: saveiros.com.br<br>Passeios e Locação de Barcos e Lanchas no Rio de Janeiro</p><a class="btn" href="#">Ver Saveiros</a></div>
 </div>
 
-<!-- TRAVA 6 - ONDE COMER COM SUB-ABAS -->
-<div id="comer" class="conteudo">
-  <div class="subtabs">
-    <button onclick="subaba('restaurantes')">Restaurantes</button>
-    <button onclick="subaba('lanches')">Lanches</button>
-    <button onclick="subaba('churrasco')">Churrasco</button>
-  </div>
-  <div id="restaurantes"><div class="card"><h3>Restaurantes</h3></div></div>
-  <div id="lanches" style="display:none"><div class="card"><h3>Lanches</h3></div></div>
-  <div id="churrasco" style="display:none"><div class="card"><h3>Churrasco</h3></div></div>
+<div id="comer" class="secao">
+<div class="card"><h3>Onde Comer - Zona Sul</h3><p>Restaurantes, lanchonetes e PF</p></div>
+<div class="card"><h3>Churrasco</h3><p>Churrascarias do Rio</p></div>
+<div class="card"><h3>Hamburgueria</h3><p>Melhores hambúrgueres</p></div>
+<div class="card"><h3>Quiosques</h3><p>Comer na orla</p></div>
 </div>
 
-<!-- TRAVA 7 - QUIOSQUES ZONA SUL - ABA PRINCIPAL -->
-<div id="quiosques" class="conteudo">
-  <div class="card"><h3>Quiosques Zona Sul</h3><p>Lista de Quiosques Zona Sul</p></div>
+<div id="quiosques" class="secao">
+<div class="card"><h3>Quiosques Zona Sul</h3><p>Copacabana, Ipanema, Leblon</p></div>
+<div class="card"><h3>Quiosque Copacabana</h3><p>Orla completa</p></div>
 </div>
 
-<!-- TRAVA 5 - DISCOTECAS / BOATES -->
-<div id="discotecas" class="conteudo">
-  <div class="card"><h3>Discotecas / Boates</h3></div>
+<div id="boates" class="secao">
+<div class="card"><h3>Discotecas / Boates</h3><p>Lapa, Centro, Zona Sul</p></div>
+<div class="card"><h3>Boates Lapa</h3><p>Samba, funk e eletrônico</p></div>
 </div>
 
-<!-- TRAVA 11 - PILAR -->
-<div id="pilar" class="conteudo">
-  <div class="card">
-    <h3>Pilar - Guia Turística + Uber / Carro</h3>
-    <p>Informação turística / Passeio / Baile / Carro</p>
-    <a class="btn-wpp" onclick="contarClique('pilar')" href="https://wa.me/5521988906447?text=Fala%20Pilar!%20Vim%20pelo%20App%20RIO%20NA%20MÃO%20do%20Thiago%20e%20quero%20saber%20de%20informação%20turística%20/%20passeio%20/%20baile%20/%20carro!" target="_blank">FALAR NO WHATSAPP COM A PILAR</a>
-    <p>Cliques: <span id="cliques-pilar">0</span></p>
-  </div>
+<div id="pilar" class="secao">
+<div class="card"><h3>Guia Pilar</h3><p>Guia oficial do Rio na Mão - Roteiros completos</p></div>
 </div>
+
+<div id="hospedagem" class="secao">
+<div class="card"><h3>Hospedagem</h3><p>Hotéis, hostels e pousadas</p></div>
+</div>
+
+<div id="praias" class="secao">
+<div class="card"><h3>Praias</h3><p>Copacabana, Ipanema, Leblon, Barra</p></div>
+</div>
+
+<div class="rodape">RIO NA MÃO © 2026 - Todos os direitos reservados</div>
 
 <script>
-// TRAVA 1 - VOLTAR
-function voltar(){ history.back(); }
-
-// TROCA DE ABAS
-function aba(id,btn){
-  document.querySelectorAll('.conteudo').forEach(c=>c.classList.remove('ativo'));
-  document.getElementById(id).classList.add('ativo');
-  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('ativo'));
-  btn.classList.add('ativo');
+function mostrar(id,btn){
+document.querySelectorAll('.secao').forEach(s=>s.classList.remove('ativa'));
+document.getElementById(id).classList.add('ativa');
+document.querySelectorAll('.aba').forEach(a=>a.classList.remove('ativa'));
+btn.classList.add('ativa');
 }
-function subaba(id){
-  ['restaurantes','lanches','churrasco'].forEach(x=>document.getElementById(x).style.display='none');
-  document.getElementById(id).style.display='block';
-}
-
-// TRAVA 10 e 11 - CONTADOR DE CLIQUES PRA COMISSAO
-let cliques = {dudu:0, pilar:0};
-function contarClique(quemm){
-  cliques[quemm]++;
-  document.getElementById('cliques-'+quemm).innerText = cliques[quemm];
-  // Aqui salva no seu banco / localStorage
-  localStorage.setItem('cliques_'+quemm, cliques[quemm]);
-  console.log('Clique RIO NA MÃO - '+quemm+' - Total: '+cliques[quemm]);
-}
-
-// TRAVA 8 - CUPOM SO PRA BRASILEIRO - ESCONDER PRA GRINGO
-// Se idioma nao for pt, esconde cupom
-if(!navigator.language.startsWith('pt')){
-  document.getElementById('cupom').style.display='none';
-}
-// TRAVA 3 - TEXTO "DESCONTO PELO APP DO THIAGO" REMOVIDO - NAO EXISTE MAIS NO CODIGO
 </script>
 </body>
 </html>
