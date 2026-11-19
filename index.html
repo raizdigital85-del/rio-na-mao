@@ -1,90 +1,105 @@
 <!DOCTYPE html>
-<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RIO TA NA MÃO 👽</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#f1f5f9}.topo{background:#fff;padding:14px;text-align:center;border-bottom:1px solid #ddd}.topo h1{font-size:20px}.banner{background:#2563eb;color:#fff;margin:12px;border-radius:12px;padding:12px;text-align:center;font-weight:800}.qr{background:#fff;margin:0 12px 12px;border-radius:12px;padding:12px;text-align:center}.qr img{width:130px}.btnG{display:block;background:#22c55e;color:#fff;text-align:center;padding:15px;border-radius:12px;margin:0 12px 12px;text-decoration:none;font-weight:900}.abas{display:flex;gap:6px;overflow-x:auto;padding:10px;background:#fff;position:sticky;top:0;z-index:10}.aba{background:#e2e8f0;border:none;padding:9px 13px;border-radius:999px;white-space:nowrap;font-weight:800;cursor:pointer}.aba.ativa{background:#f97316;color:#fff}.secao{display:none;padding:12px}.secao.ativa{display:block}.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:13px;margin-bottom:9px;cursor:pointer}.card h3{font-size:15px}.card p{font-size:13px;color:#475569;margin-top:3px}.det{display:none;margin-top:8px;background:#f8fafc;padding:9px;border-radius:8px;font-size:13px}.det.aberto{display:block}.fx{display:inline-block;padding:3px 7px;border-radius:999px;font-size:11px;font-weight:900;color:#fff}.v{background:#0f766e}.l{background:#f97316}.r{background:#991b1b}.a{background:#eab308;color:#000}.ro{background:#7c3aed}.btn{display:block;background:#22c55e;color:#fff;text-align:center;padding:11px;border-radius:10px;margin-top:8px;text-decoration:none;font-weight:900}.wpp{background:#25D366}.como{background:#f97316;color:#fff;border:none;padding:8px 12px;border-radius:999px;font-weight:800;margin-top:6px}.barra{position:fixed;bottom:0;left:0;right:0;background:#4c1d95;color:#fff;display:flex;justify-content:space-around;padding:12px;font-weight:800;font-size:13px}.cont{padding-bottom:60px}</style></head><body>
-<div id="tela1"><div class="topo"><h1>👽 RIO TA NA MÃO com Thiago Alien</h1></div><div class="banner">Bem-vindo! Use grátis por 30 minutos<br><b id="timer">29:47</b><br>Cupom ALIEN50 = 50% OFF</div><div class="qr"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://raizdigital85-del.github.io/rio-na-mao/"><p><b>ESCANEIA AQUI 👽</b></p></div><a class="btnG" href="#" onclick="ir();return false">👉 ACESSAR GRÁTIS 👈</a><div class="cont"><div style="background:#fff;margin:12px;border-radius:12px;padding:12px;text-align:center"><b>DIÁRIO R$39,99 / SEMANAL R$79,99 / MENSAL R$179,99</b><br>Com ALIEN50: R$19,99 / R$39,99 / R$89,99<br>Seu tempo grátis acabou? Escolha um plano.</div></div></div>
-<div id="tela2" style="display:none"><div class="topo"><h1>👽 RIO TA NA MÃO com Thiago Alien</h1><button onclick="voltar()" style="margin-top:6px">← Voltar</button></div><div class="cont">
-<div class="abas"><button class="aba ativa" onclick="mostrar('p',this)">Início</button><button class="aba" onclick="mostrar('c',this)">Onde Comer</button><button class="aba" onclick="mostrar('q',this)">Quiosques</button><button class="aba" onclick="mostrar('f',this)">Festas</button><button class="aba" onclick="mostrar('h',this)">Hospedagem</button><button class="aba" onclick="mostrar('t',this)">Turísticos</button><button class="aba" onclick="mostrar('pr',this)">Praias</button><button class="aba" onclick="mostrar('pi',this)">Pilar</button></div>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alien - Rio</title>
+<style>
+body{margin:0;font-family:Arial;background:#0f0f1a;color:#fff}
+.top{background:#22c55e;padding:12px;text-align:center;font-weight:900;font-size:18px}
+.card{background:#fff;color:#111;margin:12px;border-radius:12px;padding:12px;text-align:center}
+.tabs{display:flex;gap:6px;padding:0 12px;overflow-x:auto}
+.tabs button{flex:1;padding:10px;border:none;border-radius:999px;background:#222;color:#fff;font-weight:700;white-space:nowrap}
+.tabs button.ativo{background:#f97316}
+.secao{display:none;padding:0 12px 20px}
+.secao.ativo{display:block}
+.item{background:#1e1e2e;padding:12px;border-radius:12px;margin-bottom:8px}
+.plano{width:100%;padding:14px;margin-top:8px;border:none;border-radius:12px;color:#fff;font-weight:900;font-size:16px;cursor:pointer}
+input{padding:10px;border-radius:10px;border:1px solid #ccc;text-align:center}
+</style>
+</head>
+<body>
 
-<div id="p" class="secao ativa">
-<div class="card" onclick="mostrar('f',document.querySelectorAll('.aba')[3])"><h3>🎉 Festas</h3><p>Boates, 0800, Bailes - Clique</p></div>
-<div class="card" onclick="mostrar('c',document.querySelectorAll('.aba')[1])"><h3>🍽️ Onde Comer</h3><p>Restaurantes, Lanches, Churrasco</p></div>
-<div class="card" onclick="mostrar('h',document.querySelectorAll('.aba')[4])"><h3>🏨 Hospedagens</h3><p>Mais em Conta e Luxo</p></div>
-<div class="card" onclick="mostrar('t',document.querySelectorAll('.aba')[5])"><h3>📍 Lugares Turísticos</h3><p>Pão, Cristo, Santa Teresa</p></div>
-<div class="card" onclick="mostrar('pr',document.querySelectorAll('.aba')[6])"><h3>🏖️ Praias</h3><p>Leme, Copa, Ipanema, Leblon, Arpoador, Barra</p></div>
-<div class="card" onclick="mostrar('pi',document.querySelectorAll('.aba')[7])"><h3>✨ Passeio Exclusivo com Guia</h3><p>Com a Pilar</p></div>
-<div class="card" onclick="mostrar('q',document.querySelectorAll('.aba')[2])"><h3>🌴 Melhores Quiosques Orla Copa</h3><p>Nativo, Baródromo, Areia MPB, Coisas de Bamba</p></div>
+<div class="top">👉 ACESSAR GRÁTIS 👈</div>
+
+<div class="card">
+<b style="font-size:20px">⏳ Seu tempo grátis: <span id="timer">29:47</span></b><br>
+<div style="margin:10px auto;width:120px;height:120px;background:#eee;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:12px;color:#333">QR CODE<br>AQUI</div>
+<span>Escaneie para continuar</span>
 </div>
 
-<div id="c" class="secao">
-<div class="card" onclick="tg(this)"><h3>Pavão Azul - Copacabana</h3><span class="fx v">RESTAURANTES</span><p>R$45-80 - Clique p/ abrir</p><div class="det">Frutos do mar, clássico Copa. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Bar do Mineiro - Santa Teresa</h3><span class="fx v">RESTAURANTES</span><p>R$38-65 Feijoada - Clique</p><div class="det">Feijoada famosa sábado. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Bibi Sucos - Copacabana</h3><span class="fx l">LANCHES</span><p>R$12-25 - Clique</p><div class="det">Sucos, açaí. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Galeto Sat's - Copacabana</h3><span class="fx l">LANCHES</span><p>R$28-40 - Clique</p><div class="det">Galeto no carvão. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Porcão Rio's - Flamengo</h3><span class="fx r">CHURRASCO</span><p>R$90-120 - Clique</p><div class="det">Vista Baía. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Carretão - Ipanema</h3><span class="fx r">CHURRASCO</span><p>R$70-95 - Clique</p><div class="det">Rodízio Ipanema. <button class="como">Como chegar</button></div></div>
+<div class="tabs">
+<button class="ativo" onclick="aba('festas',this)">🎉 Festas</button>
+<button onclick="aba('bailes',this)">🎶 Bailes</button>
+<button onclick="aba('hospedagem',this)">🏠 Hospedagem</button>
+<button onclick="aba('praias',this)">🏖️ Praias</button>
+<button onclick="aba('dudu',this)">🎧 Dudu</button>
+<button onclick="aba('pilar',this)">⭐ Pilar</button>
 </div>
 
-<div id="q" class="secao">
-<div class="card" onclick="tg(this)"><h3>Quiosque Nativo - Posto 4</h3><span class="fx v">QUIOSQUE</span><p>R$28-65 - Clique</p><div class="det">Posto 4 Copa. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Baródromo - Posto 3</h3><span class="fx v">QUIOSQUE</span><p>R$35-90 - Clique</p><div class="det">Samba Posto 3. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Areia MPB - Posto 2-3</h3><span class="fx v">QUIOSQUE</span><p>R$30-70 - Clique</p><div class="det">Entre 2 e 3. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Coisas de Bamba - Posto 4</h3><span class="fx v">QUIOSQUE</span><p>R$25-60 - Clique</p><div class="det">Samba Posto 4. <button class="como">Como chegar</button></div></div>
+<div id="festas" class="secao ativo"><div class="item">Festas de hoje no Rio - lista aqui</div></div>
+<div id="bailes" class="secao"><div class="item">Bailes Funk - lista aqui</div></div>
+<div id="hospedagem" class="secao"><div class="item">Hospedagem - lista aqui</div></div>
+<div id="praias" class="secao"><div class="item">Praias - lista aqui</div></div>
+<div id="dudu" class="secao"><div class="item">Dudu - lista aqui</div></div>
+<div id="pilar" class="secao"><div class="item">Pilar - lista aqui</div></div>
+
+<!-- PLANOS - 3 BOTÕES RETÂNGULO -->
+<div class="card">
+<b>Seu tempo grátis acabou? Escolha um plano.</b>
+
+<button onclick="escolherPlano('diario')" id="btnDiario" class="plano" style="background:#22c55e">DIÁRIO - R$39,99<div id="precoDiario" style="font-size:13px;font-weight:400">Clique para escolher</div></button>
+<button onclick="escolherPlano('semanal')" id="btnSemanal" class="plano" style="background:#f97316">SEMANAL - R$79,99<div id="precoSemanal" style="font-size:13px;font-weight:400">Clique para escolher</div></button>
+<button onclick="escolherPlano('mensal')" id="btnMensal" class="plano" style="background:#8b5cf6">MENSAL - R$179,99<div id="precoMensal" style="font-size:13px;font-weight:400">Clique para escolher - MELHOR VALOR</div></button>
+
+<div style="margin-top:12px">
+<input id="telInput" placeholder="Digite seu WhatsApp com DDD ex: +55 21 99999-9999" style="width:80%"><br>
+<button onclick="verificarDDD()" style="padding:10px;border:none;border-radius:10px;background:#2563eb;color:#fff;font-weight:900;margin-top:6px">CONTINUAR</button>
 </div>
 
-<div id="f" class="secao">
-<p><b>BOATES PAGAS</b></p>
-<div class="card" onclick="tg(this)"><h3>Boite Paradiso - Copa Posto 4</h3><p>Reggaeton/Latina - Qui/Sáb PAGA - Clique</p><div class="det">Boate luzes. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Substation Club - Copa</h3><p>Funk/Reggaeton/Afrobeat - Qua/Sáb PAGA</p><div class="det">Festa luzes. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Boate La Cueva - Miguel Lemos</h3><p>Latina/Reggaeton - Sex/Sáb PAGA</p><div class="det">Latina. <button class="como">Como chegar</button></div></div>
-<p><b>FESTAS 0800 GRÁTIS</b></p>
-<div class="card" onclick="tg(this)"><h3>Pedra do Sal - Saúde</h3><p>Samba seg/sex Grátis 0800 - Clique</p><div class="det">Rua Pedra do Sal. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Lapa Arcos da Lapa</h3><p>Samba Forró Rua Grátis 0800</p><div class="det">Arcos da Lapa. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Feira da Glória</h3><p>Domingo Feira+Samba Grátis 0800</p><div class="det">Praça Duque de Caxias. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Santa Teresa Samba dos Guimarães</h3><p>Sábado Grátis 0800</p><div class="det">Largo dos Guimarães. <button class="como">Como chegar</button></div></div>
-<p><b>BAILES / FAVELA - SÓ COM GUIA PILAR</b></p>
-<div class="card" onclick="tg(this)"><h3>Baile da Gaiola / Estrelas - Vila Cruzeiro</h3><p>Funk 150 BPM Sábado - Clique</p><div class="det">SÓ COM PILAR. <a class="btn wpp" href="https://wa.me/5521988906447?text=Ol%C3%A1%2C%20estou%20vindo%20pelo%20app%20do%20Thiago.%20Rio%20ta%20na%20m%C3%A3o!">💬 Falar com Pilar</a></div></div>
-<div class="card" onclick="tg(this)"><h3>Baile da Nova Holanda - Maré</h3><p>Funk Sábado</p><div class="det">SÓ COM PILAR. <a class="btn wpp" href="https://wa.me/5521988906447?text=Ol%C3%A1%2C%20estou%20vindo%20pelo%20app%20do%20Thiago.%20Rio%20ta%20na%20m%C3%A3o!">💬 Falar com Pilar</a></div></div>
-<div class="card" onclick="tg(this)"><h3>Baile do Santo Amaro</h3><p>Funk - Clique</p><div class="det">SÓ COM PILAR. <a class="btn wpp" href="https://wa.me/5521988906447?text=Ol%C3%A1%2C%20estou%20vindo%20pelo%20app%20do%20Thiago.%20Rio%20ta%20na%20m%C3%A3o!">💬 Falar com Pilar</a></div></div>
-<div class="card" onclick="tg(this)"><h3>Baile do Vidigal</h3><p>Funk - Clique</p><div class="det">SÓ COM PILAR. <a class="btn wpp" href="https://wa.me/5521988906447?text=Ol%C3%A1%2C%20estou%20vindo%20pelo%20app%20do%20Thiago.%20Rio%20ta%20na%20m%C3%A3o!">💬 Falar com Pilar</a></div></div>
+<div id="boxCupom" style="display:none;margin-top:12px">
+<b>Acabou o tempo, tem cupom de desconto? Digite aqui 👇</b><br>
+<input id="cupomInput" placeholder="Digite aqui seu cupom" style="width:60%;margin-top:6px">
+<button onclick="aplicarCupom()" style="padding:10px;border:none;border-radius:10px;background:#f97316;color:#fff;font-weight:900">APLICAR</button>
+<p id="msgCupom" style="font-size:12px"></p>
+</div>
 </div>
 
-<div id="h" class="secao">
-<p><b>MAIS EM CONTA 💚</b></p>
-<div class="card" onclick="tg(this)"><h3>Che Lagarto Hostel - Copa</h3><p>R$65-95/noite Mochileiro - Clique</p><div class="det">Beliche hostel. Selo: DESCONTO PELO APP DO THIAGO. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Bamboo Rio Hostel - Copa</h3><p>R$70-110/noite Piscina e bar</p><div class="det">Piscina. Selo DESCONTO. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>ibis budget Copacabana</h3><p>R$180-260/noite Perto metrô</p><div class="det">Quarto casal. Selo DESCONTO. <button class="como">Como chegar</button></div></div>
-<p><b>LUXO ✨ SÓ COPACABANA</b></p>
-<div class="card" onclick="tg(this)"><h3>Copacabana Palace - Av Atlântica</h3><p>R$1800-3500 - Clique</p><div class="det">Piscina, praia, clássico. Selo Dourado DESCONTO. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Fairmont Rio - Av Atlântica</h3><p>R$1200-2200</p><div class="det">Vista mar. Selo Dourado. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Hilton Rio Copacabana - Av Atlântica</h3><p>R$900-1600</p><div class="det">Perto metrô. Selo Dourado. <button class="como">Como chegar</button></div></div>
-</div>
-
-<div id="t" class="secao">
-<div class="card" onclick="tg(this)"><h3>Pão de Açúcar - Bondinho - Urca</h3><p>Clique p/ abrir</p><div class="det">Bondinho Urca + Pão. Pôr do sol 16h30. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Cristo Redentor - Corcovado</h3><p>Clique</p><div class="det">Vista 360°. Vá cedo. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Bondinho de Santa Teresa</h3><p>Clique</p><div class="det">Bairro boêmio. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Saveiros Tour - Marina da Glória - Dudu</h3><p>Dudu +55 21 99465-6620 - Clique</p><div class="det">Passeios e Locação de Barcos. saveiros.com.br<br><a class="btn" href="https://saveiros.com.br">Ver Site Saveiros</a><a class="btn wpp" href="https://wa.me/5521994656620?text=Ol%C3%A1%2C%20estou%20vindo%20pelo%20app%20do%20Thiago.%20Rio%20ta%20na%20m%C3%A3o!">💬 Chamar Dudu</a></div></div>
-<div class="card" style="background:#ca8a04;color:#fff" onclick="mostrar('pi',document.querySelectorAll('.aba')[7])"><h3>✨ Passeio com a Nossa Guia Parceira Pilar ✨</h3><p>Passeios Exclusivos que só ela faz - Clique p/ ir pra página da Pilar</p></div>
-</div>
-
-<div id="pr" class="secao">
-<div class="card" onclick="tg(this)"><h3>Leme - Posto 1 e 2 - Rasta Beach</h3><p>Galera nova, reggae - Clique</p><div class="det">Alternativa. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Copacabana - Posto 4 - Nativo</h3><p>Clique</p><div class="det">Ref Quiosque Nativo. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Ipanema - Posto 9</h3><p>Galera jovem</p><div class="det">Posto 9. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Leblon - Posto 11</h3><p>Mais calma</p><div class="det">Posto 11. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Arpoador - Pôr do sol</h3><p>Clique</p><div class="det">Pôr do sol. <button class="como">Como chegar</button></div></div>
-<div class="card" onclick="tg(this)"><h3>Barra da Tijuca - Posto 7 - Surf</h3><p>Mais espaço</p><div class="det">Surf. <button class="como">Como chegar</button></div></div>
-</div>
-
-<div id="pi" class="secao">
-<div class="card"><h3>Passeio Exclusivo com a Nossa Guia Pilar</h3><p>Passeios exclusivos que só ela faz - Role turístico com guia parceira<br><b>+55 21 98890-6447</b></p><a class="btn wpp" href="https://wa.me/5521988906447?text=Ol%C3%A1%2C%20estou%20vindo%20pelo%20app%20do%20Thiago.%20Rio%20ta%20na%20m%C3%A3o!">💬 Falar com a Pilar</a><a class="btn" href="https://wa.me/5521988906447?text=Ol%C3%A1%2C%20estou%20vindo%20pelo%20app%20do%20Thiago.%20Rio%20ta%20na%20m%C3%A3o!">QUERO RESERVAR COM A PILAR</a></div>
-</div>
-
-</div></div>
-<div class="barra"><span>Início</span><span>Mapa</span><span>Favoritos</span><span>Perfil</span></div>
 <script>
-function ir(){document.getElementById('tela1').style.display='none';document.getElementById('tela2').style.display='block';window.scrollTo(0,0)}
-function voltar(){document.getElementById('tela2').style.display='none';document.getElementById('tela1').style.display='block'}
-function mostrar(id,btn){document.querySelectorAll('.secao').forEach(s=>s.classList.remove('ativa'));document.getElementById(id).classList.add('ativa');document.querySelectorAll('.aba').forEach(a=>a.classList.remove('ativa'));if(btn)btn.classList.add('ativa')}
-function tg(el){let d=el.querySelector('.det');if(d)d.classList.toggle('aberto')}
-let tempo=1787;setInterval(()=>{let m=Math.floor(tempo/60);let s=tempo%60;let e=document.getElementById('timer');if(e)e.innerText=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');if(tempo>0)tempo--},1000)
-</script></body></html>
+let tempo = 29*60+47;
+setInterval(()=>{ if(tempo>0) tempo--; let m=Math.floor(tempo/60), s=tempo%60; document.getElementById('timer').innerText = m+':'+(s<10?'0':'')+s; },1000);
+
+function aba(id,btn){ document.querySelectorAll('.secao').forEach(e=>e.classList.remove('ativo')); document.getElementById(id).classList.add('ativo'); document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('ativo')); btn.classList.add('ativo'); }
+
+function escolherPlano(p){
+  document.getElementById('btnDiario').style.outline = p==='diario' ? '3px solid #000' : 'none';
+  document.getElementById('btnSemanal').style.outline = p==='semanal' ? '3px solid #000' : 'none';
+  document.getElementById('btnMensal').style.outline = p==='mensal' ? '3px solid #000' : 'none';
+}
+
+function verificarDDD(){
+  let tel = document.getElementById('telInput').value.trim();
+  let sul = ['+55','+54','+56','+51','+57','+598','+595','+591','+58','+593'];
+  let eDaqui = sul.some(c => tel.startsWith(c));
+  if(eDaqui){
+    document.getElementById('boxCupom').style.display = 'block';
+    document.getElementById('msgCupom').innerText = 'Você é daqui! Pode usar seu cupom.';
+  } else {
+    document.getElementById('boxCupom').style.display = 'none';
+  }
+}
+
+function aplicarCupom(){
+  let c = document.getElementById('cupomInput').value.trim().toUpperCase();
+  if(c==='ALIEN50'){
+    document.getElementById('precoDiario').innerText = 'Com cupom: R$19,99 ✅';
+    document.getElementById('precoSemanal').innerText = 'Com cupom: R$39,99 ✅';
+    document.getElementById('precoMensal').innerText = 'Com cupom: R$89,99 ✅';
+    document.getElementById('msgCupom').innerText = '✅ Cupom aplicado! Preço caiu na hora!';
+  } else {
+    document.getElementById('msgCupom').innerText = '❌ Cupom inválido';
+  }
+}
+</script>
+</body>
+</html>
