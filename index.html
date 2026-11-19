@@ -6,114 +6,183 @@
 <title>Rio na Mão com Thiago Alien</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:#f2f2f2}
-.topo{background:#fff;padding:12px;text-align:center;border-bottom:1px solid #ddd;position:sticky;top:0;z-index:10}
-.topo b{font-size:20px}
-.et{font-size:28px}
-.banner{background:#2563eb;color:#fff;padding:10px;text-align:center;font-weight:bold}
-.banner span{color:#fde68a}
+body{background:#f2f2f2;padding-bottom:70px}
+.topo{background:#fff;padding:14px;text-align:center;border:1px solid #ddd}.topo b{font-size:21px}
+.banner{background:#2563eb;color:#fff;text-align:center;padding:10px;font-weight:bold}
 .menu{display:flex;flex-wrap:wrap;gap:8px;padding:12px;justify-content:center;background:#e8f5e9}
-.menu button{padding:10px 14px;border:1px solid #ddd;border-radius:20px;background:#fff;font-weight:bold;cursor:pointer}
+.menu button{padding:11px 14px;border:1px solid #ddd;border-radius:20px;background:#fff;font-weight:bold;cursor:pointer}
 .menu button.ativo{background:#f97316;color:#fff}
-.secao{padding:12px;display:none}
-.secao.ativa{display:block}
-.faixa{padding:10px;text-align:center;font-weight:bold;color:#fff;border-radius:8px;margin-bottom:10px}
-.faixa-laranja{background:#f97316}
-.faixa-roxa{background:#4c1d95}
-.faixa-verde{background:#0f766e}
-.faixa-amarela{background:#facc15;color:#000}
-.faixa-azul{background:#2563eb}
+.secao{padding:12px;display:none}.secao.ativa{display:block}
+.faixa{padding:12px;text-align:center;font-weight:bold;color:#fff;border-radius:8px;margin-bottom:10px}
+.laranja{background:#f97316}.roxo{background:#4c1d95}.verde{background:#0f766e}.amarelo{background:#facc15;color:#000}.azul{background:#2563eb}.vermelha{background:#991b1b}.turq{background:#0891b2}
 .card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:12px;margin-bottom:10px}
-.card b{font-size:16px}
-.card p{font-size:14px;color:#333;margin:4px 0}
 .btn{display:block;width:100%;padding:12px;border:none;border-radius:10px;font-weight:bold;cursor:pointer;margin-top:8px;font-size:15px}
-.btn-verde{background:#22c55e;color:#fff}
-.btn-laranja{background:#f97316;color:#fff}
-.btn-roxo{background:#7c3aed;color:#fff}
-.btn-dourado{background:#eab308;color:#000}
-.barra{position:fixed;bottom:0;left:0;right:0;background:#4c1d95;color:#fff;display:flex;justify-content:space-around;padding:12px;font-weight:bold}
-.espaco{height:60px}
-.preco{background:#fff;border:2px solid #f97316;border-radius:12px;padding:12px;margin-bottom:10px;text-align:center}
-.selo{display:inline-block;background:#22c55e;color:#fff;padding:4px 8px;border-radius:6px;font-size:12px;font-weight:bold}
-.selo-dourado{background:#eab308;color:#000}
+.bv{background:#22c55e;color:#fff}.bl{background:#f97316;color:#fff}.br{background:#7c3aed;color:#fff}.ba{background:#2563eb;color:#fff}.bt{background:#0891b2;color:#fff}.bam{background:#facc15;color:#000}
+.selo{display:inline-block;background:#22c55e;color:#fff;padding:4px 8px;border-radius:6px;font-size:12px;font-weight:bold}.dourado{background:#eab308;color:#000}
+.qr{background:#fff;border-radius:12px;padding:14px;text-align:center;margin-bottom:10px}.qr img{width:180px;height:180px}
 input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px 0}
+.barra{position:fixed;bottom:0;left:0;right:0;background:#4c1d95;color:#fff;display:flex;justify-content:space-around;padding:12px;font-weight:bold;z-index:99}
+.sub{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}.sub button{flex:1}
+#trava{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;z-index:10000;display:none;overflow-y:auto;padding:20px 12px 60px;color:#fff}
+#trava .box{background:#fff;color:#000;border-radius:12px;padding:14px;margin-bottom:12px;text-align:center}
 </style>
 </head>
 <body>
-
-<div class="topo"><span class="et">👽</span><br><b>Rio na Mão com Thiago Alien</b><br><small>Bem-vindo! Use grátis por 30 minutos / <span id="timer">29:47</span></small></div>
-<div class="banner">Use grátis por 30 minutos - <span>Depois escolha seu plano</span></div>
-
+<div class="topo">👽<br><b>Rio na Mão com Thiago Alien</b><br><small>Bem-vindo! Use grátis por 30 minutos / <span id="timer">30:00</span></small><br><small id="statusLiberado" style="color:#22c55e;font-weight:bold"></small></div>
+<div class="banner">Use grátis por 30 minutos - Depois escolha seu plano</div>
 <div class="menu">
-<button onclick="aba('festas',this)" class="ativo">Festas</button>
-<button onclick="aba('comer',this)">Onde comer</button>
-<button onclick="aba('hospedagem',this)">Hospedagens</button>
-<button onclick="aba('turisticos',this)">Lugares turísticos</button>
-<button onclick="aba('praias',this)">Praias</button>
-<button onclick="aba('guia',this)">Passeio exclusivo com guia</button>
-<button onclick="aba('quiosques',this)">Melhores quiosques da orla de Copacabana</button>
+<button onclick="mostrar('principal',this)" class="ativo">Início</button>
+<button onclick="mostrar('festas',this)">Festas</button>
+<button onclick="mostrar('comer',this)">Onde comer</button>
+<button onclick="mostrar('hospedagem',this)">Hospedagens</button>
+<button onclick="mostrar('turisticos',this)">Lugares turísticos</button>
+<button onclick="mostrar('praias',this)">Praias</button>
+<button onclick="mostrar('guia',this)">Passeio exclusivo com guia</button>
+<button onclick="mostrar('quiosques',this)">Melhores quiosques da orla de Copacabana</button>
 </div>
 
-<!-- ============ FESTAS ============ -->
-<div id="festas" class="secao ativa">
-<div class="faixa faixa-laranja">Festas / Diversão / RJ</div>
-<div style="display:flex;gap:6px;margin-bottom:10px">
-<button class="btn btn-laranja" style="flex:1" onclick="subaba('boates')">Boates / Discotecas</button>
-<button class="btn btn-roxo" style="flex:1" onclick="subaba('0800')">Festas 0800</button>
-<button class="btn btn-roxo" style="flex:1" onclick="subaba('bailes')">Bailes / Favela</button>
+<div id="principal" class="secao ativa">
+<div class="qr" onclick="comecarGratis()"><h3>📱 SCAN ME</h3><img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://raizdigital85-del.github.io/rio-na-mao/"><p><b>APONTE A CÂMERA E ENTRE NO GRÁTIS!</b></p></div>
+<div class="card" style="text-align:center"><b>QUER CONHECER O RIO DE VERDADE?</b><p>Sem enrolação. O que tá bombando AGORA no Rio.</p><button class="btn bv" onclick="comecarGratis()">👉 CLIQUE AQUI E GARANTA SEU ACESSO GRÁTIS</button><p>✅ Sem cartão • Sem cadastro • Entra na hora</p></div>
+<div class="card" style="border:2px solid #22c55e"><b>👽 SPACE 4:20 HEADSHOP</b><p>📍 Rua do Catete, Rio de Janeiro - RJ</p><p>🔥 Headshop • Tabacaria • Acessórios • O ponto do rolê</p><p>⭐ 4.9 - Aberto agora • Perto do Metrô Catete</p><button class="btn br" onclick="comoChegar('Space 420 Headshop Catete Rio de Janeiro')">📍 VER NO MAPA - CLICK AQUI</button></div>
+<div class="card"><b>🔥 O QUE VOCÊ VAI VER LÁ DENTRO:</b><p>🏖️ Melhores praias HOJE<br>🎉 Festas de HOJE e amanhã<br>🔥 Baile Funk - onde tá rolando<br>🗺️ Mapa completo<br>👽 Ponto SPACE 4:20</p></div>
+<button class="btn bv" onclick="comecarGratis()">QUERO MEU ACESSO GRÁTIS - 30 MIN</button>
 </div>
 
+<div id="festas" class="secao">
+<div class="faixa laranja">Festas / Diversão / RJ</div>
+<div class="sub"><button class="btn bl" onclick="mostrarSub('sub-boates')">Boates / Discotecas</button><button class="btn br" onclick="mostrarSub('sub-0800')">Festas 0800</button><button class="btn br" onclick="mostrarSub('sub-bailes')">Bailes / Favela</button></div>
 <div id="sub-boates">
-<div class="card"><b>1. Boite Paradiso - Copacabana - Posto 4</b><p>Reggaeton / Latina / MIX - Qui e Sáb - PAGA</p><button class="btn btn-roxo" onclick="comoChegar('Boite Paradiso Copacabana')">Como chegar</button></div>
-<div class="card"><b>2. Substation Club - Copacabana</b><p>Funk / Reggaeton / Afrobeat - Qua e Sáb - PAGA</p><button class="btn btn-roxo" onclick="comoChegar('Substation Club Copacabana')">Como chegar</button></div>
-<div class="card"><b>3. Boate La Cueva - Copacabana - Miguel Lemos</b><p>Latina / Reggaeton - Sex e Sáb - PAGA</p><button class="btn btn-roxo" onclick="comoChegar('Boate La Cueva Copacabana')">Como chegar</button></div>
+<div class="card"><b>1. Boite Paradiso - Copacabana - Posto 4</b><p>Reggaeton / Latina / MIX - Qui e Sáb - PAGA</p><button class="btn br" onclick="comoChegar('Boite Paradiso Copacabana')">Como chegar</button></div>
+<div class="card"><b>2. Substation Club - Copacabana</b><p>Funk / Reggaeton / Afrobeat - Qua e Sáb - PAGA</p><button class="btn br" onclick="comoChegar('Substation Club Copacabana')">Como chegar</button></div>
+<div class="card"><b>3. Boate La Cueva - Copacabana - Miguel Lemos</b><p>Latina / Reggaeton - Sex e Sáb - PAGA</p><button class="btn br" onclick="comoChegar('Boate La Cueva Copacabana')">Como chegar</button></div>
 </div>
-
 <div id="sub-0800" style="display:none">
-<div class="faixa" style="background:#fff;color:#000">Tudo 0800 - Grátis <span class="selo">0800</span></div>
-<div class="card"><b>1. Pedra do Sal - Rua Pedra do Sal, Saúde</b><p>Samba segunda e sexta - Grátis 0800</p><button class="btn btn-roxo" onclick="comoChegar('Pedra do Sal Rio')">Como chegar</button></div>
-<div class="card"><b>2. Lapa - Arcos da Lapa - Rua da Lapa, Centro</b><p>Samba Forró Rua - Grátis 0800</p><button class="btn btn-roxo" onclick="comoChegar('Arcos da Lapa Rio')">Como chegar</button></div>
-<div class="card"><b>3. Feira da Glória - Praça Duque de Caxias, Glória</b><p>Domingo Feira + Samba - Grátis 0800</p><button class="btn btn-roxo" onclick="comoChegar('Feira da Gloria Rio')">Como chegar</button></div>
-<div class="card"><b>4. Santa Teresa - Samba dos Guimarães - Largo dos Guimarães</b><p>Sábado - Grátis 0800</p><button class="btn btn-roxo" onclick="comoChegar('Largo dos Guimaraes Santa Teresa')">Como chegar</button></div>
+<div class="card" style="text-align:center"><b>Tudo 0800 - Grátis</b> <span class="selo">0800</span></div>
+<div class="card"><b>1. Pedra do Sal - Rua Pedra do Sal, Saúde</b><p>Samba segunda e sexta - Grátis 0800</p><span class="selo">0800</span><button class="btn br" onclick="comoChegar('Pedra do Sal Rio')">Como chegar</button></div>
+<div class="card"><b>2. Lapa - Arcos da Lapa - Rua da Lapa, Centro</b><p>Samba Forró Rua - Grátis 0800</p><span class="selo">0800</span><button class="btn br" onclick="comoChegar('Arcos da Lapa Rio')">Como chegar</button></div>
+<div class="card"><b>3. Feira da Glória - Praça Duque de Caxias, Glória</b><p>Domingo Feira + Samba - Grátis 0800</p><span class="selo">0800</span><button class="btn br" onclick="comoChegar('Feira da Gloria Rio')">Como chegar</button></div>
+<div class="card"><b>4. Santa Teresa - Samba dos Guimarães - Largo dos Guimarães</b><p>Sábado - Grátis 0800</p><span class="selo">0800</span><button class="btn br" onclick="comoChegar('Largo dos Guimaraes Santa Teresa')">Como chegar</button></div>
 </div>
-
 <div id="sub-bailes" style="display:none">
-<div class="faixa faixa-roxa">Só com Guia Local - Falar com Pilar</div>
-<button class="btn btn-verde" onclick="falarPilar()">Falar com Pilar - WhatsApp - Baile</button>
-<div class="card"><b>1. Baile da Gaiola / Estrelas - Vila Cruzeiro Penha</b><p>Funk 150 BPM - Sábado <span class="selo">GUIA</span></p><button class="btn btn-laranja" onclick="comoChegar('Baile da Gaiola Vila Cruzeiro')">Como chegar</button></div>
-<div class="card"><b>2. Baile da Nova Holanda - Complexo da Maré</b><p>Funk - Sábado <span class="selo">GUIA</span></p><button class="btn btn-laranja" onclick="comoChegar('Baile da Nova Holanda Mare')">Como chegar</button></div>
-<div class="card"><b>3. Baile do Santo Amaro - Santo Amaro</b><p>Funk - Sábado <span class="selo">GUIA</span></p><button class="btn btn-laranja" onclick="comoChegar('Baile do Santo Amaro Rio')">Como chegar</button></div>
-<div class="card"><b>4. Baile do Vidigal - Vidigal</b><p>Funk - Sábado <span class="selo">GUIA</span></p><button class="btn btn-laranja" onclick="comoChegar('Baile do Vidigal Rio')">Como chegar</button></div>
+<div class="faixa roxo">Só com Guia Local - Falar com Pilar</div>
+<button class="btn bv" onclick="falarPilar()">Falar com Pilar - WhatsApp - Baile</button>
+<div class="card"><b>1. Baile da Gaiola / Estrelas - Vila Cruzeiro Penha</b><p>Funk 150 BPM - Sábado</p><span class="selo">GUIA</span><button class="btn bl" onclick="comoChegar('Baile da Gaiola Vila Cruzeiro')">Como chegar</button></div>
+<div class="card"><b>2. Baile da Nova Holanda - Complexo da Maré</b><p>Funk - Sábado</p><span class="selo">GUIA</span><button class="btn bl" onclick="comoChegar('Baile da Nova Holanda Mare')">Como chegar</button></div>
+<div class="card"><b>3. Baile do Santo Amaro - Santo Amaro</b><p>Funk - Sábado</p><span class="selo">GUIA</span><button class="btn bl" onclick="comoChegar('Baile do Santo Amaro Rio')">Como chegar</button></div>
+<div class="card"><b>4. Baile do Vidigal - Vidigal</b><p>Funk - Sábado</p><span class="selo">GUIA</span><button class="btn bl" onclick="comoChegar('Baile do Vidigal Rio')">Como chegar</button></div>
 </div>
-<button class="btn btn-laranja" onclick="comoChegar('Marina da Gloria Rio')">Como chegar em todas</button>
+<button class="btn bl" onclick="comoChegar('Marina da Gloria Rio')">Como chegar em todas</button>
 </div>
 
-<!-- ============ ONDE COMER ============ -->
 <div id="comer" class="secao">
-<div class="faixa faixa-verde">Onde comer / Gastronomia</div>
-<div class="faixa faixa-verde">RESTAURANTES</div>
-<div class="card"><b>1. Pavão Azul - Copacabana</b><p>R$ 45-80</p><button class="btn btn-roxo" onclick="comoChegar('Pavao Azul Copacabana')">Como chegar</button></div>
-<div class="card"><b>2. Bar do Mineiro - Santa Teresa - Feijoada</b><p>R$ 38-65</p><button class="btn btn-roxo" onclick="comoChegar('Bar do Mineiro Santa Teresa')">Como chegar</button></div>
-<div class="faixa faixa-laranja">LANCHES</div>
-<div class="card"><b>3. Bibi Sucos - Copacabana</b><p>R$ 12-25</p><button class="btn btn-roxo" onclick="comoChegar('Bibi Sucos Copacabana')">Como chegar</button></div>
-<div class="card"><b>4. Galeto Sat's - Copacabana</b><p>R$ 28-40</p><button class="btn btn-roxo" onclick="comoChegar('Galeto Sats Copacabana')">Como chegar</button></div>
-<div class="faixa faixa-verde">MELHORES QUIOSQUES</div>
-<div class="card"><b>5. Quiosque Nativo - Posto 4 - Copacabana</b><p>R$ 28-65</p><button class="btn btn-roxo" onclick="comoChegar('Quiosque Nativo Copacabana Posto 4')">Como chegar</button></div>
-<div class="card"><b>6. Baródromo - Posto 3 - Copacabana</b><p>R$ 35-90</p><button class="btn btn-roxo" onclick="comoChegar('Barodromo Copacabana')">Como chegar</button></div>
-<div class="card"><b>7. Areia MPB - Entre Posto 2 e 3 - Copacabana</b><p>R$ 30-70</p><button class="btn btn-roxo" onclick="comoChegar('Areia MPB Copacabana')">Como chegar</button></div>
-<div class="card"><b>8. Coisas de Bamba - Posto 4 - Copacabana</b><p>R$ 25-60</p><button class="btn btn-roxo" onclick="comoChegar('Coisas de Bamba Copacabana')">Como chegar</button></div>
-<div class="faixa" style="background:#991b1b">CHURRASCO</div>
-<div class="card"><b>9. Porcão Rio's - Flamengo</b><p>R$ 90-120</p><button class="btn btn-roxo" onclick="comoChegar('Porcao Rios Flamengo')">Como chegar</button></div>
-<div class="card"><b>10. Carretão - Ipanema</b><p>R$ 70-95</p><button class="btn btn-roxo" onclick="comoChegar('Carretao Ipanema')">Como chegar</button></div>
+<div class="faixa verde">Onde comer / Gastronomia</div>
+<div class="faixa verde">RESTAURANTES</div>
+<div class="card"><b>1. Pavão Azul - Copacabana</b><p>R$ 45-80</p><button class="btn br" onclick="comoChegar('Pavao Azul Copacabana')">Como chegar</button></div>
+<div class="card"><b>2. Bar do Mineiro - Santa Teresa - Feijoada</b><p>R$ 38-65</p><button class="btn br" onclick="comoChegar('Bar do Mineiro Santa Teresa')">Como chegar</button></div>
+<div class="faixa laranja">LANCHES</div>
+<div class="card"><b>3. Bibi Sucos - Copacabana</b><p>R$ 12-25</p><button class="btn br" onclick="comoChegar('Bibi Sucos Copacabana')">Como chegar</button></div>
+<div class="card"><b>4. Galeto Sat's - Copacabana</b><p>R$ 28-40</p><button class="btn br" onclick="comoChegar('Galeto Sats Copacabana')">Como chegar</button></div>
+<div class="faixa verde">MELHORES QUIOSQUES</div>
+<div class="card"><b>5. Quiosque Nativo - Posto 4 - Copacabana</b><p>R$ 28-65</p><button class="btn br" onclick="comoChegar('Quiosque Nativo Copacabana')">Como chegar</button></div>
+<div class="card"><b>6. Baródromo - Posto 3 - Copacabana</b><p>R$ 35-90</p><button class="btn br" onclick="comoChegar('Barodromo Copacabana')">Como chegar</button></div>
+<div class="card"><b>7. Areia MPB - Entre Posto 2 e 3 - Copacabana</b><p>R$ 30-70</p><button class="btn br" onclick="comoChegar('Areia MPB Copacabana')">Como chegar</button></div>
+<div class="card"><b>8. Coisas de Bamba - Posto 4 - Copacabana</b><p>R$ 25-60</p><button class="btn br" onclick="comoChegar('Coisas de Bamba Copacabana')">Como chegar</button></div>
+<div class="faixa vermelha">CHURRASCO</div>
+<div class="card"><b>9. Porcão Rio's - Flamengo</b><p>R$ 90-120</p><button class="btn br" onclick="comoChegar('Porcao Rios Flamengo')">Como chegar</button></div>
+<div class="card"><b>10. Carretão - Ipanema</b><p>R$ 70-95</p><button class="btn br" onclick="comoChegar('Carretao Ipanema')">Como chegar</button></div>
 </div>
 
-<!-- ============ HOSPEDAGEM ============ -->
 <div id="hospedagem" class="secao">
-<div class="faixa faixa-amarela">Hospedagem</div>
-<div class="faixa faixa-verde">MAIS EM CONTA 💚</div>
-<div class="card"><b>1. Che Lagarto Hostel - Copacabana - Mochileiro</b><p>Preço estimado: R$ 65-95 / noite</p><span class="selo">DESCONTO PELO APP DO THIAGO</span><button class="btn btn-roxo" onclick="comoChegar('Che Lagarto Hostel Copacabana')">Como chegar</button></div>
-<div class="card"><b>2. Bamboo Rio Hostel - Copacabana - Piscina e bar</b><p>Preço estimado: R$ 70-110 / noite</p><span class="selo">DESCONTO PELO APP DO THIAGO</span><button class="btn btn-roxo" onclick="comoChegar('Bamboo Rio Hostel Copacabana')">Como chegar</button></div>
-<div class="card"><b>3. ibis budget Copacabana - Perto do metrô</b><p>Preço estimado: R$ 180-260 / noite</p><span class="selo">DESCONTO PELO APP DO THIAGO</span><button class="btn btn-roxo" onclick="comoChegar('ibis budget Copacabana')">Como chegar</button></div>
-<div class="faixa faixa-amarela">LUXO ✨ - SÓ COPACABANA</div>
-<div class="card"><b>1. Copacabana Palace - Av. Atlântica</b><p>R$ 1.800-3.500 - Piscina, praia, clássico</p><span class="selo selo-dourado">DESCONTO PELO APP DO THIAGO</span><button class="btn btn-roxo" onclick="comoChegar('Copacabana Palace')">Como chegar</button></div>
-<div class="card"><b>2. Fairmont Rio de Janeiro Copacabana - Av. Atlântica</b><p>R$ 1.200-2.200 - Piscina
+<div class="faixa amarelo">Hospedagem</div>
+<div class="sub"><button class="btn bv" onclick="mostrarSubH('sub-barata')">MAIS EM CONTA 💚</button><button class="btn bam" onclick="mostrarSubH('sub-luxo')">LUXO ✨</button></div>
+<div id="sub-barata">
+<div class="card"><b>1. Che Lagarto Hostel - Copacabana - Mochileiro</b><p>Preço estimado: R$ 65-95 / noite</p><span class="selo">DESCONTO PELO APP DO THIAGO</span><button class="btn br" onclick="comoChegar('Che Lagarto Hostel Copacabana')">Como chegar</button></div>
+<div class="card"><b>2. Bamboo Rio Hostel - Copacabana - Piscina e bar</b><p>Preço estimado: R$ 70-110 / noite</p><span class="selo">DESCONTO PELO APP DO THIAGO</span><button class="btn br" onclick="comoChegar('Bamboo Rio Hostel Copacabana')">Como chegar</button></div>
+<div class="card"><b>3. ibis budget Copacabana - Perto do metrô</b><p>Preço estimado: R$ 180-260 / noite</p><span class="selo">DESCONTO PELO APP DO THIAGO</span><button class="btn br" onclick="comoChegar('ibis budget Copacabana')">Como chegar</button></div>
+</div>
+<div id="sub-luxo" style="display:none">
+<div class="faixa amarelo">LUXO ✨ - SÓ COPACABANA</div>
+<div class="card"><b>1. Copacabana Palace - Av. Atlântica</b><p>R$ 1.800-3.500 - Piscina, praia, clássico</p><span class="selo dourado">DESCONTO PELO APP DO THIAGO</span><button class="btn br" onclick="comoChegar('Copacabana Palace')">Como chegar</button></div>
+<div class="card"><b>2. Fairmont Rio de Janeiro Copacabana - Av. Atlântica</b><p>R$ 1.200-2.200 - Piscina, vista mar</p><span class="selo dourado">DESCONTO PELO APP DO THIAGO</span><button class="btn br" onclick="comoChegar('Fairmont Copacabana')">Como chegar</button></div>
+<div class="card"><b>3. Hilton Rio de Janeiro Copacabana - Av. Atlântica</b><p>R$ 900-1.600 - Piscina, perto do metrô</p><span class="selo dourado">DESCONTO PELO APP DO THIAGO</span><button class="btn br" onclick="comoChegar('Hilton Copacabana')">Como chegar</button></div>
+</div>
+</div>
+
+<div id="turisticos" class="secao">
+<div class="faixa azul">Lugares Turísticos</div>
+<div class="card"><b>1. Pão de Açúcar - Bondinho - Urca</b><button class="btn ba" onclick="comoChegar('Pao de Acucar Urca')">Como chegar</button></div>
+<div class="card"><b>2. Cristo Redentor - Corcovado</b><button class="btn ba" onclick="comoChegar('Cristo Redentor Corcovado')">Como chegar</button></div>
+<div class="card"><b>3. Bondinho de Santa Teresa - Santa Teresa</b><button class="btn ba" onclick="comoChegar('Bondinho Santa Teresa')">Como chegar</button></div>
+<div class="card" style="border:2px solid #06b6d4"><b>⛵ 4. Passeio de Saveiro - Empresa Saveiro</b><p>Barco Saveiro - Sai da Marina da Glória</p><p>Passeio de barco pela Baía - Parceiro Dudu</p><button class="btn bv" onclick="falarDudu()">Falar com Dudu - WhatsApp - Saveiro</button></div>
+</div>
+
+<div id="praias" class="secao">
+<div class="faixa turq">Praias</div>
+<div class="card"><b>1. Leme - Posto 1 e Posto 2 - Ref: Quiosque RASTA BEACH</b><p>Galera nova, alternativa, reggae, música, caixinha de som</p><button class="btn bt" onclick="comoChegar('Praia do Leme Posto 1')">Como chegar</button></div>
+<div class="card"><b>2. Copacabana - Posto 4 - Ref: Quiosque Nativo</b><button class="btn bt" onclick="comoChegar('Copacabana Posto 4')">Como chegar</button></div>
+<div class="card"><b>3. Ipanema - Posto 9 - Galera jovem</b><button class="btn bt" onclick="comoChegar('Ipanema Posto 9')">Como chegar</button></div>
+<div class="card"><b>4. Leblon - Posto 11 - Mais calma</b><button class="btn bt" onclick="comoChegar('Leblon Posto 11')">Como chegar</button></div>
+<div class="card"><b>5. Arpoador - Pôr do sol</b><button class="btn bt" onclick="comoChegar('Arpoador')">Como chegar</button></div>
+<div class="card"><b>6. Barra da Tijuca - Posto 7 - Surf, mais espaço</b><button class="btn bt" onclick="comoChegar('Barra da Tijuca Posto 7')">Como chegar</button></div>
+</div>
+
+<div id="guia" class="secao">
+<div class="faixa roxo">Passeio Exclusivo com a Pilar</div>
+<div class="card"><b>Passeio Exclusivo com a Nossa Guia Pilar</b><p>Passeios exclusivos que só ela faz - Roteiro turístico com guia parceira</p><button class="btn bv" onclick="falarPilar()">Falar com Pilar - WhatsApp</button><button class="btn bv" onclick="falarPilar()">QUERO RESERVAR COM A PILAR</button></div>
+</div>
+
+<div id="quiosques" class="secao">
+<div class="faixa verde">Melhores quiosques da orla de Copacabana</div>
+<div class="card"><b>Quiosque Nativo - Posto 4</b><p>R$ 28-65</p><button class="btn br" onclick="comoChegar('Quiosque Nativo Copacabana')">Como chegar</button></div>
+<div class="card"><b>Baródromo - Posto 3</b><p>R$ 35-90</p><button class="btn br" onclick="comoChegar('Barodromo Copacabana')">Como chegar</button></div>
+<div class="card"><b>Areia MPB - Entre Posto 2 e 3</b><p>R$ 30-70</p><button class="btn br" onclick="comoChegar('Areia MPB Copacabana')">Como chegar</button></div>
+<div class="card"><b>Coisas de Bamba - Posto 4</b><p>R$ 25-60</p><button class="btn br" onclick="comoChegar('Coisas de Bamba Copacabana')">Como chegar</button></div>
+</div>
+
+<div class="barra"><span>Início</span><span>Mapa</span><span>Favoritos</span><span>Perfil</span></div>
+
+<div id="trava">
+<h1 style="text-align:center">⏰ TEMPO ACABOU!</h1>
+<div class="box"><b>Seu tempo grátis acabou! ⏰</b><p>Para continuar usando o Rio na Mão, escolha um plano abaixo.</p><p>Quer continuar? Assine aqui!</p></div>
+<div class="box" style="border:3px solid #22c55e">
+<h3>🇧🇷 BRASILEIRO / SUL-AMERICANO - PIX DIRETO</h3>
+<p><b>Chave PIX: 21 988189111</b></p>
+<p>Plano A - 1 Dia: <b id="pA">R$ 39,99</b></p>
+<p>Plano B - 7 Dias: <b id="pB">R$ 69,99</b></p>
+<p>Plano C - 30 Dias: <b id="pC">R$ 179,99</b></p>
+<p><b>Cupom RIO CINQUENTA - 50% OFF</b></p>
+<input id="cupom" placeholder="Digite o código aqui">
+<button class="btn bv" onclick="aplicarCupom()">Aplicar cupom</button>
+<p id="cupomMsg"></p>
+<button class="btn bv" onclick="jaPaguei('BR')">Já paguei - Mandar comprovante no WhatsApp</button>
+<p style="font-size:12px">Copia a chave PIX, paga no seu banco, clica em Já paguei</p>
+</div>
+<div class="box" style="border:3px solid #2563eb">
+<h3>🇺🇸 GRINGO - INTERNATIONAL - CARD</h3>
+<p>Plan A - 1 Day: <b>R$ 39,99</b></p>
+<p>Plan B - 7 Days: <b>R$ 69,99</b></p>
+<p>Plan C - 30 Days: <b>R$ 179,99</b></p>
+<p>Pay with Card - Secure</p>
+<button class="btn ba" onclick="jaPaguei('GRINGO')">I paid - Send on WhatsApp</button>
+</div>
+</div>
+
+<script>
+var NUMERO_THIAGO="5521988189111";
+var NUMERO_DUDU="552199113829";
+var NUMERO_PILAR="5521988906447";
+var tempo=30*60, travado=false, comecou=false, intervalo=null, liberado=false;
+if(window.location.search.indexOf('liberado=thiago123')>-1){ liberado=true; travado=false; document.addEventListener('DOMContentLoaded',function(){ var s=document.getElementById('statusLiberado'); if(s) s.innerText='✅ ACESSO LIBERADO - SEM TRAVA'; var t=document.getElementById('timer'); if(t) t.innerText='LIBERADO'; }); }
+function falarDudu(){ if(travado) return; window.open('https://wa.me/'+NUMERO_DUDU+'?text='+encodeURIComponent('Olá, estou vindo pelo app do Tiago. Rio está na mão'),'_blank'); }
+function falarPilar(){ if(travado) return; window.open('https://wa.me/'+NUMERO_PILAR+'?text='+encodeURIComponent('Olá, estou vindo pelo app do Tiago. Rio está na mão'),'_blank'); }
+function mostrar(id,btn){ if(travado){ document.getElementById('trava').style.display='block'; return; } var s=document.querySelectorAll('.secao'); for(var i=0;i<s.length;i++) s[i].classList.remove('ativa'); var a=document.getElementById(id); if(a) a.classList.add('ativa'); var b=document.querySelectorAll('.menu button'); for(var j=0;j<b.length;j++) b[j].classList.remove('ativo'); if(btn) btn.classList.add('ativo'); window.scrollTo(0,0); }
+function mostrarSub(id){ if(travado) return; document.getElementById('sub-boates').style.display='none'; document.getElementById('sub-0800').style.display='none'; document.getElementById('sub-bailes').style.display='none'; document.getElementById(id).style.display='block'; }
+function mostrarSubH(id){ if(travado) return; document.getElementById('sub-barata').style.display='none'; document.getElementById('sub-luxo').style.display='none'; document.getElementById(id).style.display='block'; }
+function comoChegar(l){ if(travado) return; window.open('https://www.google.com/maps/search/'+encodeURIComponent(l+' Rio de Janeiro'),'_blank'); }
+function comecarGratis(){ if(comecou) return; comecou=true; if(liberado) return; intervalo=setInterval(function(){ tempo--; var m=Math.floor(tempo/60); var s=tempo%60; document.getElementById('timer').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s); if(tempo<=0){ clearInterval(intervalo); travado=true; document.getElementById('trava').style.display='block'; } },1000); mostrar('festas',null); }
+function aplicarCupom(){ var v=document.getElementById('cupom').value.trim().toUpperCase(); if(v==='RIO50'||v==='RIO CINQUENTA'||v==='RIOCINQUENTA'){ document.getElementById('pA').innerText='R$ 19,99'; document.getElementById('pB').innerText='R$ 34,99'; document.getElementById('pC').innerText='R$ 89,99'; document.getElementById('cupomMsg').innerText='Cupom RIO CINQUENTA aplicado! 50% OFF - Agora é metade do valor!'; } else { document.getElementById('cupomMsg').innerText='Cupom inválido'; } }
+function jaPaguei(tipo){ var msg=tipo==='BR'?'Olá Thiago, paguei o plano no PIX - Chave 21 988189111 - Me manda o link liberado!':'Hello Thiago, I paid - Send me the unlocked link!'; window.open('https://wa.me/'+NUMERO_THIAGO+'?text='+encodeURIComponent(msg),'_blank'); }
+</script>
+</body>
+</html>
