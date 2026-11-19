@@ -16,12 +16,15 @@ body{background:#f2f2f2;padding-bottom:70px}
 .faixa{padding:12px;text-align:center;font-weight:bold;color:#fff;border-radius:8px;margin-bottom:10px}
 .laranja{background:#f97316}.roxo{background:#4c1d95}.verde{background:#0f766e}.amarelo{background:#facc15;color:#000}.azul{background:#2563eb}.vermelha{background:#991b1b}.turq{background:#0891b2}
 .card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:12px;margin-bottom:10px}
+.card-destaque{background:#fffbe6;border:3px solid #f97316;border-radius:14px;padding:16px;margin-bottom:12px;font-size:17px;line-height:1.6}
+.card-destaque b{font-size:19px}
 .btn{display:block;width:100%;padding:12px;border:none;border-radius:10px;font-weight:bold;cursor:pointer;margin-top:8px;font-size:15px}
 .bv{background:#22c55e;color:#fff}.bl{background:#f97316;color:#fff}.br{background:#7c3aed;color:#fff}.ba{background:#2563eb;color:#fff}.bt{background:#0891b2;color:#fff}.bam{background:#facc15;color:#000}
 .selo{display:inline-block;background:#22c55e;color:#fff;padding:4px 8px;border-radius:6px;font-size:12px;font-weight:bold}.dourado{background:#eab308;color:#000}
 .qr{background:#fff;border-radius:12px;padding:14px;text-align:center;margin-bottom:10px}.qr img{width:180px;height:180px}
 input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px 0}
 .barra{position:fixed;bottom:0;left:0;right:0;background:#4c1d95;color:#fff;display:flex;justify-content:space-around;padding:12px;font-weight:bold;z-index:99}
+.barra span{cursor:pointer}
 .sub{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}.sub button{flex:1}
 #trava{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;z-index:10000;display:none;overflow-y:auto;padding:20px 12px 60px;color:#fff}
 #trava .box{background:#fff;color:#000;border-radius:12px;padding:14px;margin-bottom:12px;text-align:center}
@@ -30,8 +33,8 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 </style>
 </head>
 <body>
-<div class="topo">👽<br><b>Rio na Mão com Thiago Alien</b><br><small>Bem-vindo! Use grátis por 30 minutos / <span id="timer">30:00</span></small><br><small id="statusLiberado" style="color:#22c55e;font-weight:bold"></small></div>
-<div class="banner">Use grátis por 30 minutos - Depois escolha seu plano</div>
+<div class="topo">👽<br><b>Rio na Mão com Thiago Alien</b><br><small>Bem-vindo! / <span id="timer">30:00</span></small><br><small id="statusLiberado" style="color:#22c55e;font-weight:bold"></small></div>
+<div class="banner">Depois escolha seu plano</div>
 <div class="menu">
 <button onclick="mostrar('principal',this)" class="ativo">Início</button>
 <button onclick="mostrar('festas',this)">Festas</button>
@@ -46,8 +49,8 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 <div id="principal" class="secao ativa">
 <div class="qr"><h3>📱 SCAN ME</h3><img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://raizdigital85-del.github.io/rio-na-mao/"></div>
 <div class="card" style="text-align:center"><b>QUER CONHECER O RIO DE VERDADE?</b><p>Sem enrolação. O que tá bombando AGORA no Rio.</p><button class="btn bv" onclick="comecarGratis()">👉 CLIQUE AQUI E GARANTA SEU ACESSO GRÁTIS</button><p>✅ Sem cartão • Sem cadastro • Entra na hora</p><button class="btn ba" onclick="abrirPagamento()">💳 QUERO PAGAR AGORA</button></div>
+<div class="card-destaque"><b>🔥 O QUE VOCÊ VAI VER LÁ DENTRO:</b><br>🏖️ Melhores praias HOJE<br>🎉 Festas de HOJE e amanhã<br>🔥 Baile Funk - onde tá rolando<br>🗺️ Mapa completo<br>👽 Ponto SPACE 4:20</div>
 <div class="card" style="border:2px solid #22c55e"><b>👽 SPACE 4:20 HEADSHOP</b><p>📍 Rua do Catete, Rio de Janeiro - RJ</p><p>🔥 Headshop • Tabacaria • Acessórios • O ponto do rolê</p><p>⭐ 4.9 - Aberto agora • Perto do Metrô Catete</p><button class="btn br" onclick="comoChegar('Space 420 Headshop Catete Rio de Janeiro')">📍 VER NO MAPA - CLICK AQUI</button></div>
-<div class="card"><b>🔥 O QUE VOCÊ VAI VER LÁ DENTRO:</b><p>🏖️ Melhores praias HOJE<br>🎉 Festas de HOJE e amanhã<br>🔥 Baile Funk - onde tá rolando<br>🗺️ Mapa completo<br>👽 Ponto SPACE 4:20</p></div>
 </div>
 
 <div id="festas" class="secao">
@@ -141,13 +144,13 @@ input{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px
 <div class="card"><b>Coisas de Bamba - Posto 4</b><p>R$ 25-60</p><button class="btn br" onclick="comoChegar('Coisas de Bamba Copacabana')">Como chegar</button></div>
 </div>
 
-<div class="barra"><span>Início</span><span>Mapa</span><span>Favoritos</span><span>Perfil</span></div>
+<div class="barra"><span onclick="podeUsar()">Início</span><span onclick="podeUsar()">Mapa</span><span onclick="podeUsar()">Favoritos</span><span onclick="podeUsar()">Perfil</span></div>
 
-<div id="bloqueio"><div class="box"><h3>🔒 LIBERE SEU ACESSO PRIMEIRO</h3><p>Para mexer no app, você precisa liberar primeiro.</p><button class="btn bv" onclick="fecharBloqueioEComecar()">👉 CLIQUE AQUI E GARANTA SEU ACESSO GRÁTIS - 30 MIN</button><button class="btn ba" onclick="fecharBloqueioEPagar()">💳 QUERO PAGAR AGORA</button><button class="btn" onclick="fecharBloqueio()" style="background:#eee">Voltar</button></div></div>
+<div id="bloqueio"><div class="box"><h3>🔒 LIBERE SEU ACESSO PRIMEIRO</h3><p>Para mexer no app, você precisa liberar primeiro.</p><button class="btn bv" onclick="fecharBloqueioEComecar()">INICIAR MEU ACESSO - 30 MIN</button><button class="btn ba" onclick="fecharBloqueioEPagar()">💳 QUERO PAGAR AGORA</button><button class="btn" onclick="fecharBloqueio()" style="background:#eee">Voltar</button></div></div>
 
 <div id="trava">
-<h1 style="text-align:center">⏰ TEMPO ACABOU!</h1>
-<div class="box"><b>Seu tempo grátis acabou! ⏰</b><p>Para continuar usando o Rio na Mão, escolha um plano abaixo.</p><p>Quer continuar? Assine aqui!</p></div>
+<h1 style="text-align:center">⏰ SEU TEMPO ACABOU!</h1>
+<div class="box"><b>Seu tempo acabou! Para continuar, acesse aqui ⏰</b><p>Para continuar usando o Rio na Mão, escolha um plano abaixo.</p><p>Quer continuar? Assine aqui!</p></div>
 <div class="box" style="border:3px solid #22c55e">
 <h3>🇧🇷 BRASILEIRO / SUL-AMERICANO - PIX DIRETO</h3>
 <p><b>Chave PIX: 21 988189111</b></p>
@@ -185,7 +188,7 @@ function mostrar(id,btn){ if(id!=='principal' && !podeUsar()) return; var s=docu
 function mostrarSub(id){ if(!podeUsar()) return; document.getElementById('sub-boates').style.display='none'; document.getElementById('sub-0800').style.display='none'; document.getElementById('sub-bailes').style.display='none'; document.getElementById(id).style.display='block'; }
 function mostrarSubH(id){ if(!podeUsar()) return; document.getElementById('sub-barata').style.display='none'; document.getElementById('sub-luxo').style.display='none'; document.getElementById(id).style.display='block'; }
 function comoChegar(l){ if(!podeUsar()) return; window.open('https://www.google.com/maps/search/'+encodeURIComponent(l+' Rio de Janeiro'),'_blank'); }
-function comecarGratis(){ if(comecou || liberado) return; comecou=true; intervalo=setInterval(function(){ tempo--; var m=Math.floor(tempo/60); var s=tempo%60; document.getElementById('timer').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s); if(tempo<=0){ clearInterval(intervalo); travado=true; document.getElementById('trava').style.display='block'; } },1000); mostrar('festas',null); }
+function comecarGratis(){ if(comecou || liberado) return; comecou=true; document.getElementById('bloqueio').style.display='none'; intervalo=setInterval(function(){ tempo--; var m=Math.floor(tempo/60); var s=tempo%60; document.getElementById('timer').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s); if(tempo<=0){ clearInterval(intervalo); travado=true; document.getElementById('trava').style.display='block'; } },1000); }
 function fecharBloqueio(){ document.getElementById('bloqueio').style.display='none'; }
 function fecharBloqueioEComecar(){ document.getElementById('bloqueio').style.display='none'; comecarGratis(); }
 function fecharBloqueioEPagar(){ document.getElementById('bloqueio').style.display='none'; abrirPagamento(); }
