@@ -192,3 +192,29 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <button class="btn-pay" onclick="pagarPix()">🇧🇷 PAGAR COM PIX - GERAR QR CODE</button>
 <button class="btn-pay" style="background:#00ccff" onclick="pagarCartao()">💳 PAGAR COM CARTÃO - STRIPE</button>
 <div id="pixArea" style="display:none;margin-top:15px;background:#f0f0f0;padding:15px;border-radius:12px;color:#000"><h3>📱 PIX - COPIA E COLA
+</div>
+</div>
+
+<div id="lock" class="lock">
+<button onclick="voltarParaMenu()" style="background:#00ff88;border:none;padding:15px;width:100%;border-radius:12px;font-weight:900">VOLTAR E VER CONTEUDO</button>
+<h1>TEMPO ACABOU!</h1>
+<p>Para ver o conteúdo, assine um plano.</p>
+<button class="btn-green" onclick="show('pagamento')">ASSINAR AGORA</button>
+</div>
+
+<div class="bottombar">
+<button onclick="show('festas')">Festas</button>
+<button onclick="show('comer')">Comer</button>
+<button onclick="show('hosp')">Hosp</button>
+<button onclick="show('tur')">Tur</button>
+<button onclick="show('praias')">Praias</button>
+<button onclick="show('pilar')">Pilar</button>
+<button onclick="show('quiosques')">Quiosques</button>
+<button onclick="show('mapa')">Mapa</button>
+<button onclick="show('favoritos')">Fav</button>
+<button onclick="show('perfil')">Perfil</button>
+</div>
+
+<div id="toast" class="toast"></div>
+</body>
+</html>
