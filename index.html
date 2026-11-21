@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RIO MAP 👽 SPACE 4:20 - VERSÃO COMPLETA + LIBERAÇÃO AUTOMÁTICA</title>
+<title>RIO TA NA MÃO DIGITAL 👽 - VERSÃO COMPLETA + LIBERAÇÃO AUTOMÁTICA</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
 body{background:#0a0a0a;color:#fff;text-align:center;padding-bottom:90px}
@@ -211,8 +211,6 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <button onclick="openPage('perfil')">👤<br>Perfil</button>
 </div>
 <script>
-// ⚠️ TROCA ESSA URL PELA URL DO TEU SERVIDOR NO RENDER!
-// Ex: https://rio-map-servidor.onrender.com
 const URL_SERVIDOR = 'https://rio-map-servidor.onrender.com';
 let seconds=30*60,timerInterval,started=false,planoAtual=null,valorAtual='0',intervalVerificacao=null;
 let historyStack=['home'];
@@ -226,4 +224,70 @@ function openPage(name){if(name!=='perfil' && name!=='pagamento' && !liberado &&
 function openPageFromLock(){document.getElementById('lock').style.display='none';openPage('perfil');}
 function goBack(){historyStack.pop();let prev=historyStack[historyStack.length-1]||'home';hideAll();if(prev==='home'){document.getElementById('page-home').style.display='block';document.getElementById('backBtn').style.display='none';document.getElementById('bottombar').style.display='none';}else if(prev==='menu'){document.getElementById('menu').style.display='block';}else{let el=document.getElementById('page-'+prev);if(el)el.style.display='block';}window.scrollTo(0,0);}
 function startFree(){if(started){openPage('menu');return;}started=true;hideAll();document.getElementById('menu').style.display='block';document.getElementById('timer').style.display='block';document.getElementById('topbar').style.display='flex';document.getElementById('bottombar').style.display='flex';document.getElementById('backBtn').style.display='block';historyStack=['home','menu'];atualizarTopo();window.scrollTo(0,0);if(liberado){document.getElementById('statusPlano').innerText='PLANO ATIVO - '+planoSalvo;document.getElementById('menuStatus').innerText='✅ SEU PLANO TÁ ATIVO!';return;}iniciarVerificacaoAutomatica();timerInterval=setInterval(()=>{seconds--;let m=Math.floor(seconds/60),s=seconds%60;document.getElementById('time').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);if(seconds<=0){clearInterval(timerInterval);showLock();}},1000);}
-function showLock(){if(liberado)return;hideAll();document.getElementById('timer
+function showLock(){if(liberado)return;hideAll();document.getElementById('timer').style.display='none';document.getElementById('backBtn').style.display='none';document.getElementById('bottombar').style.display='none';document.getElementById('lock').style.display='block';window.scrollTo(0,0);}
+async function verificarPagamentoAgora(){
+  let email = perfil.email || document.getElementById('loginEmail')?.value || '';
+  let whats = perfil.whats || '';
+  if(!email && !whats){ let a=document.getElementById('autoStatus'); if(a) a.innerText='⚠️ Coloca teu e-mail no perfil primeiro!'; toast('⚠️ Coloca teu e-mail no perfil!'); return; }
+  let a=document.getElementById('autoStatus'); if(a) a.innerText='🔄 Verificando no servidor...';
+  try{
+    let url = URL_SERVIDOR + '/api/verificar?email=' + encodeURIComponent(email) + '&whats=' + encodeURIComponent(whats);
+    let resp = await fetch(url);
+    let dados = await resp.json();
+    if(dados.liberado){ liberarApp(dados.plano || 'PLANO ATIVO'); return true; }
+    else { if(a) a.innerText='⏳ Ainda não achou pagamento pra ' + email + '. Se você pagou agora, espera 10 segundos e clica de novo.'; let ag = document.getElementById('aguardandoPagamento'); if(ag) ag.style.display='block'; return false; }
+  }catch(e){ if(a) a.innerText='⚠️ Servidor fora do ar ou URL errada. Tenta liberar com código RIO-TESTE.'; return false; }
+}
+function iniciarVerificacaoAutomatica(){
+  if(intervalVerificacao) clearInterval(intervalVerificacao);
+  intervalVerificacao = setInterval(async ()=>{
+    if(liberado){ clearInterval(intervalVerificacao); return; }
+    let ok = await verificarPagamentoAgora();
+    if(ok) clearInterval(intervalVerificacao);
+  }, 10000);
+}
+function liberarApp(plano){
+  liberado=true; planoSalvo=plano; localStorage.setItem('rio_liberado','1'); localStorage.setItem('rio_plano',plano);
+  clearInterval(timerInterval); if(intervalVerificacao) clearInterval(intervalVerificacao);
+  document.getElementById('timer').style.display='block';
+  document.getElementById('statusPlano').innerText='✅ PLANO ATIVO - '+plano;
+  document.getElementById('menuStatus').innerText='✅ SEU PLANO TÁ ATIVO - USA SEM TRAVAR!';
+  let a=document.getElementById('autoStatus'); if(a) a.innerText='✅ LIBERADO! Plano: '+plano;
+  let ag=document.getElementById('aguardandoPagamento'); if(ag) ag.style.display='none';
+  toast('🎉 PAGAMENTO CONFIRMADO! LIBERADO SOZINHO!');
+  openPage('menu');
+}
+function toggleFav(id,nome){let idx=favs.findIndex(f=>f.id===id);if(idx>=0){favs.splice(idx,1);toast('💔 Removido: '+nome);}else{favs.push({id:id,nome:nome});toast('❤️ Salvo: '+nome);}localStorage.setItem('rio_favs',JSON.stringify(favs));atualizarFavs();renderFavs();}
+function atualizarFavs(){document.getElementById('favCount').innerText=favs.length;document.querySelectorAll('.fav').forEach(b=>{let o=b.getAttribute('onclick')||'';let id=o.split("'")[1];if(favs.find(f=>f.id===id))b.classList.add('on');else b.classList.remove('on');});}
+function renderFavs(){let el=document.getElementById('listaFavs');if(!favs.length){el.innerHTML='<div class="card"><p>Você ainda não favoritou nada. Aperta o ❤️!</p></div>';return;}el.innerHTML=favs.map(f=>'<div class="card"><h3>❤️ '+f.nome+'</h3><button class="btn-ghost" onclick="toggleFav(\''+f.id+'\',\''+f.nome+'\')">Remover</button></div>').join('');}
+function limparFavs(){favs=[];localStorage.setItem('rio_favs','[]');atualizarFavs();renderFavs();toast('Favoritos limpos!');}
+function salvarPerfil(){let n=document.getElementById('editNome').value||document.getElementById('loginNome').value||perfil.nome||'Visitante';let e=document.getElementById('editEmail').value||document.getElementById('loginEmail').value||perfil.email||'';let w=document.getElementById('editWhats').value||document.getElementById('loginWhats').value||perfil.whats||'';let i=document.getElementById('editIdioma').value||document.getElementById('loginIdioma').value||'pt';perfil={nome:n,email:e.toLowerCase().trim(),whats:w,idioma:i,data:new Date().toLocaleDateString('pt-BR')};localStorage.setItem('rio_perfil',JSON.stringify(perfil));atualizarTopo();renderPerfil();toast('✅ Perfil salvo: '+n);if(e) verificarPagamentoAgora();}
+function salvarPerfilEEntrar(){salvarPerfil();startFree();}
+function atualizarTopo(){if(perfil.nome)document.getElementById('userNameTop').innerText='👋 '+perfil.nome;if(perfil.nome)document.getElementById('loginNome').value=perfil.nome;if(perfil.email)document.getElementById('loginEmail').value=perfil.email;if(perfil.whats)document.getElementById('loginWhats').value=perfil.whats;}
+function renderPerfil(){document.getElementById('perfilNome').innerText=perfil.nome||'Visitante';document.getElementById('perfilEmail').innerText=perfil.email||'-';document.getElementById('perfilWhats').innerText=perfil.whats||'-';document.getElementById('perfilIdioma').innerText=perfil.idioma==='es'?'Español':perfil.idioma==='en'?'English':'Português';document.getElementById('perfilPlano').innerText=liberado?('ATIVO - '+planoSalvo):'Grátis - 30 min';document.getElementById('perfilFavs').innerText=favs.length;document.getElementById('perfilLiberacao').innerText=liberado?'✅ Liberado automático':'⏳ Aguardando pagamento / Manual';document.getElementById('editNome').value=perfil.nome||'';document.getElementById('editEmail').value=perfil.email||'';document.getElementById('editWhats').value=perfil.whats||'';}
+function sairPerfil(){localStorage.removeItem('rio_perfil');localStorage.removeItem('rio_liberado');localStorage.removeItem('rio_plano');perfil={};liberado=false;planoSalvo='';toast('Saiu!');renderPerfil();atualizarTopo();}
+function abrirPagamento(plano,valor){planoAtual=plano;valorAtual=valor;hideAll();document.getElementById('page-pagamento').style.display='block';document.getElementById('backBtn').style.display='block';document.getElementById('pixArea').style.display='none';let nomes={'A':'PLANO A - 1 DIA','B':'PLANO B - 7 DIAS','C':'PLANO C - 30 DIAS','A_DESC':'PLANO A COM DESCONTO RIO50','B_DESC':'PLANO B COM DESCONTO RIO50','C_DESC':'PLANO C COM DESCONTO RIO50'};document.getElementById('pagPlanoNome').innerText=nomes[plano]||plano;document.getElementById('pagValor').innerText='R$ '+valor;document.getElementById('pagInfo').innerText='Você escolheu: '+(nomes[plano]||plano)+' - Valor: R$ '+valor;historyStack.push('pagamento');window.scrollTo(0,0);iniciarVerificacaoAutomatica();}
+function pagarPix(){document.getElementById('pixArea').style.display='block';document.getElementById('pixCodigo').innerText='00020126580014BR.GOV.BCB.PIX0136'+Math.floor(Math.random()*999999)+'520400005303986540'+valorAtual+'5802BR5913RIO MAP THIAGO6009SAO PAULO62070503***6304RIO50 - PLANO '+(planoAtual||'');toast('📱 PIX gerado! Copia!');}
+function copiarPix(){let t=document.getElementById('pixCodigo').innerText;navigator.clipboard.writeText(t).then(()=>toast('📋 PIX copiado!'));}
+// ===== CONSERTADO - ABRE POR DENTRO DO APP =====
+// TRAVA: thiago_atende_bot + Zapier NÃO mexido, links Stripe iguais
+function pagarCartao(){
+  let links={'A':'https://buy.stripe.com/aFafZhdpYcWPfrJcqS9EI07','B':'https://buy.stripe.com/9B69AT5Xw9KD1AT2Qi9EI05','C':'https://buy.stripe.com/28E7sL85EcWP2EX0Ia9EI06','A_DESC':'https://buy.stripe.com/cNicN55XwaOHbbt4Yq9EI08','B_DESC':'https://buy.stripe.com/eVqaEX3Po4qjbbtez09EI09','C_DESC':'https://buy.stripe.com/9B64gz2Lkf4XgvN76y9EI0a'};
+  let url = links[planoAtual]||links['B'];
+  toast('💳 Abrindo Stripe... Depois volta com o botão voltar!');
+  let ag=document.getElementById('aguardandoPagamento'); if(ag) ag.style.display='block';
+  window.location.href = url;
+}
+function pay(p){abrirPagamento(p,{'A':'39,99','B':'69,99','C':'179,99','A_DESC':'19,99','B_DESC':'34,99','C_DESC':'89,99'}[p]||'39,99');}
+function liberarComCodigo(){let c=(document.getElementById('codigoLiberacao').value||'').trim().toUpperCase();if(['RIO-TESTE','RIO-VIP','RIO-30DIAS','RIO-2026'].includes(c)||c.startsWith('RIO-')){liberarApp(planoAtual||'PLANO ATIVO - MANUAL');}else{toast('❌ Código inválido!');}}
+function minhaLocalizacao(){if(!navigator.geolocation){document.getElementById('minhaPos').innerText='Seu celular não deixou pegar GPS.';return;}navigator.geolocation.getCurrentPosition(p=>{let lat=p.coords.latitude,lng=p.coords.longitude;document.getElementById('minhaPos').innerHTML='📍 Você tá aqui: '+lat.toFixed(5)+', '+lng.toFixed(5)+'<br><a class="maplink" href="https://www.google.com/maps?q='+lat+','+lng+'" target="_blank">👉 ABRIR MEU LOCAL NO MAPA</a>';},()=>{document.getElementById('minhaPos').innerText='Ativa o GPS e tenta de novo.';});}
+function compartilharApp(){let txt='🌴 RIO MAP - Rio na Mão com Thiago Alien 👽 - Testa 30 min grátis: https://raizdigital85-del.github.io/rio-na-mao/';if(navigator.share){navigator.share({title:'Rio Map',text:txt});}else{navigator.clipboard.writeText(txt).then(()=>toast('📤 Link copiado!'));}}
+// ===== DESTRAVA LINKS POR DENTRO DO APP =====
+document.addEventListener('click', function(e){
+  let a = e.target.closest('a[target="_blank"]');
+  if(a){ e.preventDefault(); window.location.href = a.href; }
+});
+if(perfil.nome)atualizarTopo();atualizarFavs();if(liberado){document.getElementById('statusPlano').innerText='PLANO ATIVO - '+planoSalvo;}else if(perfil.email){verificarPagamentoAgora();iniciarVerificacaoAutomatica();}
+</script>
+</body>
+</html>
