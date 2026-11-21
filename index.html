@@ -32,7 +32,7 @@ body{background:#0a0a0a;color:#fff;text-align:center;padding-bottom:90px}
 .plan{background:#fff;color:#000;padding:22px 15px;border-radius:16px;margin:16px auto;max-width:430px}
 .plan .price{font-size:33px;font-weight:900;color:#00aa55;margin:8px 0}
 .btn-pay{background:#00ff88;color:#000;padding:16px;width:100%;border:none;border-radius:11px;font-weight:900;font-size:18px;cursor:pointer;margin-top:12px}
-.lock{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.92);z-index:10000;display:none;overflow-y:auto;padding:25px 15px 60px}
+.lock{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;z-index:10000;display:none;overflow-y:auto;padding:25px 15px 60px}
 .back{position:fixed;top:50px;left:10px;background:#00ff88;color:#000;border:none;padding:13px 17px;border-radius:50%;font-size:22px;font-weight:900;cursor:pointer;z-index:999;display:none}
 .pilar{background:#2a0a4a;border:2px solid #ff00cc;padding:20px;border-radius:14px;max-width:520px;margin:15px auto;text-align:left}
 .gold{background:#ffcc00;color:#000;padding:20px;border-radius:14px;max-width:520px;margin:15px auto;font-weight:900;cursor:pointer}
@@ -53,9 +53,8 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <div id="page-home" class="page" style="display:block">
 <div class="header"><h1>🌴 RIO MAP 👽<br>SPACE 4:20</h1><p>RIO NA MÃO COM THIAGO ALIEN</p><p>Praias • Festas • Baile Funk • Rolês</p><div class="badge">🔓 30 MINUTOS GRÁTIS PARA TESTAR</div></div>
 <div class="main">
-<div style="background:#00C853; padding:18px; border-radius:16px; text-align:center;"> <h2>QUER CONHECER O RIO DE VERDADE?</h2>
-  <h2 style="color:black; font-weight:bold; text-align:center;">QUER CONHECER O RIO DE VERDADE?</h2>
-<p style="color:black;font-weight:bold; ;margin-top:8px">O Rio que o turista não acha no Google. Onde comer barato, onde é festa de verdade, qual praia ir hoje, qual baile é seguro com guia.</p>
+<h2>QUER CONHECER O RIO DE VERDADE?</h2>
+<p style="color:#ccc;margin-top:8px">O Rio que o turista não acha no Google. Onde comer barato, onde é festa de verdade, qual praia ir hoje, qual baile é seguro com guia.</p>
 <button class="btn-green" onclick="startFree()">👉 CLIQUE AQUI E GARANTA SEU ACESSO GRÁTIS</button>
 <div class="qr-box" onclick="startFree()"><h3>📱 SCAN ME</h3><img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://raizdigital85-del.github.io/rio-na-mao/"><p><b>APONTE A CÂMERA E ENTRE NO GRÁTIS!</b></p></div>
 <h2>👤 JÁ TEM CONTA? ENTRA AQUI</h2>
@@ -191,30 +190,114 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <p style="font-size:13px;color:#666">⚠️ Use o MESMO e-mail do seu perfil no checkout! É assim que o sistema te libera sozinho!</p>
 <button class="btn-pay" onclick="pagarPix()">🇧🇷 PAGAR COM PIX - GERAR QR CODE</button>
 <button class="btn-pay" style="background:#00ccff" onclick="pagarCartao()">💳 PAGAR COM CARTÃO - STRIPE</button>
-<div id="pixArea" style="display:none;margin-top:15px;background:#f0f0f0;padding:15px;border-radius:12px;color:#000"><h3>📱 PIX - COPIA E COLA
-</div>
-</div>
-
+<div id="pixArea" style="display:none;margin-top:15px;background:#f0f0f0;padding:15px;border-radius:12px;color:#000"><h3>📱 PIX - COPIA E COLA</h3><img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=PIX-RIO-MAP" style="width:180px;height:180px"><p id="pixCodigo" style="word-break:break-all;font-size:12px;background:#fff;padding:10px;border-radius:8px">PIX...</p><button class="btn-pay" onclick="copiarPix()">📋 COPIAR CÓDIGO PIX</button><p>Depois de pagar, fica nessa tela que o app libera sozinho!</p><button class="btn-pay" onclick="verificarPagamentoAgora()">🔄 JÁ PAGUEI - VERIFICAR AGORA</button></div>
+</div></div>
 <div id="lock" class="lock">
-<button onclick="voltarParaMenu()" style="background:#00ff88;border:none;padding:15px;width:100%;border-radius:12px;font-weight:900">VOLTAR E VER CONTEUDO</button>
-<h1>TEMPO ACABOU!</h1>
-<p>Para ver o conteúdo, assine um plano.</p>
-<button class="btn-green" onclick="show('pagamento')">ASSINAR AGORA</button>
+<h1 style="color:#ff3333">⏰ TEMPO ACABOU!</h1><p>Seu tempo grátis acabou! Para continuar, escolha um plano.</p>
+<div class="plan"><h3>PLANO A - 1 DIA</h3><div class="price">R$ 39,99</div><button class="btn-pay" onclick="abrirPagamento('A','39,99')">ASSINAR E CONTINUAR</button></div>
+<div class="plan"><h3>PLANO B - 7 DIAS - MAIS ESCOLHIDO</h3><div class="price">R$ 69,99</div><button class="btn-pay" onclick="abrirPagamento('B','69,99')">ASSINAR E CONTINUAR</button></div>
+<div class="plan"><h3>PLANO C - 30 DIAS</h3><div class="price">R$ 179,99</div><button class="btn-pay" onclick="abrirPagamento('C','179,99')">ASSINAR E CONTINUAR</button></div>
+<h2 style="color:#00ff88">Cupom RIO50 aplicado! Desconto de outro planeta 👽</h2>
+<div class="plan"><h3>A COM DESCONTO</h3><div class="price">R$ 19,99</div><button class="btn-pay" onclick="abrirPagamento('A_DESC','19,99')">ASSINAR COM DESCONTO</button></div>
+<div class="plan"><h3>B COM DESCONTO</h3><div class="price">R$ 34,99</div><button class="btn-pay" onclick="abrirPagamento('B_DESC','34,99')">ASSINAR COM DESCONTO</button></div>
+<div class="plan"><h3>C COM DESCONTO</h3><div class="price">R$ 89,99</div><button class="btn-pay" onclick="abrirPagamento('C_DESC','89,99')">ASSINAR COM DESCONTO</button></div>
+<p style="color:#ccc">Já pagou? <button onclick="openPageFromLock()" style="background:#00ff88;border:none;padding:10px;border-radius:10px;font-weight:900;cursor:pointer">🔓 VERIFICAR PAGAMENTO</button></p>
 </div>
-
-<div class="bottombar">
-<button onclick="show('festas')">Festas</button>
-<button onclick="show('comer')">Comer</button>
-<button onclick="show('hosp')">Hosp</button>
-<button onclick="show('tur')">Tur</button>
-<button onclick="show('praias')">Praias</button>
-<button onclick="show('pilar')">Pilar</button>
-<button onclick="show('quiosques')">Quiosques</button>
-<button onclick="show('mapa')">Mapa</button>
-<button onclick="show('favoritos')">Fav</button>
-<button onclick="show('perfil')">Perfil</button>
+<div class="bottombar" id="bottombar">
+<button onclick="openPage('festas')">🎉<br>Festas</button>
+<button onclick="openPage('comer')">🍽️<br>Comer</button>
+<button onclick="openPage('mapa')">🗺️<br>Mapa</button>
+<button onclick="openPage('favoritos')">❤️<br>Favoritos</button>
+<button onclick="openPage('perfil')">👤<br>Perfil</button>
 </div>
-
-<div id="toast" class="toast"></div>
+<script>
+// ⚠️ TROCA ESSA URL PELA URL DO TEU SERVIDOR NO RENDER!
+// Ex: https://rio-map-servidor.onrender.com
+const URL_SERVIDOR = 'https://rio-map-servidor.onrender.com';
+let seconds=30*60,timerInterval,started=false,planoAtual=null,valorAtual='0',intervalVerificacao=null;
+let historyStack=['home'];
+let favs=JSON.parse(localStorage.getItem('rio_favs')||'[]');
+let perfil=JSON.parse(localStorage.getItem('rio_perfil')||'{}');
+let liberado=localStorage.getItem('rio_liberado')==='1';
+let planoSalvo=localStorage.getItem('rio_plano')||'';
+function toast(m){let t=document.getElementById('toast');t.innerText=m;t.style.display='block';setTimeout(()=>t.style.display='none',3000);}
+function hideAll(){document.querySelectorAll('.page').forEach(p=>p.style.display='none');document.getElementById('menu').style.display='none';document.getElementById('lock').style.display='none';}
+function openPage(name){if(name!=='perfil' && name!=='pagamento' && !liberado && started && seconds<=0){showLock();return;} hideAll();let el=document.getElementById('page-'+name);if(el)el.style.display='block';else if(name==='menu'){document.getElementById('menu').style.display='block';} document.getElementById('backBtn').style.display='block';document.getElementById('bottombar').style.display='flex';historyStack.push(name);if(name==='favoritos')renderFavs();if(name==='perfil')renderPerfil();window.scrollTo(0,0);}
+function openPageFromLock(){document.getElementById('lock').style.display='none';openPage('perfil');}
+function goBack(){historyStack.pop();let prev=historyStack[historyStack.length-1]||'home';hideAll();if(prev==='home'){document.getElementById('page-home').style.display='block';document.getElementById('backBtn').style.display='none';document.getElementById('bottombar').style.display='none';}else if(prev==='menu'){document.getElementById('menu').style.display='block';}else{let el=document.getElementById('page-'+prev);if(el)el.style.display='block';}window.scrollTo(0,0);}
+function startFree(){if(started){openPage('menu');return;}started=true;hideAll();document.getElementById('menu').style.display='block';document.getElementById('timer').style.display='block';document.getElementById('topbar').style.display='flex';document.getElementById('bottombar').style.display='flex';document.getElementById('backBtn').style.display='block';historyStack=['home','menu'];atualizarTopo();window.scrollTo(0,0);if(liberado){document.getElementById('statusPlano').innerText='PLANO ATIVO - '+planoSalvo;document.getElementById('menuStatus').innerText='✅ SEU PLANO TÁ ATIVO!';return;}iniciarVerificacaoAutomatica();timerInterval=setInterval(()=>{seconds--;let m=Math.floor(seconds/60),s=seconds%60;document.getElementById('time').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);if(seconds<=0){clearInterval(timerInterval);showLock();}},1000);}
+function showLock(){if(liberado)return;hideAll();document.getElementById('timer').style.display='none';document.getElementById('backBtn').style.display='none';document.getElementById('bottombar').style.display='none';document.getElementById('lock').style.display='block';window.scrollTo(0,0);}
+// ===== LIBERAÇÃO AUTOMÁTICA - O CORAÇÃO DO SISTEMA =====
+async function verificarPagamentoAgora(){
+  let email = perfil.email || document.getElementById('loginEmail')?.value || '';
+  let whats = perfil.whats || '';
+  if(!email && !whats){ document.getElementById('autoStatus').innerText='⚠️ Coloca teu e-mail no perfil primeiro! É com ele que o sistema te acha!'; toast('⚠️ Coloca teu e-mail no perfil!'); return; }
+  document.getElementById('autoStatus').innerText='🔄 Verificando no servidor...';
+  try{
+    let url = URL_SERVIDOR + '/api/verificar?email=' + encodeURIComponent(email) + '&whats=' + encodeURIComponent(whats);
+    let resp = await fetch(url);
+    let dados = await resp.json();
+    if(dados.liberado){
+      liberarApp(dados.plano || 'PLANO ATIVO');
+      return true;
+    } else {
+      document.getElementById('autoStatus').innerText='⏳ Ainda não achou pagamento pra ' + email + '. Se você pagou agora, espera 10 segundos e clica de novo.';
+      let ag = document.getElementById('aguardandoPagamento'); if(ag) ag.style.display='block';
+      return false;
+    }
+  }catch(e){
+    document.getElementById('autoStatus').innerText='⚠️ Servidor fora do ar ou URL errada. Verifica a URL_SERVIDOR no código. Erro: '+e.message+' - Tenta liberar com código RIO-TESTE.';
+    return false;
+  }
+}
+function iniciarVerificacaoAutomatica(){
+  if(intervalVerificacao) clearInterval(intervalVerificacao);
+  intervalVerificacao = setInterval(async ()=>{
+    if(liberado){ clearInterval(intervalVerificacao); return; }
+    let ok = await verificarPagamentoAgora();
+    if(ok) clearInterval(intervalVerificacao);
+  }, 10000);
+}
+function liberarApp(plano){
+  liberado=true; planoSalvo=plano; localStorage.setItem('rio_liberado','1'); localStorage.setItem('rio_plano',plano);
+  clearInterval(timerInterval); if(intervalVerificacao) clearInterval(intervalVerificacao);
+  document.getElementById('timer').style.display='block';
+  document.getElementById('statusPlano').innerText='✅ PLANO ATIVO - '+plano;
+  document.getElementById('menuStatus').innerText='✅ SEU PLANO TÁ ATIVO - USA SEM TRAVAR!';
+  document.getElementById('autoStatus').innerText='✅ LIBERADO! Plano: '+plano;
+  let ag=document.getElementById('aguardandoPagamento'); if(ag) ag.style.display='none';
+  toast('🎉 PAGAMENTO CONFIRMADO! LIBERADO SOZINHO!');
+  openPage('menu');
+}
+// ===== FIM LIBERAÇÃO AUTOMÁTICA =====
+function toggleFav(id,nome){let idx=favs.findIndex(f=>f.id===id);if(idx>=0){favs.splice(idx,1);toast('💔 Removido: '+nome);}else{favs.push({id:id,nome:nome});toast('❤️ Salvo: '+nome);}localStorage.setItem('rio_favs',JSON.stringify(favs));atualizarFavs();renderFavs();}
+function atualizarFavs(){document.getElementById('favCount').innerText=favs.length;document.querySelectorAll('.fav').forEach(b=>{let o=b.getAttribute('onclick')||'';let id=o.split("'")[1];if(favs.find(f=>f.id===id))b.classList.add('on');else b.classList.remove('on');});}
+function renderFavs(){let el=document.getElementById('listaFavs');if(!favs.length){el.innerHTML='<div class="card"><p>Você ainda não favoritou nada. Aperta o ❤️!</p></div>';return;}el.innerHTML=favs.map(f=>'<div class="card"><h3>❤️ '+f.nome+'</h3><button class="btn-ghost" onclick="toggleFav(\''+f.id+'\',\''+f.nome+'\')">Remover</button></div>').join('');}
+function limparFavs(){favs=[];localStorage.setItem('rio_favs','[]');atualizarFavs();renderFavs();toast('Favoritos limpos!');}
+function salvarPerfil(){let n=document.getElementById('editNome').value||document.getElementById('loginNome').value||perfil.nome||'Visitante';let e=document.getElementById('editEmail').value||document.getElementById('loginEmail').value||perfil.email||'';let w=document.getElementById('editWhats').value||document.getElementById('loginWhats').value||perfil.whats||'';let i=document.getElementById('editIdioma').value||document.getElementById('loginIdioma').value||'pt';perfil={nome:n,email:e.toLowerCase().trim(),whats:w,idioma:i,data:new Date().toLocaleDateString('pt-BR')};localStorage.setItem('rio_perfil',JSON.stringify(perfil));atualizarTopo();renderPerfil();toast('✅ Perfil salvo: '+n);if(e) verificarPagamentoAgora();}
+function salvarPerfilEEntrar(){salvarPerfil();startFree();}
+function atualizarTopo(){if(perfil.nome)document.getElementById('userNameTop').innerText='👋 '+perfil.nome;if(perfil.nome)document.getElementById('loginNome').value=perfil.nome;if(perfil.email)document.getElementById('loginEmail').value=perfil.email;if(perfil.whats)document.getElementById('loginWhats').value=perfil.whats;}
+function renderPerfil(){document.getElementById('perfilNome').innerText=perfil.nome||'Visitante';document.getElementById('perfilEmail').innerText=perfil.email||'-';document.getElementById('perfilWhats').innerText=perfil.whats||'-';document.getElementById('perfilIdioma').innerText=perfil.idioma==='es'?'Español':perfil.idioma==='en'?'English':'Português';document.getElementById('perfilPlano').innerText=liberado?('ATIVO - '+planoSalvo):'Grátis - 30 min';document.getElementById('perfilFavs').innerText=favs.length;document.getElementById('perfilLiberacao').innerText=liberado?'✅ Liberado automático':'⏳ Aguardando pagamento / Manual';document.getElementById('editNome').value=perfil.nome||'';document.getElementById('editEmail').value=perfil.email||'';document.getElementById('editWhats').value=perfil.whats||'';}
+function sairPerfil(){localStorage.removeItem('rio_perfil');localStorage.removeItem('rio_liberado');localStorage.removeItem('rio_plano');perfil={};liberado=false;planoSalvo='';toast('Saiu!');renderPerfil();atualizarTopo();}
+function abrirPagamento(plano,valor){planoAtual=plano;valorAtual=valor;hideAll();document.getElementById('page-pagamento').style.display='block';document.getElementById('backBtn').style.display='block';document.getElementById('pixArea').style.display='none';let nomes={'A':'PLANO A - 1 DIA','B':'PLANO B - 7 DIAS','C':'PLANO C - 30 DIAS','A_DESC':'PLANO A COM DESCONTO RIO50','B_DESC':'PLANO B COM DESCONTO RIO50','C_DESC':'PLANO C COM DESCONTO RIO50'};document.getElementById('pagPlanoNome').innerText=nomes[plano]||plano;document.getElementById('pagValor').innerText='R$ '+valor;document.getElementById('pagInfo').innerText='Você escolheu: '+(nomes[plano]||plano)+' - Valor: R$ '+valor;historyStack.push('pagamento');window.scrollTo(0,0);iniciarVerificacaoAutomatica();}
+function pagarPix(){document.getElementById('pixArea').style.display='block';document.getElementById('pixCodigo').innerText='00020126580014BR.GOV.BCB.PIX0136'+Math.floor(Math.random()*999999)+'520400005303986540'+valorAtual+'5802BR5913RIO MAP THIAGO6009SAO PAULO62070503***6304RIO50 - PLANO '+(planoAtual||'');toast('📱 PIX gerado! Copia!');}
+function copiarPix(){let t=document.getElementById('pixCodigo').innerText;navigator.clipboard.writeText(t).then(()=>toast('📋 PIX copiado!'));}
+// ===== ÚNICA PARTE CONSERTADA - ABRIR STRIPE COM CLIQUE DE VERDADE =====
+// TRAVA: Robô thiago_atende_bot + Zapier NÃO mexido, links do Stripe iguais
+function pagarCartao(){
+  let links={'A':'https://buy.stripe.com/aFafZhdpYcWPfrJcqS9EI07','B':'https://buy.stripe.com/9B69AT5Xw9KD1AT2Qi9EI05','C':'https://buy.stripe.com/28E7sL85EcWP2EX0Ia9EI06','A_DESC':'https://buy.stripe.com/cNicN55XwaOHbbt4Yq9EI08','B_DESC':'https://buy.stripe.com/eVqaEX3Po4qjbbtez09EI09','C_DESC':'https://buy.stripe.com/9B64gz2Lkf4XgvN76y9EI0a'};
+  let url = links[planoAtual]||links['B'];
+  let a = document.createElement('a');
+  a.href = url; a.target = '_blank'; a.rel = 'noopener';
+  document.body.appendChild(a); a.click(); a.remove();
+  toast('💳 Abrindo Stripe... Depois volta que eu libero sozinho!');
+  let ag=document.getElementById('aguardandoPagamento'); if(ag) ag.style.display='block';
+}
+function pay(p){abrirPagamento(p,{'A':'39,99','B':'69,99','C':'179,99','A_DESC':'19,99','B_DESC':'34,99','C_DESC':'89,99'}[p]||'39,99');}
+function liberarComCodigo(){let c=(document.getElementById('codigoLiberacao').value||'').trim().toUpperCase();if(['RIO-TESTE','RIO-VIP','RIO-30DIAS','RIO-2026'].includes(c)||c.startsWith('RIO-')){liberarApp(planoAtual||'PLANO ATIVO - MANUAL');}else{toast('❌ Código inválido!');}}
+function minhaLocalizacao(){if(!navigator.geolocation){document.getElementById('minhaPos').innerText='Seu celular não deixou pegar GPS.';return;}navigator.geolocation.getCurrentPosition(p=>{let lat=p.coords.latitude,lng=p.coords.longitude;document.getElementById('minhaPos').innerHTML='📍 Você tá aqui: '+lat.toFixed(5)+', '+lng.toFixed(5)+'<br><a class="maplink" href="https://www.google.com/maps?q='+lat+','+lng+'" target="_blank">👉 ABRIR MEU LOCAL NO MAPA</a>';},()=>{document.getElementById('minhaPos').innerText='Ativa o GPS e tenta de novo.';});}
+function compartilharApp(){let txt='🌴 RIO MAP - Rio na Mão com Thiago Alien 👽 - Testa 30 min grátis: https://raizdigital85-del.github.io/rio-na-mao/';if(navigator.share){navigator.share({title:'Rio Map',text:txt});}else{navigator.clipboard.writeText(txt).then(()=>toast('📤 Link copiado!'));}}
+if(perfil.nome)atualizarTopo();atualizarFavs();if(liberado){document.getElementById('statusPlano').innerText='PLANO ATIVO - '+planoSalvo;}else if(perfil.email){verificarPagamentoAgora();iniciarVerificacaoAutomatica();}
+</script>
 </body>
 </html>
