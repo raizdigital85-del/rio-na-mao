@@ -304,7 +304,13 @@ function liberarApp(plano){
   openPage('menu');
 }
 // ===== FIM LIBERAÇÃO AUTOMÁTICA =====
-function toggleFav(id,nome){let idx=favs.findIndex(f=>f.id===id);if(idx>=0){favs.splice(idx,1);toast('💔 Removido: '+nome);}else{favs.push({id:id,nome:nome});toast('❤️ Salvo: '+nome);}localStorage.setItem('rio_favs',JSON.stringify(favs));atualizarFavs();renderFavs();}
+  
+function document.addEventListener('click',function(e){
+  var txt=(e.target.innerText||e.target.textContent||'').toUpperCase();
+  if(txt.includes('FESTAS')||txt.includes('HOSPEDAGEM')||txt.includes('ONDE COMER')||txt.includes('PRAIAS')||txt.includes('EVENTOS')||txt.includes('PASSEIOS')){
+    setTimeout(()=>{document.getElementById('menu').scrollIntoView({behavior:'smooth'});},100);
+  }
+}); idx=favs.findIndex(f=>f.id===id);if(idx>=0){favs.splice(idx,1);toast('💔 Removido: '+nome);}else{favs.push({id:id,nome:nome});toast('❤️ Salvo: '+nome);}localStorage.setItem('rio_favs',JSON.stringify(favs));atualizarFavs();renderFavs();}
 function atualizarFavs(){document.getElementById('favCount').innerText=favs.length;document.querySelectorAll('.fav').forEach(b=>{let o=b.getAttribute('onclick')||'';let id=o.split("'")[1];if(favs.find(f=>f.id===id))b.classList.add('on');else b.classList.remove('on');});}
 function renderFavs(){let el=document.getElementById('listaFavs');if(!favs.length){el.innerHTML='<div class="card"><p>Você ainda não favoritou nada. Aperta o ❤️!</p></div>';return;}el.innerHTML=favs.map(f=>'<div class="card"><h3>❤️ '+f.nome+'</h3><button class="btn-ghost" onclick="toggleFav(\''+f.id+'\',\''+f.nome+'\')">Remover</button></div>').join('');}
 function limparFavs(){favs=[];localStorage.setItem('rio_favs','[]');atualizarFavs();renderFavs();toast('Favoritos limpos!');}
