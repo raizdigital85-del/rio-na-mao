@@ -86,6 +86,7 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <div id="aguardandoPagamento" style="display:none;background:#ffcc00;color:#000;padding:15px;border-radius:12px;max-width:430px;margin:15px auto;font-weight:900">⏳ AGUARDANDO PAGAMENTO...<br><span style="font-weight:normal;font-size:14px">Você pagou? O sistema verifica a cada 10 segundos e libera sozinho! Não fecha o app!</span><br><button onclick="verificarPagamentoAgora()" style="background:#000;color:#ffcc00;border:none;padding:10px 15px;border-radius:10px;font-weight:900;margin-top:10px;cursor:pointer">🔄 VERIFICAR AGORA</button></div>
 <div class="tabs">
 <div class="tab" onclick="openPage('festas')">🎉 Festas</div>
+<div class="tab" onclick="openPage('raves')">🔊 Raves / Techno</div> 
 <div class="tab" onclick="openPage('comer')">🍽️ Onde Comer</div>
 <div class="tab" onclick="openPage('hosp')">🏨 Hospedagem</div>
 <div class="tab" onclick="openPage('tur')">🗽 Turísticos</div>
@@ -115,6 +116,12 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <div class="card"><h3>Baile da Nova Holanda - Complexo da Maré</h3><p>Funk - Sábado - SÓ COM A PILAR</p></div>
 <div class="card"><h3>Baile do Santo Amaro</h3><p>Funk - Sábado - SÓ COM A PILAR</p></div>
 <div class="card"><h3>Baile do Vidigal</h3><p>Funk - Sábado - SÓ COM A PILAR</p></div>
+</div>
+<div id="page-raves" class="page"><div style="padding:80px 15px 10px"><h2>🔊 RAVES / TECHNO / MÚSICA ELETRÔNICA</h2></div>
+<div class="section-title">🔊 RAVES / TECHNO - RIO</div>
+<div class="card" data-id="rave-1"><button class="fav" onclick="toggleFav('rave-1','Rave Techno Rio')">❤️</button><h3>Rave / Techno - Rio</h3><p>Techno / House / Trance - Sexta e Sábado</p><span class="preco">PAGA - Preço na porta</span><br><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Rave+Techno+Rio+de+Janeiro" target="_blank">📍 COMO CHEGAR - GPS</a></div>
+<div class="card" data-id="rave-2"><button class="fav" onclick="toggleFav('rave-2','Festa Eletrônica')">❤️</button><h3>Festa Eletrônica - Centro / Zona Sul</h3><p>Música Eletrônica - Sexta e Sábado</p><span class="preco">PAGA - Preço na porta</span><br><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Festa+Eletronica+Rio+de+Janeiro" target="_blank">📍 COMO CHEGAR - GPS</a></div>
+<div class="card" data-id="rave-3"><button class="fav" onclick="toggleFav('rave-3','After Techno')">❤️</button><h3>After / Techno - Manhã</h3><p>After Hours - Domingo de manhã</p><span class="preco">PAGA - Preço na porta</span><br><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=After+Techno+Rio+de+Janeiro" target="_blank">📍 COMO CHEGAR - GPS</a></div>
 </div>
 <div id="page-comer" class="page"><div style="padding:80px 15px 10px"><h2>🍽️ ONDE COMER / GASTRONOMIA</h2></div>
 <div class="section-title">🟢 RESTAURANTES</div>
