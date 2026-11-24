@@ -332,5 +332,10 @@ function minhaLocalizacao(){if(!navigator.geolocation){document.getElementById('
 function compartilharApp(){let txt='🌴 RIO MAP - Rio na Mão com Thiago Alien 👽 - Testa 30 min grátis: https://raizdigital85-del.github.io/rio-na-mao/';if(navigator.share){navigator.share({title:'Rio Map',text:txt});}else{navigator.clipboard.writeText(txt).then(()=>toast('📤 Link copiado!'));}}
 if(perfil.nome)atualizarTopo();atualizarFavs();if(liberado){document.getElementById('statusPlano').innerText='PLANO ATIVO - '+planoSalvo;}else if(perfil.email){verificarPagamentoAgora();iniciarVerificacaoAutomatica();}
 </script>
+<script>
+let _oldOpen = openPage;
+openPage = function(name){ currentPage = name; _oldOpen(name); setTimeout(()=>{ currentPage = name; },100); };
+goBack = function(){ if(currentPage==='menu' || currentPage==='home' || !currentPage){ hideAll(); document.getElementById('home').style.display='block'; document.getElementById('backBtn').style.display='none'; document.getElementById('bottombar').style.display='none'; currentPage='home'; return; } hideAll(); let m = document.getElementById('menu'); if(m) m.style.display='block'; let pm = document.getElementById('page-menu'); if(pm) pm.style.display='block'; document.getElementById('backBtn').style.display='block'; document.getElementById('bottombar').style.display='flex'; currentPage='menu'; window.scrollTo(0,0); };
+</script>
 </body>
 </html>
