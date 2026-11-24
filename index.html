@@ -47,16 +47,16 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 </head>
 <body>
 <div id="timer" class="timer">⏰ TEMPO GRÁTIS: <span id="time">30:00</span> | <span id="statusPlano">MODO GRÁTIS</span></div>
-<div id="topbar" class="topbar"><span>👽 RIO MAP</span><span id="userNameTop">Visitante</span><button onclick="openPage('perfil')">👤 Perfil</button></div>
+<div id="topbar" class="topbar"><span>👽 RIO TA NA MÃO "Digital"</span><span id="userNameTop">Visitante</span><button onclick="openPage('perfil')">👤 Perfil</button></div>
 <button id="backBtn" class="back" onclick="goBack()">⬅️</button>
 <div id="toast" class="toast"></div>
 <div id="page-home" class="page" style="display:block">
 <div class="header"><h1>🌴 RIO TA NA MÃO DIGITAL 👽<br>Seu guia digital na palma da mão</h1><p>
-</p><p>Praias • Festas • Baile Funk • Rolês</p><div class="badge">🔓 30 MINUTOS GRÁTIS PARA TESTAR</div></div>
+</p><p>Hospedagens • Festas • Gastronomia• Praias • Turismo • Tatoo • DESCONTOS</p><div class="badge">🔓 30 MINUTOS GRÁTIS PARA TESTAR</div></div>
 <div class="main">
 <h2>COM O MESMO VALOR DE UMA CAIPIRINHA, VOCÊ ASSINA NOSSO PLANO 🍹</h2>
 <p style="color:#ccc;margin-top:8px">É isso mesmo. Pelo preço de uma caipirinha na praia, você tem o melhor do Rio na palma da mão.</p>
-<p style="color:#ccc;margin-top:8px">O Rio que o turista não acha no Google. Onde comer barato, onde é festa de verdade, qual praia ir hoje, qual baile funk é seguro com guia, onde se hospedar, os melhores quiosques, os pontos turísticos e o mapa completo pra você não se perder.</p>
+<p style="color:#ccc;margin-top:8px">O Rio que o turista não acha no Google. Onde comer barato, onde é festa de verdade, qual praia ir hoje, lista de bailes de favela pra curtir com segurança com a nossa  guia parceira, onde se hospedar, os melhores quiosques, os pontos turísticos e mais, DESCONTOS em diversos estabelecimentos comorando pelo nosso app. Pra fechar, o mapa completo pra você não se perder.</p>
 <p style="color:#00ff88;font-weight:bold;margin-top:10px">Praias • Festas • Baile Funk • Onde Comer • Hospedagem • Turísticos • Quiosques • Mapa • Passeio com Guia</p>
 <p style="color:#ffcc00;font-weight:900;margin-top:12px">🔥 PROMOÇÃO EXCLUSIVA DE 50% OFF - SÓ QUEM TÁ DENTRO DO APP TEM ESSE DESCONTO!</p>
 <p style="color:#ccc;margin-top:8px">Usa o cupom <b style="color:#00ff88">ALIEN50</b> e paga metade: Diário R$ 19,99 / Semanal R$ 39,99 / Mensal R$ 89,99. Desconto de outro planeta 👽</p>
@@ -102,7 +102,7 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <button class="btn-ghost" onclick="compartilharApp()">📤 COMPARTILHAR APP</button>
 </div>
 <div id="page-festas" class="page"><div style="padding:80px 15px 10px"><h2>🎉 FESTAS / DIVERSÃO / RJ</h2></div>
-<div class="section-title">🎉 BOATES / DISCOTECAS - PAGAS</div>
+<div class="section-title">🎉 BOATES / DISCOTECAS - </div>
 <div class="card" data-id="paradiso"><button class="fav" onclick="toggleFav('paradiso','Boite Paradiso')">❤️</button><h3>Boite Paradiso - Copacabana - Posto 4</h3><p>Reggaeton / Latina / MIX - Quinta e Sábado - PAGA</p><span class="preco">PAGA - Preço na porta</span><br><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Boite+Paradiso+Copacabana+Posto+4" target="_blank">📍 COMO CHEGAR - GPS</a></div>
 <div class="card" data-id="substation"><button class="fav" onclick="toggleFav('substation','Substation Club')">❤️</button><h3>Substation Club - Copacabana</h3><p>Funk / Reggaeton / Afrobeat - Quarta e Sábado - PAGA</p><span class="preco">PAGA - Preço na porta</span><br><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Substation+Club+Copacabana" target="_blank">📍 COMO CHEGAR - GPS</a></div>
 <div class="card" data-id="cueva"><button class="fav" onclick="toggleFav('cueva','Boate La Cueva')">❤️</button><h3>Boate La Cueva - Copacabana - Miguel Lemos</h3><p>Latina / Reggaeton - Sexta e Sábado - PAGA</p><span class="preco">PAGA - Preço na porta</span><br><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Boate+La+Cueva+Miguel+Lemos+Copacabana" target="_blank">📍 COMO CHEGAR - GPS</a></div>
@@ -136,6 +136,7 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <div class="card" data-id="pavao-azul"><button class="fav" onclick="toggleFav('pavao-azul','Pavão Azul')">❤️</button><h3>1. Pavão Azul - Copacabana</h3><p>Frutos do mar - Prato referência: Moqueca de Camarão</p><div class="prato"><b>🍽️ VALOR:</b> Moqueca R$ 85-120 - Serve 2 | Casquinha Siri R$ 35-45 | Camarão Alho Óleo R$ 70-95</div><span class="preco">POR PESSOA: R$ 45-80</span><br><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Pavao+Azul+Copacabana" target="_blank">📍 COMO CHEGAR - GPS</a></div>
 <div class="card" data-id="mineiro"><button class="fav" onclick="toggleFav('mineiro','Bar do Mineiro')">❤️</button><h3>2. Bar do Mineiro - Santa Teresa</h3><p>Feijoada - Prato referência: Feijoada Completa</p><div class="prato"><b>🍽️ VALOR:</b> Feijoada R$ 75-95 - Serve 2 | Torresmo R$ 28-38 | Bolinho R$ 22-30 | Caipirinha R$ 22-28</div><span class="preco">POR PESSOA: R$ 38-65</span><br><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bar+do+Mineiro+Santa+Teresa" target="_blank">📍 COMO CHEGAR - GPS</a></div>
 <div class="section-title">🟠 LANCHES</div>
+<div class="card" data-id="sanduiche-mariza"><button class="fav" onclick="toggleFav('sanduiche-mariza','Sanduiche da Mariza')">❤️</button><h3>🥪 SANDUICHE DA MARIZA - Maior Sanduiche da Praia</h3><p>O maior sanduiche da praia! - Parceira oficial do app 👽</p><div class="prato"><b>🥪 SABORES:</b> VEGANO, SALPICÃO, FRANGO... Outros, a consultar</div><span class="preco">DESCONTO APP: 5% OFF - Consulte valores</span><br><br><a class="wa" href="https://wa.me/5521971727383?text=OLA%2C%20ESTOU%20VINDO%20PELO%20APP%20RIO%20TA%20NA%20MAO%20COM%20MEU%20DESCONTO%20DE%205%25%2C%20GOSTARIA%20DE%20SABER%20DOS%20SANDUICHES." target="_blank" style="display:block;background:#25D366;color:#fff;padding:12px;text-align:center;border-radius:10px;font-weight:900;text-decoration:none;margin:8px 0">💬 CHAMAR NO WHATSAPP - MARIZA</a></div>
 <div class="card" data-id="bibi"><button class="fav" onclick="toggleFav('bibi','Bibi Sucos')">❤️</button><h3>3. Bibi Sucos - Copacabana</h3><p>Açaí 500ml</p><div class="prato"><b>🍽️ VALOR:</b> Açaí R$ 28-38 | Suco R$ 14-22 | Sanduíche R$ 22-30</div><span class="preco">POR PESSOA: R$ 12-25</span><br><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bibi+Sucos+Copacabana" target="_blank">📍 COMO CHEGAR - GPS</a></div>
 <div class="card" data-id="galeto"><button class="fav" onclick="toggleFav('galeto','Galeto Sat\'s')">❤️</button><h3>4. Galeto Sat's - Copacabana</h3><p>Galeto Completo</p><div class="prato"><b>🍽️ VALOR:</b> Galeto R$ 45-60 | Meio Galeto R$ 28-40</div><span class="preco">POR PESSOA: R$ 28-40</span><br><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Galeto+Sats+Copacabana" target="_blank">📍 COMO CHEGAR - GPS</a></div>
 <div class="section-title">🔴 CHURRASCO</div>
