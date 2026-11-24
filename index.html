@@ -52,7 +52,7 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <div id="toast" class="toast"></div>
 <div id="page-home" class="page" style="display:block">
 <div class="header"><h1>🌴 RIO TA NA MÃO DIGITAL 👽<br>Seu guia digital na palma da mão</h1><p>
-</p><p>Hospedagens • Festas • Praias • Gastronomia • Turismo</p><div class="badge">🔓 30 MINUTOS GRÁTIS PARA TESTAR</div></div>
+</p><p>Praias • Festas • Baile Funk • Rolês</p><div class="badge">🔓 30 MINUTOS GRÁTIS PARA TESTAR</div></div>
 <div class="main">
 <h2>COM O MESMO VALOR DE UMA CAIPIRINHA, VOCÊ ASSINA NOSSO PLANO 🍹</h2>
 <p style="color:#ccc;margin-top:8px">É isso mesmo. Pelo preço de uma caipirinha na praia, você tem o melhor do Rio na palma da mão.</p>
@@ -88,7 +88,6 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <div class="tab" onclick="openPage('festas')">🎉 Festas</div>
 <div class="tab" onclick="openPage('comer')">🍽️ Onde Comer</div>
 <div class="tab" onclick="openPage('hosp')">🏨 Hospedagem</div>
-<div class="tab" onclick="openPage('raves')">🔊 Raves/Musica Eletrônica/Technos</div>  
 <div class="tab" onclick="openPage('tur')">🗽 Turísticos</div>
 <div class="tab" onclick="openPage('praias')">🏖️ Praias</div>
 <div class="tab" onclick="openPage('pilar')">✨ Passeio com Guia</div>
@@ -116,7 +115,7 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <div class="card"><h3>Baile da Nova Holanda - Complexo da Maré</h3><p>Funk - Sábado - SÓ COM A PILAR</p></div>
 <div class="card"><h3>Baile do Santo Amaro</h3><p>Funk - Sábado - SÓ COM A PILAR</p></div>
 <div class="card"><h3>Baile do Vidigal</h3><p>Funk - Sábado - SÓ COM A PILAR</p></div>
-<div id="page-raves" class="page"><div style="padding:80px 15px 10px"><h2>🔊 RAVES / FESTA ELETRÔNICA / TECHNO</h2><p>Aqui vão estar os rolês de eletrônico que estão acontecendo pelo Rio atualizados.</p></div></div>
+</div>
 <div id="page-comer" class="page"><div style="padding:80px 15px 10px"><h2>🍽️ ONDE COMER / GASTRONOMIA</h2></div>
 <div class="section-title">🟢 RESTAURANTES</div>
 <div class="card" data-id="pavao-azul"><button class="fav" onclick="toggleFav('pavao-azul','Pavão Azul')">❤️</button><h3>1. Pavão Azul - Copacabana</h3><p>Frutos do mar - Prato referência: Moqueca de Camarão</p><div class="prato"><b>🍽️ VALOR:</b> Moqueca R$ 85-120 - Serve 2 | Casquinha Siri R$ 35-45 | Camarão Alho Óleo R$ 70-95</div><span class="preco">POR PESSOA: R$ 45-80</span><br><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Pavao+Azul+Copacabana" target="_blank">📍 COMO CHEGAR - GPS</a></div>
@@ -142,9 +141,6 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <div class="card" data-id="pao-acucar"><button class="fav" onclick="toggleFav('pao-acucar','Pão de Açúcar')">❤️</button><h3>Pão de Açúcar - Bondinho - Urca</h3><p>Vista 360 - Vai no fim da tarde</p><div class="prato"><b>🎟️ INGRESSO:</b> Bondinho R$ 160-200</div><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Pao+de+Acucar+Urca" target="_blank">📍 COMO CHEGAR - GPS</a></div>
 <div class="card" data-id="cristo"><button class="fav" onclick="toggleFav('cristo','Cristo Redentor')">❤️</button><h3>Cristo Redentor - Corcovado</h3><p>Vai cedo, antes das 9h</p><div class="prato"><b>🎟️ INGRESSO:</b> Van + ingresso R$ 90-130</div><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Cristo+Redentor+Corcovado" target="_blank">📍 COMO CHEGAR - GPS</a></div>
 <div class="card" data-id="bondinho"><button class="fav" onclick="toggleFav('bondinho','Bondinho Santa Teresa')">❤️</button><h3>Bondinho de Santa Teresa</h3><p>Bairro histórico</p><div class="prato"><b>🎟️ PASSEIO:</b> Bondinho R$ 20-30</div><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bondinho+Santa+Teresa" target="_blank">📍 COMO CHEGAR - GPS</a></div>
-<div class="section-title">🚤 PASSEIO DE BARCO - SAVEIRO DO DUDU</div>
-<div class="card" data-id="saveiro-dudu"><button class="fav" onclick="toggleFav('saveiro-dudu','Saveiro do Dudu')">❤️</button><h3>Saveiro do Dudu - Passeio de Barco</h3><p>Passeio de barco em Copacabana - Vista do Rio do mar - Perfeito pra foto</p><span class="preco">PASSEIO DE BARCO - Falar com Dudu</span><br><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Saveiro+do+Dudu+Copacabana" target="_blank">📍 COMO CHEGAR - GPS</a></div>
-<a class="wa" href="https://wa.me/5521994656620?text=Ol%C3%A1%20Dudu!%20Vim%20pelo%20app%20Rio%20na%20M%C3%A3o!%20Quero%20o%20passeio%20de%20barco!" target="_blank">🚤 FALAR COM O DUDU - RESERVAR PASSEIO</a>
 <div class="gold" onclick="openPage('pilar')">✨ Passeio com a Nossa Guia Parceira Pilar ✨<br>Passeios Exclusivos que só ela faz - CLIQUE AQUI</div>
 </div>
 <div id="page-praias" class="page"><div style="padding:80px 15px 10px"><h2>🏖️ PRAIAS</h2></div>
