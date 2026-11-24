@@ -256,7 +256,39 @@ let planoSalvo=localStorage.getItem('rio_plano')||'';
 function toast(m){let t=document.getElementById('toast');t.innerText=m;t.style.display='block';setTimeout(()=>t.style.display='none',3000);}
 function hideAll(){document.querySelectorAll('.page').forEach(p=>p.style.display='none');['home','menu','festas','comer','mapa','favoritos','perfil','pagamento','hospedagem','turisticos','praias','quiosques','ondecomer','passeio'].forEach(id=>{let e=document.getElementById(id);if(e)e.style.display='none';});}
 function openPage(name){if(name!=='perfil' && name!=='pagamento' && !liberado && started && seconds<=0){showLock();return;} hideAll();let el=document.getElementById('page-'+name);if(el)el.style.display='block';else if(name==='menu'){document.getElementById('menu').style.display='block';} document.getElementById('backBtn').style.display='block';document.getElementById('bottombar').style.display='flex';historyStack.push(name);if(name==='favoritos')renderFavs();if(name==='perfil')renderPerfil();window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0;requestAnimationFrame(()=>{window.scrollTo(0,0);if(el)el.scrollIntoView({block:'start'});});setTimeout(()=>{window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0;if(el)el.scrollIntoView({block:'start'});},300);}
-function goBack(){hideAll();document.getElementById('menu').style.display='none';if(currentPage==='menu'||currentPage==='home'){document.getElementById('home').style.display='block';document.getElementById('timer').style.display='none';document.getElementById('backBtn').style.display='none';document.getElementById('bottombar').style.display='none';currentPage='home';return;}document.getElementById('menu').style.display='block';document.getElementById('backBtn').style.display='block';currentPage=name;}
+// TRAVADO: voltar sempre vai para as ABAS se já clicou no GRÁTIS
+let jaEntrouNoMenu = false;
+
+function startFree(){
+  jaEntrouNoMenu = true;
+  document.getElementById('home').style.display = 'none';
+  document.getElementById('menu').style.display = 'block';
+  // esconde o QR Code pra ele não ficar no caminho do voltar
+  let qr = document.getElementById('qrcode');
+  if(qr) qr.style.display = 'none';
+}
+
+function goBack(){
+  // Se já entrou no menu, NUNCA volta pro QR Code / home
+  if(jaEntrouNoMenu){
+    // esconde todas as abas de conteúdo
+    let paginas = document.querySelectorAll('.pagina, .aba, .conteudo');
+    paginas.forEach(p => p.style.display = 'none');
+    // mostra a tela de ABAS
+    document.getElementById('menu').style.display = 'block';
+    document.getElementById('home').style.display = 'none';
+    window.scrollTo(0,0);
+    return;
+  }
+  // Só volta pra home se a pessoa AINDA NÃO clicou no grátis
+  document.getElementById('menu').style.display = 'none';
+  document.getElementById('home').style.display = 'block';
+}
+
+// Botão voltar do celular também obedece a mesma regra
+window.onpopstate = function(){
+  goBack();
+};
 function startFree(){if(started){openPage('menu');return;}started=true;hideAll();document.getElementById('menu').style.display='block';document.getElementById('timer').style.display='block';document.getElementById('topbar').style.display='flex';document.getElementById('bottombar').style.display='flex';document.getElementById('backBtn').style.display='block';historyStack=['home','menu'];atualizarTopo();setTimeout(()=>{document.getElementById('menu').scrollIntoView({behavior:'smooth'});},100)
 ;if(liberado){document.getElementById('statusPlano').innerText='PLANO ATIVO - '+planoSalvo;document.getElementById('menuStatus').innerText='✅ SEU PLANO TÁ ATIVO!';return;}iniciarVerificacaoAutomatica();timerInterval=setInterval(()=>{seconds--;let m=Math.floor(seconds/60),s=seconds%60;document.getElementById('time').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);if(seconds<=0){clearInterval(timerInterval);showLock();}},1000);}
 function showLock(){if(liberado)return;hideAll();document.getElementById('timer').style.display='none';document.getElementById('backBtn').style.display='none';document.getElementById('bottombar').style.display='none';document.getElementById('lock').style.display='block';window.scrollTo(0,0);}
