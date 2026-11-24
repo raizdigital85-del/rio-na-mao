@@ -32,7 +32,7 @@ body{background:#0a0a0a;color:#fff;text-align:center;padding-bottom:90px}
 .plan{background:#fff;color:#000;padding:22px 15px;border-radius:16px;margin:16px auto;max-width:430px}
 .plan .price{font-size:33px;font-weight:900;color:#00aa55;margin:8px 0}
 .btn-pay{background:#00ff88;color:#000;padding:16px;width:100%;border:none;border-radius:11px;font-weight:900;font-size:18px;cursor:pointer;margin-top:12px}
-.lock{display:none}
+.lock{position:fixed;top:0;left:0;right:0;bottom:0;background:#000;z-index:10000;display:none;overflow-y:auto;padding:25px 15px 60px}
 .back{position:fixed;top:50px;left:10px;background:#00ff88;color:#000;border:none;padding:13px 17px;border-radius:50%;font-size:22px;font-weight:900;cursor:pointer;z-index:999;display:none}
 .pilar{background:#2a0a4a;border:2px solid #ff00cc;padding:20px;border-radius:14px;max-width:520px;margin:15px auto;text-align:left}
 .gold{background:#ffcc00;color:#000;padding:20px;border-radius:14px;max-width:520px;margin:15px auto;font-weight:900;cursor:pointer}
@@ -51,45 +51,12 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <button id="backBtn" class="back" onclick="goBack()">⬅️</button>
 <div id="toast" class="toast"></div>
 <div id="page-home" class="page" style="display:block">
-<div class="header"><h1>👽 RIO NA MÃO <span style="font-size:20px;">🗽</span><br>O MELHOR DO RIO NA PALMA DA MÃO</h1></div>
-
-
-<div onclick="startFree()" style="background:#00C853;border:3px solid #00ff88;border-radius:16px;padding:20px;text-align:center;cursor:pointer;margin-bottom:15px;">
-<h3 style="color:white;font-size:22px;margin:0;">👆 CLIQUE AQUI E TENHA SEU ACESSO GRÁTIS</h3>
-<p style="color:white;font-size:22px;font-weight:bold;margin:10px 0 0;">⏰ 30:00 - APROVEITE !</p>
-  </div>
-<p style="color:#ccc;margin-top:8px"><div style="text-align:center; color:#000; margin-top:8px; line-height:1.6;">
-
-  <div style="display:inline-block; background:#A8D5A2; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">Por menos que o valor de uma</div><br>
-  <div style="display:inline-block; background:#A8D5A2; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">caipirinha, você tem acesso a um</div><br>
-  <div style="display:inline-block; background:#A8D5A2; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">dos nossos planos e transforma sua</div><br>
-  <div style="display:inline-block; background:#A8D5A2; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">experiência no Rio.</div><br><br>
-
-  <div style="display:inline-block; background:#D2BEFF; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">Com o nosso APP, você economiza</div><br>
-  <div style="display:inline-block; background:#D2BEFF; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">tempo e dinheiro e passeia com total</div><br>
-  <div style="display:inline-block; background:#D2BEFF; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">liberdade, do seu jeito e no seu ritmo,</div><br>
-  <div style="display:inline-block; background:#D2BEFF; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">mas sempre com a direção certa.</div><br><br>
-
-  <div style="display:inline-block; background:#A8D5A2; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">Você recebe a agenda atualizada das</div><br>
-  <div style="display:inline-block; background:#A8D5A2; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">melhores festas e eventos, com endereço</div><br>
-  <div style="display:inline-block; background:#A8D5A2; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">e localização no Maps em apenas um</div><br>
-  <div style="display:inline-block; background:#A8D5A2; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">clique. Além disso, tem acesso a um guia</div><br>
-  <div style="display:inline-block; background:#A8D5A2; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">gastronômico exclusivo com restaurantes,</div><br>
-  <div style="display:inline-block; background:#A8D5A2; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">hamburguerias, lanches e guloseimas que</div><br>
-  <div style="display:inline-block; background:#A8D5A2; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">você só encontra aqui, e contato direto</div><br>
-  <div style="display:inline-block; background:#A8D5A2; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">com nossos guias parceiros, com</div><br>
-  <div style="display:inline-block; background:#A8D5A2; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">segurança garantida.</div><br><br>
-
-  <div style="display:inline-block; background:#D2BEFF; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">E tem mais: assinando pelo aplicativo,</div><br>
-  <div style="display:inline-block; background:#D2BEFF; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">você garante <b>DESCONTOS</b> exclusivos em</div><br>
-  <div style="display:inline-block; background:#D2BEFF; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">restaurantes, quiosques, festas e parceiros.</div><br><br>
-
-  <div style="display:inline-block; background:#FFEB96; color:#000; padding:5px 14px; border-radius:10px; margin:2px 0;">Aproveite agora, planos com 50% OFF!</div>
-
-</div>
-
-</div>
-  <div class="qr-box" onclick="startFree()"><h3>📱 SCAN ME</h3><img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://raizdigital85-del.github.io/rio-na-mao/"><p><b>APONTE A CÂMERA E ENTRE NO GRÁTIS!</b></p></div>
+<div class="header"><h1>🌴 RIO MAP 👽<br>SPACE 4:20</h1><p>RIO NA MÃO COM THIAGO ALIEN</p><p>Praias • Festas • Baile Funk • Rolês</p><div class="badge">🔓 30 MINUTOS GRÁTIS PARA TESTAR</div></div>
+<div class="main">
+<h2>QUER CONHECER O RIO DE VERDADE?</h2>
+<p style="color:#ccc;margin-top:8px">O Rio que o turista não acha no Google. Onde comer barato, onde é festa de verdade, qual praia ir hoje, qual baile é seguro com guia.</p>
+<button class="btn-green" onclick="startFree()">👉 CLIQUE AQUI E GARANTA SEU ACESSO GRÁTIS</button>
+<div class="qr-box" onclick="startFree()"><h3>📱 SCAN ME</h3><img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://raizdigital85-del.github.io/rio-na-mao/"><p><b>APONTE A CÂMERA E ENTRE NO GRÁTIS!</b></p></div>
 <h2>👤 JÁ TEM CONTA? ENTRA AQUI</h2>
 <input id="loginNome" placeholder="Seu nome - ex: Juan">
 <input id="loginEmail" placeholder="Seu e-mail - ex: juan@gmail.com - MESMO E-MAIL DO PAGAMENTO!">
@@ -258,8 +225,7 @@ function hideAll(){document.querySelectorAll('.page').forEach(p=>p.style.display
 function openPage(name){if(name!=='perfil' && name!=='pagamento' && !liberado && started && seconds<=0){showLock();return;} hideAll();let el=document.getElementById('page-'+name);if(el)el.style.display='block';else if(name==='menu'){document.getElementById('menu').style.display='block';} document.getElementById('backBtn').style.display='block';document.getElementById('bottombar').style.display='flex';historyStack.push(name);if(name==='favoritos')renderFavs();if(name==='perfil')renderPerfil();window.scrollTo(0,0);}
 function openPageFromLock(){document.getElementById('lock').style.display='none';openPage('perfil');}
 function goBack(){historyStack.pop();let prev=historyStack[historyStack.length-1]||'home';hideAll();if(prev==='home'){document.getElementById('page-home').style.display='block';document.getElementById('backBtn').style.display='none';document.getElementById('bottombar').style.display='none';}else if(prev==='menu'){document.getElementById('menu').style.display='block';}else{let el=document.getElementById('page-'+prev);if(el)el.style.display='block';}window.scrollTo(0,0);}
-function startFree(){if(started){openPage('menu');return;}started=true;hideAll();document.getElementById('menu').style.display='block';document.getElementById('timer').style.display='block';document.getElementById('topbar').style.display='flex';document.getElementById('bottombar').style.display='flex';document.getElementById('backBtn').style.display='block';historyStack=['home','menu'];atualizarTopo();setTimeout(()=>{document.getElementById('menu').scrollIntoView({behavior:'smooth'});},100)
-;if(liberado){document.getElementById('statusPlano').innerText='PLANO ATIVO - '+planoSalvo;document.getElementById('menuStatus').innerText='✅ SEU PLANO TÁ ATIVO!';return;}iniciarVerificacaoAutomatica();timerInterval=setInterval(()=>{seconds--;let m=Math.floor(seconds/60),s=seconds%60;document.getElementById('time').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);if(seconds<=0){clearInterval(timerInterval);showLock();}},1000);}
+function startFree(){if(started){openPage('menu');return;}started=true;hideAll();document.getElementById('menu').style.display='block';document.getElementById('timer').style.display='block';document.getElementById('topbar').style.display='flex';document.getElementById('bottombar').style.display='flex';document.getElementById('backBtn').style.display='block';historyStack=['home','menu'];atualizarTopo();window.scrollTo(0,0);if(liberado){document.getElementById('statusPlano').innerText='PLANO ATIVO - '+planoSalvo;document.getElementById('menuStatus').innerText='✅ SEU PLANO TÁ ATIVO!';return;}iniciarVerificacaoAutomatica();timerInterval=setInterval(()=>{seconds--;let m=Math.floor(seconds/60),s=seconds%60;document.getElementById('time').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);if(seconds<=0){clearInterval(timerInterval);showLock();}},1000);}
 function showLock(){if(liberado)return;hideAll();document.getElementById('timer').style.display='none';document.getElementById('backBtn').style.display='none';document.getElementById('bottombar').style.display='none';document.getElementById('lock').style.display='block';window.scrollTo(0,0);}
 // ===== LIBERAÇÃO AUTOMÁTICA - O CORAÇÃO DO SISTEMA =====
 async function verificarPagamentoAgora(){
@@ -303,10 +269,10 @@ function liberarApp(plano){
   toast('🎉 PAGAMENTO CONFIRMADO! LIBERADO SOZINHO!');
   openPage('menu');
 }
-// ===== FIM LIBERAÇÃO AUTOMÁTICA ====
+// ===== FIM LIBERAÇÃO AUTOMÁTICA =====
 function toggleFav(id,nome){let idx=favs.findIndex(f=>f.id===id);if(idx>=0){favs.splice(idx,1);toast('💔 Removido: '+nome);}else{favs.push({id:id,nome:nome});toast('❤️ Salvo: '+nome);}localStorage.setItem('rio_favs',JSON.stringify(favs));atualizarFavs();renderFavs();}
 function atualizarFavs(){document.getElementById('favCount').innerText=favs.length;document.querySelectorAll('.fav').forEach(b=>{let o=b.getAttribute('onclick')||'';let id=o.split("'")[1];if(favs.find(f=>f.id===id))b.classList.add('on');else b.classList.remove('on');});}
-  function renderFavs(){let el=document.getElementById('listaFavs');if(!favs.length){el.innerHTML='<div class="card"><p>Você ainda não favoritou nada. Aperta o ❤️!</p></div>';return;}el.innerHTML=favs.map(f=>'<div class="card"><h3>❤️ '+f.nome+'</h3><button class="btn-ghost" onclick="toggleFav(\''+f.id+'\',\''+f.nome+'\')">Remover</button></div>').join('');}
+function renderFavs(){let el=document.getElementById('listaFavs');if(!favs.length){el.innerHTML='<div class="card"><p>Você ainda não favoritou nada. Aperta o ❤️!</p></div>';return;}el.innerHTML=favs.map(f=>'<div class="card"><h3>❤️ '+f.nome+'</h3><button class="btn-ghost" onclick="toggleFav(\''+f.id+'\',\''+f.nome+'\')">Remover</button></div>').join('');}
 function limparFavs(){favs=[];localStorage.setItem('rio_favs','[]');atualizarFavs();renderFavs();toast('Favoritos limpos!');}
 function salvarPerfil(){let n=document.getElementById('editNome').value||document.getElementById('loginNome').value||perfil.nome||'Visitante';let e=document.getElementById('editEmail').value||document.getElementById('loginEmail').value||perfil.email||'';let w=document.getElementById('editWhats').value||document.getElementById('loginWhats').value||perfil.whats||'';let i=document.getElementById('editIdioma').value||document.getElementById('loginIdioma').value||'pt';perfil={nome:n,email:e.toLowerCase().trim(),whats:w,idioma:i,data:new Date().toLocaleDateString('pt-BR')};localStorage.setItem('rio_perfil',JSON.stringify(perfil));atualizarTopo();renderPerfil();toast('✅ Perfil salvo: '+n);if(e) verificarPagamentoAgora();}
 function salvarPerfilEEntrar(){salvarPerfil();startFree();}
