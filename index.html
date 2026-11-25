@@ -335,6 +335,17 @@ function minhaLocalizacao(){if(!navigator.geolocation){document.getElementById('
 function compartilharApp(){let txt='🌴 RIO MAP - Rio na Mão com Thiago Alien 👽 - Testa 30 min grátis: https://raizdigital85-del.github.io/rio-na-mao/';if(navigator.share){navigator.share({title:'Rio Map',text:txt});}else{navigator.clipboard.writeText(txt).then(()=>toast('📤 Link copiado!'));}}
 if(perfil.nome)atualizarTopo();atualizarFavs();if(liberado){document.getElementById('statusPlano').innerText='PLANO ATIVO - '+planoSalvo;}else if(perfil.email){verificarPagamentoAgora();iniciarVerificacaoAutomatica();}
 </script>
+<script>
+function filter(cat){
+  document.querySelectorAll('.card').forEach(function(c){
+    if(cat==='todos' || c.getAttribute('data-cat')===cat){
+      c.style.display='';
+    } else {
+      c.style.display='none';
+    }
+  });
+}
+</script>
 </body>
 </html>,
 
