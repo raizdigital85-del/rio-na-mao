@@ -277,11 +277,22 @@ function openPage(name){if(name!=='perfil' && name!=='pagamento' && !liberado &&
 function openPageFromLock(){document.getElementById('lock').style.display='none';openPage('perfil');}
 function goBack(){historyStack.pop();let prev=historyStack[historyStack.length-1]||'home';hideAll();if(prev==='home'){document.getElementById('page-home').style.display='block';document.getElementById('backBtn').style.display='none';document.getElementById('bottombar').style.display='none';}else if(prev==='menu'){document.getElementById('menu').style.display='block';}else{let el=document.getElementById('page-'+prev);if(el)el.style.display='block';}window.scrollTo(0,0);}
 function startFree(){
- // TRAVA - GRÁTIS SÓ COM CADASTRO
 let _n = (perfil.nome || document.getElementById('loginNome')?.value || '').trim();
-let _e = (perfil.email || document.getElementById('loginEmail')?.value || '').trim();
 let _w = (perfil.whats || document.getElementById('loginWhats')?.value || '').trim();
-if(!_n || !_e || !_w){ alert('👽 Pra ganhar seus 30 MIN GRÁTIS, primeiro preenche seu Nome + E-mail + WhatsApp ali em cima!'); return; } if(liberado){openPage('menu');return;}if(localStorage.getItem('rio_gratis_usado')==='1'){toast('⚠️ Você já usou seus 30 min grátis! Escolha um plano pra continuar!');showLock();return;}if(started){openPage('menu');return;}started=true;localStorage.setItem('rio_gratis_usado','1');hideAll();document.getElementById('menu').style.display='block';document.getElementById('timer').style.display='block';document.getElementById('topbar').style.display='flex';document.getElementById('bottombar').style.display='flex';document.getElementById('backBtn').style.display='block';historyStack=['home','menu'];atualizarTopo();window.scrollTo(0,0);if(liberado){document.getElementById('statusPlano').innerText='PLANO ATIVO - '+planoSalvo;document.getElementById('menuStatus').innerText='✅ SEU PLANO TÁ ATIVO!';return;}iniciarVerificacaoAutomatica();timerInterval=setInterval(()=>{seconds--;let m=Math.floor(seconds/60),s=seconds%60;document.getElementById('time').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);if(seconds<=0){clearInterval(timerInterval);showLock();}},1000);}
+if(!_n || !_w){ alert('👽 Pra ganhar seus 30 MIN GRÁTIS, primeiro preenche seu Nome + WhatsApp ali em cima!'); return; }
+if(liberado){ openPage('menu'); return; }
+if(started){ openPage('menu'); return; }
+started=true;
+hideAll();
+document.getElementById('menu').style.display='block';
+document.getElementById('topbar').style.display='flex';
+document.getElementById('bottombar').style.display='flex';
+document.getElementById('timer').style.display='block';
+document.getElementById('backBtn').style.display='block';
+historyStack.push('menu');
+iniciarVerificacaoAutomatica();
+timerInterval=setInterval(()=>{seconds--;let m=Math.floor(seconds/60),s=seconds%60;document.getElementById('time').innerText=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);if(seconds<=0){clearInterval(timerInterval);showLock();}},1000);
+}
 function showLock(){if(liberado)return;hideAll();document.getElementById('timer').style.display='none';document.getElementById('backBtn').style.display='none';document.getElementById('bottombar').style.display='none';document.getElementById('lock').style.display='block';window.scrollTo(0,0);}
 // ===== LIBERAÇÃO AUTOMÁTICA - O CORAÇÃO DO SISTEMA =====
 async function verificarPagamentoAgora(){
