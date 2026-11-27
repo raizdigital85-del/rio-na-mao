@@ -5,13 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RIO MAP 👽 SPACE 4:20 - VERSÃO COMPLETA + LIBERAÇÃO AUTOMÁTICA</title>
 <style>
-.musica-topo{margin:8px auto 0;max-width:280px;text-align:center}
-.musica-topo button{background:#000;color:#00ff88;border:2px solid #00ff88;padding:8px 14px;border-radius:25px;font-weight:900;cursor:pointer;font-size:13px}
-.musica-topo .player-wrap{display:none;height:52px;overflow:hidden;border-radius:25px;margin-top:6px}
-.musica-topo iframe{width:100%;height:180px;margin-top:-128px;border:0}
-.musica-topo.aberto .player-wrap{display:block}
-.musica-topo.aberto button{display:none}
-
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
 body{background:#0a0a0a;color:#fff;text-align:center;padding-bottom:90px}
 .header{background:linear-gradient(135deg,#00ff88,#00ccff,#ff00cc);padding:28px 15px;color:#000}
@@ -64,9 +57,8 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <div id="topbar" class="topbar"><span>👽 RIO TA NA MÃO "Digital"</span><span id="userNameTop">Visitante</span><button onclick="openPage('perfil')">👤 Perfil</button></div>
 <button id="backBtn" class="back" onclick="goBack()">⬅️</button>
 <div id="toast" class="toast"></div>
- 
+<div id="page-home" class="page" style="display:block">
 <div class="header"><h1>🌴 RIO TA NA MÃO DIGITAL 👽<br>Seu guia digital na palma da mão</h1><p>
-<div class="musica-topo" id="musicaTopo"><button onclick="document.getElementById('musicaTopo').classList.add('aberto')">🎵 OUVIR O RIO ▶️</button><div class="player-wrap"><iframe src="https://www.youtube.com/embed/bGPY0g7Cylc?controls=1&modestbranding=1&rel=0&fs=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div></div>
 </p><p>Hospedagens • Festas • Gastronomia• Praias • Turismo • Tatoo • DESCONTOS</p><div class="badge">🔓 30 MINUTOS GRÁTIS PARA TESTAR</div></div>
 <div class="main">
 <h2>COM O MESMO VALOR DE UMA CAIPIRINHA, VOCÊ ASSINA NOSSO PLANO 🍹</h2>
@@ -127,8 +119,7 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <div class="card" data-id="lapa"><button class="fav" onclick="toggleFav('lapa','Lapa Arcos')">❤️</button><h3>Lapa - Arcos da Lapa - Centro</h3><p>Samba, Forró, Rua</p><span class="preco">GRÁTIS 0800</span><br><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Arcos+da+Lapa+Rio+de+Janeiro" target="_blank">📍 COMO CHEGAR - GPS</a></div>
 <div class="card" data-id="feira-gloria"><button class="fav" onclick="toggleFav('feira-gloria','Feira da Glória')">❤️</button><h3>Feira da Glória - Glória</h3><p>Domingo - Feira + Samba</p><span class="preco">GRÁTIS 0800</span><br><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Feira+da+Gloria+Rio+de+Janeiro" target="_blank">📍 COMO CHEGAR - GPS</a></div>
 <div class="card" data-id="santa-teresa"><button class="fav" onclick="toggleFav('santa-teresa','Samba Guimarães')">❤️</button><h3>Santa Teresa - Samba dos Guimarães</h3><p>Sábado - Samba</p><span class="preco">GRÁTIS 0800</span><br><br><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Largo+dos+Guimaraes+Santa+Teresa+Rio" target="_blank">📍 COMO CHEGAR - GPS</a></div>
-<div class="section-title">🎶 MUSIQUINHA DO RIO</div>
-<div class="card" data-id="musica-aquele-abraco"><button class="fav" onclick="toggleFav('musica-aquele-abraco','Aquele Abraço - Gilberto Gil')">❤️</button><h3>🎶 Aquele Abraço - Gilberto Gil</h3><p>O Rio de Janeiro continua lindo... O samba que é a cara do Rio!</p><div class="prato"><b>🎵 MÚSICA:</b> Aquele Abraço - Gilberto Gil - 1969</div><span class="preco">▶️ OUVIR NO YOUTUBE</span><br><br><a class="maplink" href="https://www.youtube.com/watch?v=bGPY0g7Cylc" target="_blank">▶️ OUVIR AGORA NO YOUTUBE - AQUELE ABRAÇO</a></div>  <div class="section-title">🔥 BAILES / FAVELA - SÓ COM GUIA LOCAL</div>
+<div class="section-title">🔥 BAILES / FAVELA - SÓ COM GUIA LOCAL</div>
 <div class="pilar"><b>⚠️ SÓ COM GUIA LOCAL - FALAR COM PILAR</b><p>Baile de favela SÓ COM A PILAR como guia.</p><a class="wa" href="https://wa.me/5521988906447?text=Ol%C3%A1%2C%20estou%20vindo%20pelo%20app%20do%20Thiago!" target="_blank">💬 FALAR COM A PILAR - 98890-6447</a></div>
 <div class="card"><h3>Baile da Gaiola - Vila Cruzeiro - Penha</h3><p>Funk 150 BPM - Sábado - SÓ COM A PILAR</p></div>
 <div class="card"><h3>Baile da Nova Holanda - Complexo da Maré</h3><p>Funk - Sábado - SÓ COM A PILAR</p></div>
@@ -415,4 +406,4 @@ document.addEventListener('click', function(e){
 });
 </script>
 </body>
-</html>, 
+</html>,
