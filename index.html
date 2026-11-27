@@ -406,14 +406,13 @@ document.addEventListener('click', function(e){
 });
 </script>
   <audio id="musica" src="agorasi.mp3" loop></audio>
-<button id="btnMusica" onclick="tocarMusica()" style="position:fixed; bottom:75px; right:10px; z-index:9999; width:45px; height:45px; background:#00ff88; color:#000; border:none; border-radius:50%; font-size:18px; cursor:pointer;">▶️</button>
-<script>
-function tocarMusica(){
+<button id="btnMusica" onclick="tocarMusica()" style="position:fixed; bottom:70px; left:50%; transform:translateX(-50%); z-index:9999; width:160px; height:44px; background:#00ff88; color:#000; border:2px solid #000; border
+  <script> function tocarMusica(){
   var m = document.getElementById('musica');
   var b = document.getElementById('btnMusica');
-  if(m.paused){ m.play(); b.innerText='⏸️'; }
-  else{ m.pause(); b.innerText='▶️'; }
-}
+  
+  if(m.paused){ m.play(); b.innerText='⏸️ PARAR MÚSICA'; }
+else{ m.pause(); b.innerText='🎵 TOCAR MÚSICA'; }
 </script>
 </body>
 </html> 
