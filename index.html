@@ -7,8 +7,9 @@
 <style>
 .musica-topo{margin:8px auto 0;max-width:280px;text-align:center}
 .musica-topo button{background:#000;color:#00ff88;border:2px solid #00ff88;padding:8px 14px;border-radius:25px;font-weight:900;cursor:pointer;font-size:13px}
-.musica-topo iframe{display:none;width:100%;height:52px;border-radius:25px;margin-top:6px}
-.musica-topo.aberto iframe{display:block}
+.musica-topo .player-wrap{display:none;height:52px;overflow:hidden;border-radius:25px;margin-top:6px}
+.musica-topo iframe{width:100%;height:120px;margin-top:-58px;border:0}
+.musica-topo.aberto .player-wrap{display:block}
 .musica-topo.aberto button{display:none}
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
@@ -65,7 +66,7 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <div id="toast" class="toast"></div>
  
 <div class="header"><h1>🌴 RIO TA NA MÃO DIGITAL 👽<br>Seu guia digital na palma da mão</h1><p>
-<div class="musica-topo" id="musicaTopo"><button onclick="document.getElementById('musicaTopo').classList.add('aberto')">🎵 OUVIR O RIO ▶️</button><iframe src="https://www.youtube.com/embed/bGPY0g7Cylc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<div class="musica-topo" id="musicaTopo"><button onclick="document.getElementById('musicaTopo').classList.add('aberto')">🎵 OUVIR O RIO ▶️</button><div class="player-wrap"><iframe src="https://www.youtube.com/embed/bGPY0g7Cylc?controls=1&modestbranding=1&rel=0&fs=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div></div>
 </p><p>Hospedagens • Festas • Gastronomia• Praias • Turismo • Tatoo • DESCONTOS</p><div class="badge">🔓 30 MINUTOS GRÁTIS PARA TESTAR</div></div>
 <div class="main">
 <h2>COM O MESMO VALOR DE UMA CAIPIRINHA, VOCÊ ASSINA NOSSO PLANO 🍹</h2>
