@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RIO MAP 👽 SPACE 4:20 - VERSÃO COMPLETA + LIBERAÇÃO AUTOMÁTICA</title>
 <style>
+.mini-player{position:fixed;top:65px;;left:10px;right:10px;background:#1a1a1a;border:2px solid #00ff88;border-radius:14px;padding:10px;z-index:9998;text-align:left;display:flex;gap:10px;align-items:center}
+.mini-player iframe{width:120px;height:68px;border-radius:10px;flex-shrink:0}
+.mini-player b{color:#00ff88;font-size:14px}
+.mini-player p{color:#ddd;font-size:12px}
+.mini-player button{background:#00ff88;border:none;padding:8px 12px;border-radius:20px;font-weight:900;cursor:pointer}
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
 body{background:#0a0a0a;color:#fff;text-align:center;padding-bottom:90px}
 .header{background:linear-gradient(135deg,#00ff88,#00ccff,#ff00cc);padding:28px 15px;color:#000}
@@ -57,6 +62,7 @@ input,select{width:100%;max-width:430px;padding:14px;border-radius:10px;border:1
 <div id="topbar" class="topbar"><span>👽 RIO TA NA MÃO "Digital"</span><span id="userNameTop">Visitante</span><button onclick="openPage('perfil')">👤 Perfil</button></div>
 <button id="backBtn" class="back" onclick="goBack()">⬅️</button>
 <div id="toast" class="toast"></div>
+ <div id="miniPlayer" class="mini-player"><iframe src="https://www.youtube.com/embed/bGPY0g7Cylc?enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div><b>🎶 Aquele Abraço - Gilberto Gil</b><p>O Rio continua lindo... Aperta o PLAY e navega no app!</p><button onclick="document.getElementById('miniPlayer').style.display='none'">❌ FECHAR MÚSICA</button></div></div>
 <div id="page-home" class="page" style="display:block">
 <div class="header"><h1>🌴 RIO TA NA MÃO DIGITAL 👽<br>Seu guia digital na palma da mão</h1><p>
 </p><p>Hospedagens • Festas • Gastronomia• Praias • Turismo • Tatoo • DESCONTOS</p><div class="badge">🔓 30 MINUTOS GRÁTIS PARA TESTAR</div></div>
