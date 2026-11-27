@@ -393,6 +393,17 @@ if(location.href.includes('thiago')||perfil.nome==='Thiago'||perfil.email?.inclu
 let openPageOriginal = openPage;
 openPage = function(name){ if(name==='admin'){ hideAll(); document.getElementById('page-admin').style.display='block'; document.getElementById('backBtn').style.display='block'; document.getElementById('bottombar').style.display='flex'; historyStack.push(name); renderAdmin(); window.scrollTo(0,0); return; } openPageOriginal(name); }
 if(perfil.nome)atualizarTopo();atualizarFavs();if(liberado){document.getElementById('statusPlano').innerText='PLANO ATIVO - '+planoSalvo;}else if(perfil.email){verificarPagamentoAgora();iniciarVerificacaoAutomatica();}
+// CONTAR CLIQUE NO WHATSAPP - AUTOMATICO
+document.addEventListener('click', function(e){
+  var a = e.target.closest('a');
+  if(!a || !a.href.includes('wa.me')) return;
+  var card = e.target.closest('div');
+  var h = null;
+  var el = e.target;
+  for(var i=0;i<5 && el;i++){ el = el.parentElement; if(el && el.querySelector('h3')){ h = el.querySelector('h3'); break; } }
+  var nome = h ? h.innerText.trim() : 'Parceiro';
+  if(typeof registrarClick === 'function') registrarClick(nome);
+});
 </script>
 </body>
 </html>,
